@@ -1,56 +1,54 @@
-
-
-
-/*
-Header 
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
-body{
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(29, 29, 100);
-    color: white;
-    font-family: 'Kanit', sans-serif;
-}
 header{
     position: absolute;
     width: 100%;
 }
-.Ltxt{
+
+/* ### Start code Nav ### */
+
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    nav ul {
+        margin: 0;
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav ul li a{
+        height: 9vh;
+        color: white;
+        
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+        list-style: none;
+
+        border-top: solid rgb(29, 29, 100);
+        transition: 0.5s;
+    }
+
+    nav ul li a:hover{
+        color: orange;
+        text-decoration: none;
+        
+        border-top: solid orange;
+        transition: 0.5s;
+    }
+
+    nav ul li{list-style: none;}
+
+    #active{
+        color: orange;
+        border-top: solid orange;
+    }
+
+/* ### End code Nav ### */
+
+.lorem-text{
     font-family: 'Lato', sans-serif;
-}
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    width: 30%;
-    margin: 0;
-
-}
-nav ul li a{
-    text-decoration: none;
-    color: white;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    height: 9vh;
-}
-#active{
-    color: orange;
-    border-top: solid orange;
-}
-nav ul li{
-    list-style: none;
-}
-nav ul li a:hover{
-    text-decoration: none;
-    color: orange;
-    border-top: solid orange;
 }
