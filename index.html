@@ -33,10 +33,10 @@
     </header>
     <main>
         <section  class="header-page"> 
-            <h1>WELCOME TO OUR STUDIO!</h1>
-            <h3 class="lorem-text">Come and challenge the most agile minds!</h3>
+            <h1>WELCOME TO <br> OUR STUDIO !</h1>
+            <h3 class="lorem-text">Come and challenge the most agile minds !</h3>
     
-            <a href="">Play !</a>
+            <a id="btn" href="">Play !</a>
         </section>
         <section class="sectMain" id="ContentFirstImg">
             <img src="assets/img/imgSect3.jpeg" alt="">
@@ -44,21 +44,21 @@
             <img src="assets/img/imgSect1.jpeg" alt="">
         </section>
         <section class="sectMain" id="TextUnderImg">
-            <div class="textR">
+            <div class="d-flex">
                 <p class="TxtNbr">01</p>
                 <div>
                     <h4>Lorem Ipsum</h4>
                     <p class="lorem-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quaerat delectus excepturi, libero possimus est accusantium officiis recusandae impedit minus, esse suscipit alias praesentium error ea magnam facere iure doloribus.</p>
                 </div>
             </div>
-            <div class="textR">
+            <div class="d-flex">
                 <p class="TxtNbr">02</p>
                 <div>
                     <h4>Lorem Ipsum</h4>
                     <p class="lorem-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At ratione, unde, quidem eos, officiis cupiditate autem laborum aliquid veniam fugiat qui minus itaque doloremque perferendis atque dignissimos ad quibusdam. Magnam!</p>
                 </div>
             </div>
-            <div class="textR">
+            <div class="d-flex">
                 <p class="TxtNbr">03</p>
                 <div>
                     <h4>Lorem Ipsum</h4>
@@ -68,19 +68,23 @@
         </section>
 
         <section id="sectInfo" class="sectMain">
-            <img src="assets/img/imgSect3.jpeg" alt="">
-            <div id="BlocInfoGroup">
-                <div class="BlocInfo"><p>310</p><span>Parties Jouées</span></div>
-                <div class="BlocInfo"><p>310</p><span>Parties Jouées</span></div>
-                <div class="BlocInfo"><p>10 sec</p><span>Temps Record</span></div>
-                <div class="BlocInfo"><p>21 300</p><span>Joueurs Inscrits</span></div>
+            <img id="img-blocInfo" src="assets/img/imgSect3.jpeg" alt="">
+            <div id="BlocInfoGroupMain">
+                <div class="BlocInfoGroup1 d-flex">
+                    <div class="BlocInfo" id="BlocInfo-1"><p>310</p><span>Games Played</span></div>
+                    <div class="BlocInfo" id="BlocInfo-2"><p>1020</p><span>Player Connected</span></div>
+                </div>
+                <div class="BlocInfoGroup2 d-flex">
+                    <div class="BlocInfo" id="BlocInfo-3"><p>10 sec</p><span>Record Time</span></div>
+                    <div class="BlocInfo" id="BlocInfo-4"><p>21 300</p><span>Player Registered</span></div>
+                </div>
             </div>
         </section>
 
         <section class="sectMain" id="TeamMate">
             <h3>Notre Equipe</h3>
             <p class="lorem-text">Quisque commodo facilisis purus, interdum volutpat arcu viverra sed.</p>
-            <hr class="style-one">
+            <img id="img-hr" src="./assets/img/hr-site.png" alt="">
             <div id="profilTeam">
                 <article>
                     <img src="assets/img/pdp3.jpg" alt="">
@@ -119,7 +123,7 @@
     <footer>
 
         <section>
-            <div>
+            <div class="footer-info">
                 <h3>Information</h3>
                 <p class="lorem-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <p class="lorem-text"><span class="Fspan">Tel :</span> 06 46 72 68 99</p>
@@ -133,7 +137,7 @@
                         <i class="iconf fa-brands fa-instagram"></i>
                 </div>
             </div>
-            <div>
+            <div class="footer-info">
                 <h3>Power Of Memory</h3>
                 <ul class="lorem-text">
                     <li>Jouer !</li>
@@ -144,7 +148,7 @@
         </section>
 
 
-        <p class="lorem-text" id="copyright">Copyritght &copysr; 2023 TDR Tous droits réservés</p>
+        <p id="copyright">Copyritght &copysr; 2023 TDR Tous droits réservés</p>
     </footer>
 </body>
 </html>

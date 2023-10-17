@@ -52,20 +52,20 @@
     margin-bottom: 1%;
 } */
 
-.sectMain{
+/* .sectMain{
     display: flex;
     width: 80%;
     margin: 4% auto;
     justify-content: space-between;
     align-items: center;
-}
-.TxtNbr{
+} */
+/* .TxtNbr{
     color: rgb(94, 2, 191);
     font-size: 3rem;
     margin-right: 5%;
     margin-top: 0;
-}
-.proRes{
+} */
+/* .proRes{
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -73,10 +73,10 @@
 }
 .textR{
     display:flex;
-}
+} */
 /* Gradient color1 - color2 - color1 */
 
-.style-one {
+/* .style-one {
     border: 0;
     height: 1px;
     background: #333;
@@ -84,7 +84,7 @@
     background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
     background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
     background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
-    }
+} */
 
 
 /*
@@ -92,7 +92,7 @@ CSS FOR GAME PAGE
 
 */
 
-#bodyGames header{
+/* #bodyGames header{
     position: relative;
     
 }
@@ -117,6 +117,6 @@ CSS FOR GAME PAGE
     /* ### pour 16 card ###
         width: 9vw;
         height: 34vh;
-    */
+    
     background-color: black;
-}
+} 

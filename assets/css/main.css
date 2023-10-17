@@ -9,10 +9,20 @@
         font-family: 'Kanit', sans-serif;
     }
 
+    img{border-radius: 5px;}
+
     .d-flex{display: flex;}
 
-    /* ### Début du style des formulaires (toutes les pages) #### */
+    #btn{
+        text-decoration: none;
+        color: white;
+        background-color: orange;
+        border-radius: 2px;
+        padding: 15px 40px;
+        font-size: 1.2rem;
+    }
 
+    /* ### Début du style des formulaires (toutes les pages) #### */
         form{
             display: flex;
             flex-direction: column; 
@@ -43,11 +53,9 @@
             display: flex;
             justify-content: center;
         }
-
     /* ### Fin du style des formulaires (toutes les pages) #### */
 
 /* ### Fin du code global ### */
-
 /* ### Début des codes (de l'Index.html) ### */
 
     /* ### Début (header du site) ### */
@@ -66,24 +74,60 @@
         background-size: cover;
     }
 
+    .header-page h3.lorem-text{
+        margin-top: -20px;
+        padding-bottom: 10px;
+    }
+
+    .header-page h1{
+        font-size: 4rem;
+    }
+
     /* ### Fin (header du site) ### */
 
     /* ### Début (Bloc d'information ) ### */
+        @media (max-width:1323px) {
+            #img-blocInfo{
+                margin: 40px;
+            }
+            #img-blocInfo{
+                width: 90vw;
+                height: 450px;
+            }
+        }
 
-        .sectMain{
+        @media (min-width:1324px) {
+            #img-blocInfo{
+                margin: 0px 40px;
+            }
+            #img-blocInfo{
+                width: 700px;
+                height: 450px;
+            }
+        }
+
+        #sectInfo{
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+        }
+        .sectMain{
+            width: 80%;
+            margin: 4% auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .BlocInfo{
             color: white;
             background-color: green;
 
-            width: 45%;
-            margin: 1%;
-            height: 20vh;
-            border-radius: 5px;
+            height: 200px;
+            width: 300px;
+            margin: 15px;
+            border-radius: 3px;
 
             display: flex;
             align-items: center;
@@ -92,49 +136,67 @@
         }
         .BlocInfo p{
             margin: 0;
-
-            font-size: 2rem;
+            
+            font-size: 3.5rem;
             text-align: center;
         }
 
-        .BlocInfo:nth-child(1){
+        #BlocInfo-1{
             background-color: rgb(49, 8, 172);
         }
-        .BlocInfo:nth-child(2){
+        #BlocInfo-2{
             background-color: rgb(4, 132, 12);
         }
-        .BlocInfo:nth-child(3){
+        #BlocInfo-3{
             background-color: rgb(153, 8, 172);
         }
-        .BlocInfo:nth-child(4){
+        #BlocInfo-4{
             background-color: rgb(172, 120, 8);
         }
 
-        #BlocInfoGroup{
+        #BlocInfoGroupMain{
+            width: 600px;
+            margin-top: -15px;
+
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            width: 600px;
+            
+        }
+    /* ### Fin (Bloc d'information) ### */
+    
+    /* ### Début (Lorem numéroté de 1 à 3) ### */
+        .TxtNbr{
+            color: rgb(94, 2, 191);
+            font-size: 3rem;
+            margin-right: 5%;
+            margin-top: 0;
         }
 
-    /* ### Fin (Bloc d'information ) ### */
+        .proRes{
+            display: flex;
+            justify-content: space-evenly;
+            width: 40%;
+            margin: auto;
+        }
+    /* ### Fin (Lorem numéroté de 1 à 3 ### */
 
-    /* ### Début (Boxs de profile) ### */
-        
+    /* ### Début (Carte profile des développeur) ### */
         #profilTeam{
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
         #profilTeam img{
-            width: 50%;
+            width: 150px;
             border-radius: 50%;
         }
         #profilTeam article{
             width: 30%;
             text-align: center;
-            background-color: rgb(3, 3, 78);
-            border-radius: 10px;
-            padding: 4% 0%;
+            background-color: rgb(10, 10, 87);
+            border-radius: 5px;
+            padding: 40px 0px;
         }
         #ContentFirstImg img:nth-child(1){
             width: 55%;
@@ -150,6 +212,53 @@
             font-size: 3rem;
             margin-bottom: 1%;
         }
-    /* ### Fin (Boxs de profile) ### */
+
+        #img-hr{
+            width: 200px;
+            margin: 20px;
+        }
+
+        #TeamMate article{
+            width: 350px;
+            margin: 20px;
+        }
+    /* ### Fin (Carte profile des développeur) ### */
 
 /* ### Fin codes (de l'Index.html) ### */
+
+
+/* ### Début codes (de Game.html) ### */
+
+    #bodyGames header{
+        position: relative;
+        
+    }
+    #gamesBoard{
+        height: 80vh;
+        margin: 3% auto;
+        border: solid white 2px;
+        width: 76%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .Card{
+        width: 16vw; 
+        height: 50vh;
+        background-color: black
+        
+        /* 
+        ### pour 8 card ###
+            width: 16vw;
+            height: 35vh;
+        */
+
+        /* 
+        ### pour 16 card ###
+            width: 9vw;
+            height: 34vh;
+        */
+    }
+
+/* ### Fin codes (de l'Game.html) ### */
