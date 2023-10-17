@@ -1,0 +1,47 @@
+
+footer{
+    margin-top: 10%;
+    padding-top: 6%;
+    background-color: rgb(3, 3, 78);
+}
+.Fspan{
+    color: orange;
+}
+
+footer li{
+    list-style: none;
+}
+footer li::before {
+    content: "\25A0";
+    color: orange;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+footer ul{
+    padding-left: 10%;
+}
+.iconf{
+    background-color: orange;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+
+footer section{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+#copyright{
+    width: 80%;
+    margin: 5% auto;
+}
+
+#containerHead{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
