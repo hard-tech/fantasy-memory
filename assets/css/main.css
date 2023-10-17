@@ -130,3 +130,38 @@ h1{
     background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
     background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
     }
+
+
+/*
+CSS FOR GAME PAGE 
+
+*/
+
+#bodyGames header{
+    position: relative;
+    
+}
+#gamesBoard{
+    height: 80vh;
+    margin: 3% auto;
+    border: solid white 2px;
+    width: 76%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.Card{
+    width: 16vw; 
+    height: 50vh;
+    /* pour 8 card 
+    width: 16vw;
+    height: 35vh;
+    */
+
+        /* pour 16 card 
+    width: 9vw;
+    height: 34vh;
+    */
+    background-color: black;
+}
