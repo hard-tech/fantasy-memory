@@ -20,6 +20,45 @@ h1{
     width: 50%;
 }
 
+/* ### Start Forms-style all pages #### */
+
+.forms{
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    padding: 30px;
+    margin: 10px;
+    /* border: solid 2px #fff; */
+    /* border-radius: 15px; */
+}
+
+form input{
+    margin: 10px 0px;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+form input::placeholder{
+    padding: 5px;
+}
+
+form button{
+    padding: 8px 15px;
+    background-color: orange;
+    border: solid 2px white;
+    color: white;
+
+    border-radius: 5px;
+}
+
+/* ### Start Forms-style all pages #### */
+
 #containerUp  a{
     background-color: orange;
     padding: 1% 2%;

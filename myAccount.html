@@ -5,22 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myAccount</title>
+
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- 
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+     -->
 </head>
 <body>
     <!-- TODO: Copy homepage header there -->
     <!-- NOTE(a.perche): We will replace the list by a more stylized version -->
     <main>
-        <form>
-            <input type="text" placeholder="Old e-mail">
-            <input type="text" placeholder="New e-mail">
-            <input type="text" placeholder="Password">
-        </form>
-    
-        <form>
-            <input type="text" placeholder="Old password">
-            <input type="text" placeholder="New password">
-            <input type="text" placeholder="Password">       
-        </form>
+        <div class="forms">
+            <form>
+                <h3>Change e-mail</h3>
+                <input type="text" placeholder="Old e-mail">
+                <input type="text" placeholder="New e-mail">
+                <input type="text" placeholder="Password">
+                <button>Send</button>
+            </form>
+            
+            <form>
+                <h3>Chage password</h3>
+                <input type="text" placeholder="Old password">
+                <input type="text" placeholder="New password">
+                <input type="text" placeholder="Confirm new password">       
+                <button>Send</button>
+            </form>
+        </div>
     </main>
     <!-- TODO: Copy homepage footer there -->
 </body>
