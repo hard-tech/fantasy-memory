@@ -1,0 +1,18 @@
+
+
+footer section{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+#copyright{
+    width: 80%;
+    margin: 5% auto;
+}
+
+#containerHead{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
