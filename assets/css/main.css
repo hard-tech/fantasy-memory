@@ -1,6 +1,7 @@
-/* ### Start code global ### */
+/* ### Début du code global ### */
 
     @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
+
     body{
         box-sizing: border-box;
         color: white;
@@ -8,67 +9,9 @@
         font-family: 'Kanit', sans-serif;
     }
 
-/* ### End code global ### */
+    .d-flex{display: flex;}
 
-/* ### Start codes of "Index.html" ### */
-
-    /* ### Start code of header page ### */
-
-    .header-page{
-        height: 100vh;
-        
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-
-        background: url("../img/bg_head.jpg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-
-    /* ### End code of header page ### */
-
-    /* ### Start code of blocInfo ### */
-
-        .BlocInfo{
-            width: 45%;
-            background-color: green;
-            color: white;
-            margin: 1%;
-            height: 20vh;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .BlocInfo p{
-            font-size: 2rem;
-            text-align: center;
-            margin: 0;
-        }
-        .BlocInfo:nth-child(1){
-            background-color: rgb(49, 8, 172);
-        }
-        .BlocInfo:nth-child(2){
-            background-color: rgb(4, 132, 12);
-        }
-        .BlocInfo:nth-child(3){
-            background-color: rgb(153, 8, 172);
-        }
-        .BlocInfo:nth-child(4){
-            background-color: rgb(172, 120, 8);
-        }
-
-    /* ### End code of blocInfo ### */
-
-/* ### End codes of "Index.html" ### */
-
-/* ### Start codes of "all pages" ### */
-
-    /* ### Start Forms-style "all pages" #### */
+    /* ### Début du style des formulaires (toutes les pages) #### */
 
         form{
             display: flex;
@@ -101,6 +44,112 @@
             justify-content: center;
         }
 
-    /* ### End Forms-style all pages #### */
+    /* ### Fin du style des formulaires (toutes les pages) #### */
 
-/* ### Start codes of all pages ### */
+/* ### Fin du code global ### */
+
+/* ### Début des codes (de l'Index.html) ### */
+
+    /* ### Début (header du site) ### */
+
+    .header-page{
+        height: 100vh;
+        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        background: url("../img/bg_head.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    /* ### Fin (header du site) ### */
+
+    /* ### Début (Bloc d'information ) ### */
+
+        .sectMain{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .BlocInfo{
+            color: white;
+            background-color: green;
+
+            width: 45%;
+            margin: 1%;
+            height: 20vh;
+            border-radius: 5px;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .BlocInfo p{
+            margin: 0;
+
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .BlocInfo:nth-child(1){
+            background-color: rgb(49, 8, 172);
+        }
+        .BlocInfo:nth-child(2){
+            background-color: rgb(4, 132, 12);
+        }
+        .BlocInfo:nth-child(3){
+            background-color: rgb(153, 8, 172);
+        }
+        .BlocInfo:nth-child(4){
+            background-color: rgb(172, 120, 8);
+        }
+
+        #BlocInfoGroup{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 600px;
+        }
+
+    /* ### Fin (Bloc d'information ) ### */
+
+    /* ### Début (Boxs de profile) ### */
+        
+        #profilTeam{
+            display: flex;
+            justify-content: space-between;
+        }
+        #profilTeam img{
+            width: 50%;
+            border-radius: 50%;
+        }
+        #profilTeam article{
+            width: 30%;
+            text-align: center;
+            background-color: rgb(3, 3, 78);
+            border-radius: 10px;
+            padding: 4% 0%;
+        }
+        #ContentFirstImg img:nth-child(1){
+            width: 55%;
+        }
+        #ContentFirstImg img{
+            width: 16%;
+            height: 50vh;
+        }
+        #TeamMate{
+            flex-direction: column;
+        }
+        #TeamMate h3{
+            font-size: 3rem;
+            margin-bottom: 1%;
+        }
+    /* ### Fin (Boxs de profile) ### */
+
+/* ### Fin codes (de l'Index.html) ### */
