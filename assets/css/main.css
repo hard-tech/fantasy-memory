@@ -277,36 +277,47 @@ form button {
 
 /* ### Début codes (de Game.html) ### */
 
-#bodyGames header ,#bodyScore header{
+#bodyGames header ,#bodyScore header {
     position: relative;
     
 }
-#gamesBoard{
+#gamesBoard {
     height: 80vh;
     margin: 3% auto;
     border: solid white 2px;
-    width: 76%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 3%;
 }
-.Card{
-    width: 16vw; 
-    height: 50vh;
-    background-color: black
+.card {
+    background: red;
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 10px;
     
-    /* 
-    ### pour 8 card ###
-        width: 16vw;
-        height: 35vh;
-    */
+ 
+}
 
-    /* 
-    ### pour 16 card ###
-        width: 9vw;
-        height: 34vh;
-    */
+#bodyGames tbody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#bodyGames tbody tr{
+    width: 92%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 28%;
 }
 
 /*
