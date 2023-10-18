@@ -136,8 +136,10 @@ h1{
 #gameChat{
     bottom: 20px;
     right: 20px;
+
     width: 400px;
     height: 600px;
+    
     position: absolute;
     background-color: #fff;
     border-radius: 10px;
@@ -209,6 +211,9 @@ h1{
 #sendBtnChat{
     width: 80px;
     border-radius: 20px;
+
+    background-color: white;
+    border: white;
 }
 
 .MessageChat{
