@@ -1,167 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
 
-
-#containerUp{
-    background: url("../img/bg_head.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+:root{
+    --container-width: 85vw;
 }
 
-h1{
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
-    font-size: 4rem;
-    width: 50%;
-}
+/* 
+    Global properties
+*/
 
-#containerUp  a{
-    background-color: orange;
-    padding: 1% 2%;
+body {
+    box-sizing: border-box;
     color: white;
-    text-decoration: none;
+    background-color: rgb(29, 29, 100);
+    font-family: 'Kanit', sans-serif;
 }
-#containerUp h3{
-    margin-bottom: 5%;
-}
-#sectInfo{
-    display: flex;
-}
-#regroupBInfo{
-    display: flex;
-    flex-wrap: wrap;
-    width: 48%;
-}
-.BlocInfo{
-    width: 45%;
-    background-color: green;
-    color: white;
-    margin: 1%;
-    height: 20vh;
+
+img {
     border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+form input {
+    margin: 10px 0px;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+form input::placeholder {
+    padding: 5px;
+}
+
+form button {
+    padding: 8px 15px;
+    background-color: orange;
+    color: white;
+
+    border-radius: 5px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+#no-margin-bot {
+    margin-bottom: 0;
+}
+
+#no-margin-bot img:nth-child(1){
+    width: 40vw;
+}
+#no-margin-bot img:nth-child(2), img:nth-child(3){
+    width: 250px;
+}
+
+.container {
+    width: var(--container-width);
+    margin: 4% auto;
+    margin-bottom: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-center {
     display: flex;
     justify-content: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    border-radius: 2px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+.banner {
+    height: 200px;
+    
+    display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+
+    background: url("../img/bg_head.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
 }
-.BlocInfo:nth-child(1){
-    background-color: rgb(49, 8, 172);
-}
-.BlocInfo:nth-child(2){
-    background-color: rgb(4, 132, 12);
-}
-.BlocInfo:nth-child(3){
-    background-color: rgb(153, 8, 172);
-}
-.BlocInfo:nth-child(4){
-    background-color: rgb(172, 120, 8);
-}
-.BlocInfo p{
-    font-size: 2rem;
-    text-align: center;
+
+.banner h1 {
+    font-size: 3rem;
     margin: 0;
 }
 
-#profilTeam{
-    display: flex;
-    justify-content: space-between;
-}
-#profilTeam img{
-    width: 50%;
-    border-radius: 50%;
-}
-#profilTeam article{
-    width: 30%;
-    text-align: center;
-    background-color: rgb(3, 3, 78);
-    border-radius: 10px;
-    padding: 4% 0%;
-}
-#ContentFirstImg img:nth-child(1){
-    width: 55%;
-}
-#ContentFirstImg img{
-    width: 16%;
-    height: 50vh;
-}
-#TeamMate{
-    flex-direction: column;
-}
-#TeamMate h3{
-    font-size: 3rem;
-    margin-bottom: 1%;
-}
-
-.sectMain{
-    display: flex;
-    width: 80%;
-    margin: 4% auto;
-    justify-content: space-between;
-    align-items: center;
-}
-.TxtNbr{
-    color: rgb(94, 2, 191);
-    font-size: 3rem;
-    margin-right: 5%;
-    margin-top: 0;
-}
-.proRes{
-    display: flex;
-    justify-content: space-evenly;
-    width: 40%;
-    margin: auto;
-}
-.textR{
-    display:flex;
-}
-/* Gradient color1 - color2 - color1 */
-
-.style-one {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
-    background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
-    background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
-    background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
-    }
-
-
-/*
-CSS FOR GAME PAGE 
-
+/* 
+    Home page (index.html) properties
 */
 
-#bodyGames header{
+/* Big banner */
+
+.big-banner {
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background: url("../img/bg_head.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.big-banner h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.big-banner h3 {
+    margin-bottom: 4vh;
+    padding-bottom: 10px;
+}
+
+/* Lorem Ipsum section */
+
+.lorem-container img {
+    height: 400px;
+}
+
+.lorem-subcontainer h3 {
+    color: rgb(94, 2, 191);
+    font-size: 3rem;
+    margin-right: 25px;
+    margin-top: 0;
+}
+
+.lorem-subcontainer div {
+    margin-top: 8px;
+}
+
+.lorem-subcontainer h4 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+/* Stats section */
+
+@media (min-width: 1024px) {
+    #stats img {
+        width: 46vw;
+        height: 400px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 1023px) {
+    #stats img {
+        
+    }
+}
+
+#stats {
+    width: var(--container-width);
+
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+#stats div:nth-child() {
+    /*
+    width: 600px;
+    margin-top: -20px;
+    */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   
+}
+
+.stats-box {
+    color: white;
+    background-color: green;
+
+    height: 180px;
+    width: 280px;
+    margin: 15px;
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stats-box p {
+    margin: 0;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+#stats-box-1 { margin-top: 0; background-color: rgb(49, 8, 172); }
+#stats-box-2 { margin-top: 0; background-color: rgb(4, 132, 12); }
+#stats-box-3 { background-color: rgb(153, 8, 172);}
+#stats-box-4 { background-color: rgb(172, 120, 8);}
+
+/* ### Début (Lorem numéroté de 1 à 3) ### */
+/* ### Fin (Lorem numéroté de 1 à 3 ### */
+
+/* ### Début (Carte profile des développeur) ### */
+    #profilTeam{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    #profilTeam img{
+        width: 150px;
+        border-radius: 50%;
+    }
+    #profilTeam article{
+        width: 30%;
+        text-align: center;
+        background-color: rgb(10, 10, 87);
+        border-radius: 5px;
+        padding: 40px 0px;
+    }
+    #TeamMate{
+        flex-direction: column;
+    }
+    #TeamMate h3{
+        font-size: 3rem;
+        margin-bottom: 1%;
+    }
+
+    #img-hr{
+        width: 200px;
+        margin: 20px;
+    }
+
+    #TeamMate article{
+        width: 350px;
+        margin: 20px;
+    }
+    .proRes{
+        display: flex;
+        justify-content: space-evenly;
+        width: 40%;
+        margin: auto;
+    }
+/* ### Fin (Carte profile des développeur) ### */
+
+/* ### Fin codes (de l'Index.html) ### */
+
+
+/* ### Début codes (de Game.html) ### */
+
+#bodyGames header ,#bodyScore header {
     position: relative;
     
 }
-#gamesBoard{
+#gamesBoard {
     height: 80vh;
     margin: 3% auto;
     border: solid white 2px;
-    width: 76%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 3%;
 }
-.Card{
-    width: 16vw; 
-    height: 50vh;
-    /* pour 8 card 
-    width: 16vw;
-    height: 35vh;
-    */
+.card {
+    background: red;
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 10px;
+    
+ 
+}
 
-        /* pour 16 card 
-    width: 9vw;
-    height: 34vh;
-    */
-    background-color: black;
+#bodyGames tbody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
 }
+#bodyGames tbody tr{
+    width: 92%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 28%;
+}
+
+/*
+    Login / Register page (login.html / register.html) 
+*/
+
+.login-register-form {
+    height: 50vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: strech;
+}
+
+.login-register-form input {
+    margin: 10px 0px;
+    width: 600px;
+    color: white;
+    background-color: #272645;
+
+    border-radius: 5px;
+}
+
+.login-register-form input::placeholder {
+    padding: 5px;
+}
+
+.login-register form button {
+    padding: 8px 15px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+}
+
+/*
+    Scoreboard (scoreboard.html) 
+*/
+
+#bodyScore main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+#bodyScore table {
+    width: 75%;
+    border: solid white 1px;
+    border-radius: 10px;
+
+
+}
+
+#bodyScore thead td {
+    background-color: rgb(35, 89, 89);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#bodyScore table td {
+    border: solid white 1px;
+    font-weight: lighter;
+    border-radius: 10px;
+}
+
+/*
+    My Account (myAccount.html)
+*/
+
+.account-forms {
+    display: flex;
+    justify-content: space-around;
+}
+
+.account-forms form {
+    margin: 0 5vw;
+}
+

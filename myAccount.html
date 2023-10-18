@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta name="description" content="Site Memories pour la coding factory projet flash">
+    <meta name="description" content="Project Flash from Coding Factory">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myAccount</title>
-</head>
-<body>
-    <!-- TODO: Copy homepage header there -->
-    <!-- NOTE(a.perche): We will replace the list by a more stylized version -->
-    <main>
-        <form>
-            <input type="text" placeholder="Old e-mail">
-            <input type="text" placeholder="New e-mail">
-            <input type="text" placeholder="Password">
-        </form>
+    <title>My Account</title>
     
-        <form>
-            <input type="text" placeholder="Old password">
-            <input type="text" placeholder="New password">
-            <input type="text" placeholder="Password">       
-        </form>
+    <link rel="stylesheet" href="assets/css/normalize.css ">
+    <script src="https://kit.fontawesome.com/6abcad6372.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body id="bodyGames">
+    <header>
+        <nav>
+            <h3>The Power Of Memory</h3>
+            <ul>
+                <li><a id="active" href="">Home</a></li>
+                <li><a href="">Game</a></li>
+                <li><a href="">Scores</a></li>
+                <li><a href="">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <h1>MY ACCOUNT</h1>
+        </section>
+        <section class="container container-center">
+            <div class="account-forms">
+                <form>
+                    <h3>Change my mail</h3>
+                    <input type="text" placeholder="Old e-mail">
+                    <input type="text" placeholder="New e-mail">
+                    <input type="text" placeholder="Password">
+                    <button>Send</button>
+                </form>
+                
+                <form>
+                    <h3>Change my password</h3>
+                    <input type="text" placeholder="Old password">
+                    <input type="text" placeholder="New password">
+                    <input type="text" placeholder="Confirm new password">       
+                    <button>Send</button>
+                </form>
+            </div>
+        </section>
     </main>
-    <!-- TODO: Copy homepage footer there -->
+
+    <footer>
+        <section>
+            <div class="footer-info">
+                <h3>Information</h3>
+                <p class="lorem-text">Quisque commodo facilsis purus, interdum volutpat arcu viverra sed.</p>
+                <p class="lorem-text"><span class="Fspan">Phone :</span> 06 46 72 68 99</p>
+                <p class="lorem-text"><span class="Fspan">Email :</span> tom.bourti@gmail.com</p>
+                <p class="lorem-text"><span class="Fspan">Location :</span> Paris</p>
+                <div>
+                    <i class="iconf fa-brands fa-facebook-f"></i>
+                    <i class="iconf fa-brands fa-twitter"></i>
+                    <i class="iconf fa-brands fa-google"></i>
+                    <i class="iconf fa-brands fa-pinterest"></i>
+                    <i class="iconf fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div class="footer-info">
+                <h3>Power Of Memory</h3>
+                <ul class="lorem-text">
+                    <li>Play !</li>
+                    <li>Scores</li>
+                    <li>Contact us</li>
+                </ul>
+            </div>
+            <div></div>
+        </section>
+        <p id="copyright">Copyritght &copysr; 2023 All rights reserved</p>
+    </footer>
 </body>
 </html>
