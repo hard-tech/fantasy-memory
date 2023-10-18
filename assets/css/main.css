@@ -88,11 +88,6 @@ form button {
     font-size: 1.2rem;
 }
 
-.forms {
-    display: flex;
-    justify-content: center;
-}
-
 .banner {
     height: 200px;
     
@@ -383,3 +378,17 @@ form button {
     font-weight: lighter;
     border-radius: 10px;
 }
+
+/*
+    My Account (myAccount.html)
+*/
+
+.account-forms {
+    display: flex;
+    justify-content: space-around;
+}
+
+.account-forms form {
+    margin: 0 5vw;
+}
+
