@@ -1,34 +1,119 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta name="description" content="Site Memories pour la coding factory projet flash">
+    <meta name="description" content="Project Flash from Coding Factory">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ### Imports Css ### -->
+    <title>Contact Us</title>
     
-        <link rel="stylesheet" href="assets/css/header.css">
-        <link rel="stylesheet" href="assets/css/footer.css">
-        <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Contact</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <script src="https://kit.fontawesome.com/6abcad6372.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-    <!-- TODO: Copy homepage header there -->
-    <!-- NOTE(a.perche): We will replace the list by a more stylized version -->
-    <ul>
-        <li>06 05 04 03 02</li>
-        <li>support@powerofmemory.com</li>
-        <li>Paris</li> 
-    </ul>
-    <form>
-        <input type="text" placeholder="Nom"></input>
-        <input type="text" placeholder="Email"></input>
-        <input type="text" placeholder="Sujet"></input>
-        <input type="text" placeholder="Message"></input>
-        <button type="submit">Envoyer</button>
-    </form>
-    <!-- TODO: Copy homepage footer there -->
+
+<body id="bodyGames">
+    <header>
+        <nav>
+            <h3>The Power Of Memory</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="scoreboard.html">Scoreboard</a></li>
+                <li><a id="active" href="">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <h1>Contact us</h1>
+        </section>
+        <section class="container" id="no-margin-bot">
+            <div class="contact-container">
+                <div class="contact-subcontainer">
+                    <div class="contact-subcontainer-content">
+                        <div class="contact-circle">
+                            <i class="fa-solid fa-mobile"></i>
+                        </div>
+                        <p>06 05 04 03 02</p>
+                    </div>
+                </div>
+                <div class="contact-subcontainer">
+                    <div class="contact-subcontainer-content">
+                        <div class="contact-circle">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <p>support@powerofmemory.com</p>
+                    </div>
+                </div>
+                <div class="contact-subcontainer">
+                    <div class="contact-subcontainer-content">
+                        <div class="contact-circle">
+                            <i class="fa-solid fa-location-pin"></i>
+                        </div>
+                        <p>Paris</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <form class="contact-form">
+                <div class="d-flex" id="contact-form-name-row">
+                    <input type="text" placeholder="Name" ></input>
+                    <input type="text" placeholder="Email" ></input>
+                </div>
+                <input type="text" placeholder="Subject" ></input>
+                <textarea placeholder="Message" ></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <section>
+            <div class="footer-info">
+                <h3>Information</h3>
+                <p class="lorem-text">
+                    Quisque commodo facilsis purus, 
+                    interdum volutpat arcu viverra sed.
+                </p>
+                <p class="lorem-text">
+                    <span class="Fspan">Phone :</span>
+                    06 05 04 03 02
+                </p>
+                <p class="lorem-text">
+                    <span class="Fspan">Email :</span>
+                    support@powerofmemory.com
+                </p>
+                <p class="lorem-text">
+                    <span class="Fspan">Location :</span>
+                    Paris
+                </p>
+                <div>
+                    <i class="iconf fa-brands fa-facebook-f"></i>
+                    <i class="iconf fa-brands fa-twitter"></i>
+                    <i class="iconf fa-brands fa-google"></i>
+                    <i class="iconf fa-brands fa-pinterest"></i>
+                    <i class="iconf fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div class="footer-info">
+                <h3>Power Of Memory</h3>
+                <ul class="lorem-text">
+                    <li><a href="game.html"> Play !</a></li>
+                    <li><a href="scoreboard.html"> Scores</a></li>
+                    <li><a href="contact.html"> Contact us</a></li>
+                </ul>
+            </div>
+            <div></div>
+        </section>
+        
+        <p id="copyright">Copyright &copysr; 2023 All rights reserved</p>
+    </footer>
 </body>
+
 </html>
