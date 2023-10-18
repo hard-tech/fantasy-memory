@@ -6,23 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     
-    <!-- librairy -->
-        <link rel="stylesheet" href="assets/css/normalize.css ">
-        <script src="https://kit.fontawesome.com/6abcad6372.js" crossorigin="anonymous"></script>
+    <!-- LIBS -->
+    <link rel="stylesheet" href="assets/css/normalize.css ">
+    <script src="https://kit.fontawesome.com/6abcad6372.js" crossorigin="anonymous"></script>
 
-    <!-- ### Imports Css ### -->
-        <link rel="stylesheet" href="assets/css/header.css">
-        <link rel="stylesheet" href="assets/css/footer.css">
-        <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ### CSS ### -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 
 </head>
 <body>
     <header>
         <nav>
             <h3>The Power Of Memory</h3>
-
             <ul>
                 <li><a id="active" href="">Home</a></li>
                 <li><a href="">Game</a></li>
@@ -31,57 +28,89 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <section  class="header-page"> 
-            <h1>WELCOME TO <br> OUR STUDIO !</h1>
-            <h3 class="lorem-text">Come and challenge the most agile minds !</h3>
-    
-            <a id="btn" href="">Play !</a>
+        <!-- Big Banner -->
+        <section  class="big-banner"> 
+            <h1>WELCOME TO <br/> OUR STUDIO !</h1>
+            <h3>Come and challenge the most agile minds !</h3>    
+            <a class="button" href="">Play !</a>
         </section>
-        <section class="sectMain" id="ContentFirstImg">
+
+        <!-- Lorem Ipsum section -->
+        <section class="container lorem-container" id="no-margin-bot">
+            <img class="img-fluid" src="assets/img/imgSect3.jpeg" alt="">
+            <img class="img-fluid" src="assets/img/imgSect1.jpeg" alt="">
+            <img class="img-fluid" src="assets/img/imgSect1.jpeg" alt="">
+        </section>
+
+        <section class="container lorem-container">
+            <div class="lorem-subcontainer">
+                <h3>01</h3>
+                <div>
+                    <h4>Lorem Ipsum</h4>
+                    <p>
+                        Quisque commodo facilisis purus, interdum volutpat arcu
+                        viverra sed. Etiam sodales convallis pretium. Aenean
+                        pharetra laoreet loram. Nunc dapibus tincidunt sem a
+                        pharetra. Duis vitae tristique leo, sed faucibus ipsum.
+                    </p>
+                </div>
+            </div>
+            <div class="lorem-subcontainer">
+                <h3>02</h3>
+                <div>
+                    <h4>Lorem Ipsum</h4>
+                    <p>
+                        Quisque commodo facilisis purus, interdum volutpat arcu
+                        viverra sed. Etiam sodales convallis pretium. Aenean
+                        pharetra laoreet loram. Nunc dapibus tincidunt sem a
+                        pharetra. Duis vitae tristique leo, sed faucibus ipsum.
+                    </p>
+                </div>
+            </div>
+            <div class="lorem-subcontainer">
+                <h3>03</h3>
+                <div>
+                    <h4>Lorem Ipsum</h4>
+                    <p>
+                        Quisque commodo facilisis purus, interdum volutpat arcu
+                        viverra sed. Etiam sodales convallis pretium. Aenean
+                        pharetra laoreet loram. Nunc dapibus tincidunt sem a
+                        pharetra. Duis vitae tristique leo, sed faucibus ipsum.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats section -->
+        <section class="container" id="stats">
             <img src="assets/img/imgSect3.jpeg" alt="">
-            <img src="assets/img/imgSect1.jpeg" alt="">
-            <img src="assets/img/imgSect1.jpeg" alt="">
-        </section>
-        <section class="sectMain" id="TextUnderImg">
-            <div class="d-flex">
-                <p class="TxtNbr">01</p>
-                <div>
-                    <h4>Lorem Ipsum</h4>
-                    <p class="lorem-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quaerat delectus excepturi, libero possimus est accusantium officiis recusandae impedit minus, esse suscipit alias praesentium error ea magnam facere iure doloribus.</p>
+            <div>
+                <div class="d-flex">
+                    <div class="stats-box" id="stats-box-1">
+                        <p>310</p>
+                        <span>Games Played</span>
+                    </div>
+                    <div class="stats-box" id="stats-box-2">
+                        <p>1020</p>
+                        <span>Player Connected</span>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex">
-                <p class="TxtNbr">02</p>
-                <div>
-                    <h4>Lorem Ipsum</h4>
-                    <p class="lorem-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At ratione, unde, quidem eos, officiis cupiditate autem laborum aliquid veniam fugiat qui minus itaque doloremque perferendis atque dignissimos ad quibusdam. Magnam!</p>
-                </div>
-            </div>
-            <div class="d-flex">
-                <p class="TxtNbr">03</p>
-                <div>
-                    <h4>Lorem Ipsum</h4>
-                    <p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore aut reiciendis illum. Exercitationem qui minima accusantium laboriosam, rerum mollitia atque ut pariatur odio, saepe sit in odit officia eos consequuntur?</p>
+                <div class="d-flex">
+                    <div class="stats-box" id="stats-box-3">
+                        <p>10 sec</p>
+                        <span>Record Time</span>
+                    </div>
+                    <div class="stats-box" id="stats-box-4">
+                        <p>21 300</p>
+                        <span>Player Registered</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="sectInfo" class="sectMain">
-            <img id="img-blocInfo" src="assets/img/imgSect3.jpeg" alt="">
-            <div id="BlocInfoGroupMain">
-                <div class="BlocInfoGroup1 d-flex">
-                    <div class="BlocInfo" id="BlocInfo-1"><p>310</p><span>Games Played</span></div>
-                    <div class="BlocInfo" id="BlocInfo-2"><p>1020</p><span>Player Connected</span></div>
-                </div>
-                <div class="BlocInfoGroup2 d-flex">
-                    <div class="BlocInfo" id="BlocInfo-3"><p>10 sec</p><span>Record Time</span></div>
-                    <div class="BlocInfo" id="BlocInfo-4"><p>21 300</p><span>Player Registered</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="sectMain" id="TeamMate">
+        <section class="container" id="TeamMate">
             <h3>Notre Equipe</h3>
             <p class="lorem-text">Quisque commodo facilisis purus, interdum volutpat arcu viverra sed.</p>
             <img id="img-hr" src="./assets/img/hr-site.png" alt="">
