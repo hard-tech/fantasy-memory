@@ -48,7 +48,6 @@ form button {
     display: flex;
 }
 
-<<<<<<< Updated upstream
 #no-margin-bot {
     margin-bottom: 0;
 }
@@ -111,10 +110,6 @@ form button {
 .banner h1 {
     font-size: 3rem;
     margin: 0;
-}
-
-#no-margin-bot {
-    margin-bottom: 0;
 }
 
 /* 
@@ -282,7 +277,7 @@ form button {
 
 /* ### Début codes (de Game.html) ### */
 
-#bodyGames header{
+#bodyGames header ,#bodyScore header{
     position: relative;
     
 }
@@ -344,4 +339,36 @@ form button {
     background-color: orange;
     color: white;
     border-radius: 5px;
+}
+
+/*
+    Scoreboard (scoreboard.html) 
+*/
+
+#bodyScore main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+#bodyScore table {
+    width: 75%;
+    border: solid white 1px;
+    border-radius: 10px;
+
+
+}
+
+#bodyScore thead td {
+    background-color: rgb(35, 89, 89);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#bodyScore table td {
+    border: solid white 1px;
+    font-weight: lighter;
+    border-radius: 10px;
 }
