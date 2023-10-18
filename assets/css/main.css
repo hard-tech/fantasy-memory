@@ -369,6 +369,14 @@ form button {
     bottom: -45px;
 }
 
+.fa-arrow-right{
+    border: solid #fff 2px;
+    background-color: #3f00ab;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 1.5rem;
+}
+
 #footerChat{
     color: #333;
     margin: 30px;
