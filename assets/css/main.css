@@ -314,6 +314,135 @@ form button {
     align-items: center;
     height: 28%;
 }
+/* Game Chat */
+#gameChat{
+    bottom: 20px;
+    right: 20px;
+
+    width: 400px;
+    height: 600px;
+    
+    position: fixed;
+    background-color: #fff;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#headerChat{
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #4949ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#headerChat i.fa-arrow-right{
+    margin: 10px;
+}
+
+.icon-chat{
+    border-radius: 50%;
+    border: solid #fff 2px; 
+    background-color: #99daf2;
+    width: 50px;
+    padding: 5px;
+}
+
+#titleChat{
+    padding: 0px 20px;
+}
+
+.circle-green{
+    width: 15px;
+    height: 15px;
+    border: solid #fff 2px;
+    background-color: #0fe200;
+    border-radius: 50%;
+    position: relative;
+    left: -20px;
+    bottom: -45px;
+}
+
+#footerChat{
+    color: #333;
+    margin: 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#inputChat{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#mainChat{
+    width: 350px;
+    margin-top: 20px;
+    position: relative;
+    right: -50px;
+    overflow-y: scroll;
+    color: #333;
+}
+
+#contentMessages{
+    margin-right: 30px;
+}
+
+#sendBtnChat{
+    width: 80px;
+    border-radius: 20px;
+
+    background-color: white;
+    border: white;
+    color: #313131;
+}
+
+.MessageChat{
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px 0px;
+}
+
+.sendByMe{
+    background-color: #5252f6;
+    border: solid #eee 2px;
+    color: #fff;
+}
+
+.sendByOther{
+    background-color: #e1f6ff;
+    color: #252525;
+}
+
+.chat-send-by-me{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 20px 0px;
+}
+
+.chat-send-by-other{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px 0px;
+}
+
+.flex-chat{
+    display: flexbox;
+    align-items: start;
+}
 
 /*
     Login / Register page (login.html / register.html) 
@@ -379,6 +508,8 @@ form button {
     border-radius: 10px;
 }
 
+
+
 /*
     My Account (myAccount.html)
 */
@@ -391,4 +522,3 @@ form button {
 .account-forms form {
     margin: 0 5vw;
 }
-
