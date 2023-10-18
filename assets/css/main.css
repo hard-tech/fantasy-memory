@@ -39,7 +39,6 @@ form input::placeholder {
 form button {
     padding: 8px 15px;
     background-color: orange;
-    border: solid 2px white;
     color: white;
 
     border-radius: 5px;
@@ -49,6 +48,7 @@ form button {
     display: flex;
 }
 
+<<<<<<< Updated upstream
 #no-margin-bot {
     margin-bottom: 0;
 }
@@ -70,6 +70,11 @@ form button {
     justify-content: space-between;
 }
 
+.container-center {
+    display: flex;
+    justify-content: center;
+}
+
 .img-fluid {
     max-width: 100%;
     height: auto;
@@ -89,6 +94,28 @@ form button {
     justify-content: center;
 }
 
+.banner {
+    height: 200px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background: url("../img/bg_head.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#no-margin-bot {
+    margin-bottom: 0;
+}
 
 /* 
     Home page (index.html) properties
@@ -285,4 +312,36 @@ form button {
         width: 9vw;
         height: 34vh;
     */
+}
+
+/*
+    Login / Register page (login.html / register.html) 
+*/
+
+.login-register-form {
+    height: 50vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: strech;
+}
+
+.login-register-form input {
+    margin: 10px 0px;
+    width: 600px;
+    color: white;
+    background-color: #272645;
+
+    border-radius: 5px;
+}
+
+.login-register-form input::placeholder {
+    padding: 5px;
+}
+
+.login-register form button {
+    padding: 8px 15px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
 }
