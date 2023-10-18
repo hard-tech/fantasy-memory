@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
 
+:root{
+    --container-width: 85vw;
+}
+
 /* 
     Global properties
 */
@@ -49,8 +53,15 @@ form button {
     margin-bottom: 0;
 }
 
+#no-margin-bot img:nth-child(1){
+    width: 40vw;
+}
+#no-margin-bot img:nth-child(2), img:nth-child(3){
+    width: 250px;
+}
+
 .container {
-    width: 85vw;
+    width: var(--container-width);
     margin: 4% auto;
     margin-bottom: 200px;
 
@@ -134,28 +145,30 @@ form button {
 /* Stats section */
 
 @media (min-width: 1024px) {
-    #stats-img {
-        margin: 0px 40px;
-        width: 700px;
-        height: 450px;
+    #stats img {
+        width: 46vw;
+        height: 400px;
+        margin-right: 20px;
     }
 }
 
 @media (max-width: 1023px) {
     #stats img {
-        margin: 40px;
-        width: 90vw;
-        height: 450px;
+        
     }
 }
 
 #stats {
+    width: var(--container-width);
+
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
-#stats div:nth-child(1,2) {
+#stats div:nth-child() {
     /*
     width: 600px;
     margin-top: -20px;
@@ -163,16 +176,15 @@ form button {
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    
+    justify-content: center;   
 }
 
 .stats-box {
     color: white;
     background-color: green;
 
-    height: 100px;
-    width: 200px;
+    height: 180px;
+    width: 280px;
     margin: 15px;
     border-radius: 3px;
 
