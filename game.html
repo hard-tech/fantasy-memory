@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
-    
+
     <link rel="stylesheet" href="assets/css/normalize.css">
     <script src="https://kit.fontawesome.com/6abcad6372.js" crossorigin="anonymous"></script>
-    
+
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/main.css">    
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
@@ -27,32 +27,32 @@
             </ul>
         </nav>
     </header>
-    
-    <main>
-        <table id="game-tab">
+
+    <main id="game">
+        <table>
             <tbody>
                 <tr>
-                    <td class="card">1</td>
-                    <td class="card">2</td>
-                    <td class="card">3</td>
-                    <td class="card">4</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
                 </tr>
                 <tr>
-                    <td class="card">5</td>
-                    <td class="card">6</td>
-                    <td class="card">7</td>
-                    <td class="card">8</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
                 </tr>
                 <tr>
-                    <td class="card">9</td>
-                    <td class="card">10</td>
-                    <td class="card">11</td>
-                    <td class="card">12</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
                 </tr>
             </tbody>
-        </table>    
+        </table>
     </main>
-    
+
     <footer>
         <section>
             <div>
@@ -62,7 +62,7 @@
                     interdum volutpat arcu viverra sed.
                 </p>
                 <p class="lorem-text">
-                    <span class="Fspan">Phone :</span> 
+                    <span class="Fspan">Phone :</span>
                     06 05 04 03 02
                 </p>
                 <p class="lorem-text">
@@ -95,17 +95,22 @@
         <p class="Ltxt" id="copyright">Copyright &copysr; 2023 All rights reserved</p>
     </footer>
 
-    <!-- Chat Popup -->    
-    <div id="gameChat">
-        <div id="headerChat">
-            <div class="d-flex">
-                <div class="icon-chat">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6785/6785675.png" width="50px" alt="">
+    <!-- Chat Popup -->
+    <div id="game-chat" for="game-chat-checkbox">
+        <div id="header-chat">
+            <div>
+                <div class="d-flex">
+                    <div class="icon-chat">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6785/6785675.png" width="50px" alt="">
+                    </div>
+                    <div class="circle-green"></div>
+                    <h2 id="chat-title">Chat Room</h2>
                 </div>
-                <div class="circle-green"></div>
-                <h2 id="chat-title">Chat Room</h2>
+                <div class="arrow-down_up">
+                    <i class="fa-solid fa-arrow-right fa-rotate-90" style="color: #ffffff;"></i>
+                    <input type="checkbox" id="game-chat-checkbox">
+                </div>
             </div>
-            <i class="fa-solid fa-arrow-right fa-rotate-90"></i>
         </div>
         <div id="chat-main">
             <div id="content-message">
