@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
 
 :root{
-    --container-width: 85vw;
+    --container-width: 70vw;
 }
 
 /* 
@@ -11,7 +11,7 @@
 body {
     box-sizing: border-box;
     color: white;
-    background-color: rgb(29, 29, 100);
+    background-color: #0f0e2e;
     font-family: 'Kanit', sans-serif;
 }
 
@@ -186,11 +186,6 @@ form button {
 }
 
 #stats div:nth-child() {
-    /*
-    width: 600px;
-    margin-top: -20px;
-    */
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;   
@@ -222,60 +217,66 @@ form button {
 #stats-box-3 { background-color: rgb(153, 8, 172);}
 #stats-box-4 { background-color: rgb(172, 120, 8);}
 
-/* ### Début (Lorem numéroté de 1 à 3) ### */
-/* ### Fin (Lorem numéroté de 1 à 3 ### */
+/* Team presentation properties */
+    
+#profilTeam{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-/* ### Début (Carte profile des développeur) ### */
-    #profilTeam{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    #profilTeam img{
-        width: 150px;
-        border-radius: 50%;
-    }
-    #profilTeam article{
-        width: 30%;
-        text-align: center;
-        background-color: rgb(10, 10, 87);
-        border-radius: 5px;
-        padding: 40px 0px;
-    }
-    #TeamMate{
-        flex-direction: column;
-    }
-    #TeamMate h3{
-        font-size: 3rem;
-        margin-bottom: 1%;
-    }
+#profilTeam img{
+    width: 150px;
+    border-radius: 50%;
+}
 
-    #img-hr{
-        width: 200px;
-        margin: 20px;
-    }
+#profilTeam article{
+    width: 30%;
+    text-align: center;
+    background-color: rgb(10, 10, 87);
+    border-radius: 5px;
+    padding: 40px 0px;
+}
 
-    #TeamMate article{
-        width: 350px;
-        margin: 20px;
-    }
-    .proRes{
-        display: flex;
-        justify-content: space-evenly;
-        width: 40%;
-        margin: auto;
-    }
-/* ### Fin (Carte profile des développeur) ### */
+#TeamMate{
+    flex-direction: column;
+}
 
-/* ### Fin codes (de l'Index.html) ### */
+#TeamMate h3{
+    font-size: 3rem;
+    margin-bottom: 1%;
+}
 
+.lorem-text{
+    font-family: 'Lato', sans-serif;
+}
 
-/* ### Début codes (de Game.html) ### */
+#img-hr{
+    width: 200px;
+    margin: 20px;
+}
+
+#TeamMate article{
+    width: 350px;
+    margin: 20px;
+}
+
+.proRes{
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: auto;
+}
+
+/*
+    Game properties (game.html)
+*/
 
 #bodyGames header ,#bodyScore header {
     position: relative;
-    
+    background-color: #13102f;
 }
+
 #gamesBoard {
     height: 80vh;
     margin: 3% auto;
@@ -287,16 +288,16 @@ form button {
     align-items: center;
     padding: 3%;
 }
+
 .card {
-    background: red;
+    background: orange;
     width: 14%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    border-radius: 10px;
-    
- 
+    border-radius: 10px; 
+    font-size: 3rem;
 }
 
 #bodyGames tbody {
@@ -307,6 +308,7 @@ form button {
     flex-wrap: wrap;
     align-items: center;
 }
+
 #bodyGames tbody tr{
     width: 92%;
     display: flex;
@@ -315,8 +317,183 @@ form button {
     height: 28%;
 }
 
+/* Game Chat */
+
+#gameChat{
+    bottom: 20px;
+    right: 20px;
+
+    width: 400px;
+    height: 600px;
+    
+    position: fixed;
+    background-color: #fff;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#headerChat{
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #4949ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#headerChat i.fa-arrow-right{
+    margin: 10px;
+}
+
+.icon-chat{
+    border-radius: 50%;
+    border: solid #fff 2px; 
+    background-color: #99daf2;
+    width: 50px;
+    padding: 5px;
+}
+
+#titleChat{
+    padding: 0px 20px;
+}
+
+.circle-green{
+    width: 15px;
+    height: 15px;
+    border: solid #fff 2px;
+    background-color: #0fe200;
+    border-radius: 50%;
+    position: relative;
+    left: -20px;
+    bottom: -45px;
+}
+
+.fa-arrow-right{
+    border: solid #fff 2px;
+    background-color: #3f00ab;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 1.5rem;
+}
+
+#footerChat{
+    color: #333;
+    margin: 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#inputChat{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#mainChat{
+    width: 350px;
+    margin-top: 20px;
+    position: relative;
+    right: -50px;
+    overflow-y: scroll;
+    color: #333;
+}
+
+#contentMessages{
+    margin-right: 30px;
+}
+
+#sendBtnChat{
+    width: 80px;
+    border-radius: 20px;
+
+    background-color: white;
+    border: white;
+    color: #313131;
+}
+
+.MessageChat{
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px 0px;
+}
+
+.sendByMe{
+    background-color: #5252f6;
+    border: solid #eee 2px;
+    color: #fff;
+}
+
+.sendByOther{
+    background-color: #e1f6ff;
+    color: #252525;
+}
+
+.chat-send-by-me{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 20px 0px;
+}
+
+.chat-send-by-other{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px 0px;
+}
+
+.flex-chat{
+    display: flexbox;
+    align-items: start;
+}
+
 /*
-    Login / Register page (login.html / register.html) 
+    Scoreboard properties (scoreboard.html)
+*/
+
+#bodyScore main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+#bodyScore table {
+    width: 75%;
+    border: solid white 1px;
+    border-radius: 10px;
+}
+
+#bodyScore thead td {
+    background-color: orange;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#bodyScore table td {
+    font-weight: lighter;
+}
+
+#bodyScore table td:first-child {
+    border-top-left-radius: 10px;
+}
+
+#bodyScore table td:last-child {
+    border-top-right-radius: 10px;
+}
+
+/*
+    Sign in and sign up page properties (login.html, register.html) 
 */
 
 .login-register-form {
@@ -332,8 +509,9 @@ form button {
     width: 600px;
     color: white;
     background-color: #272645;
-
-    border-radius: 5px;
+    border: 0;
+    background-color: #272645;
+    border-radius: 2px;
 }
 
 .login-register-form input::placeholder {
@@ -345,38 +523,6 @@ form button {
     background-color: orange;
     color: white;
     border-radius: 5px;
-}
-
-/*
-    Scoreboard (scoreboard.html) 
-*/
-
-#bodyScore main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10%;
-}
-
-#bodyScore table {
-    width: 75%;
-    border: solid white 1px;
-    border-radius: 10px;
-
-
-}
-
-#bodyScore thead td {
-    background-color: rgb(35, 89, 89);
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-#bodyScore table td {
-    border: solid white 1px;
-    font-weight: lighter;
-    border-radius: 10px;
 }
 
 /*
@@ -392,3 +538,87 @@ form button {
     margin: 0 5vw;
 }
 
+/*
+    Contact Us (contact.html)
+*/
+
+.contact-container {
+    width: var(--container-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.contact-subcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 400px;
+    height: 200px;
+    
+    background-color: #0e0b26;    
+}
+
+.contact-subcontainer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.contact-circle i {
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contact-form input, textarea {
+    flex-direction: column;
+    margin: 10px 0px;
+    width: 630px;
+    color: white;
+    border: 0;
+    background-color: #272645;
+    border-radius: 2px;
+}
+
+.contact-form textarea {
+    height: 300px;
+}
+
+.contact-form div:nth-child(1) {
+    width: 630px;
+}
+
+.contact-form input:nth-child(1) {
+    margin-right: 30px;
+}
+
+.contact-form input::placeholder, textarea::placeholder {
+    padding: 5px;
+}
+
+.contact form button {
+    padding: 8px 15px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+}

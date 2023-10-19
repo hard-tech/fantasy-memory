@@ -3,52 +3,44 @@ header{
     width: 100%;
 }
 
-/* ### Start code Nav ### */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
-    nav{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
+nav ul {
+    margin: 0;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
 
-    nav ul {
-        margin: 0;
-        width: 30%;
-        display: flex;
-        justify-content: space-around;
-    }
+nav ul li a{
+    height: 9vh;
+    color: white;
+    
+    display: flex;
+    align-items: center;
 
-    nav ul li a{
-        height: 9vh;
-        color: white;
-        
-        display: flex;
-        align-items: center;
+    text-decoration: none;
+    list-style: none;
 
-        text-decoration: none;
-        list-style: none;
+    border-top: solid rgba(0,0,0,0);
+    transition: 0.5s;
+}
 
-        border-top: solid rgb(29, 29, 100);
-        transition: 0.5s;
-    }
+nav ul li a:hover{
+    color: orange;
+    text-decoration: none;
+    
+    border-top: solid orange;
+    transition: 0.5s;
+}
 
-    nav ul li a:hover{
-        color: orange;
-        text-decoration: none;
-        
-        border-top: solid orange;
-        transition: 0.5s;
-    }
+nav ul li{list-style: none;}
 
-    nav ul li{list-style: none;}
-
-    #active{
-        color: orange;
-        border-top: solid orange;
-    }
-
-/* ### End code Nav ### */
-
-.lorem-text{
-    font-family: 'Lato', sans-serif;
+#active{
+    color: orange;
+    border-top: solid orange;
 }
