@@ -631,7 +631,6 @@ form button {
 */
 
 #list-item-Shop {
-    border: solid white 1px;
     width: 65vw;
     height: 80vh;
     margin: auto;
@@ -665,4 +664,20 @@ h1 {
     width: 40%;
     height: 50%;
     margin: 8% auto;
+}
+
+#filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 17%;
+    margin-left: 17.2vw;   
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+#filter select{
+    height: 6.5vh;
+    width: 74%;
+    text-align: center;
 }
