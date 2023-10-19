@@ -1,7 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
 
 :root{
-    --container-width: 70vw;
+    --container-width: 85vw;
+}
+
+/*
+    One property classes wrapper
+*/
+
+.no-margin-bot {
+    margin-bottom: 0 !important;
+}
+
+.nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.justify-content-flex-start {
+    justify-content: flex-start !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-space-between {
+    justify-content: space-between !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.flex-column{
+    flex-direction: column;
 }
 
 /* 
@@ -19,58 +51,14 @@ img {
     border-radius: 5px;
 }
 
-form {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-}
-
-form input {
-    margin: 10px 0px;
-    height: 30px;
-    width: 200px;
-    border-radius: 5px;
-}
-
-form input::placeholder {
-    padding: 5px;
-}
-
-form button {
-    padding: 8px 15px;
-    background-color: orange;
-    color: white;
-
-    border-radius: 5px;
-}
-
-.d-flex {
-    display: flex;
-}
-
-#no-margin-bot {
-    margin-bottom: 0;
-}
-
-#no-margin-bot img:nth-child(1){
-    width: 40vw;
-}
-#no-margin-bot img:nth-child(2), img:nth-child(3){
-    width: 250px;
-}
-
-.container {
+section.container {
     width: var(--container-width);
     margin: 4% auto;
     margin-bottom: 200px;
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-}
-
-.container-center {
-    display: flex;
     justify-content: center;
 }
 
@@ -107,11 +95,56 @@ form button {
     margin: 0;
 }
 
+form.form-std {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+div.forms-my-account form.form-std{
+    margin: 0 40px;
+}
+
+form.form-std input:not(form.form-std div input), textarea {
+    margin: 10px 0px;
+    width: 400px;
+    height: 40px;
+}
+
+form.form-std input, textarea {
+    border: 0;
+    border-radius: 2px;
+
+    color: white;
+    background-color: #272645;
+}
+
+form.form-std input::placeholder{
+    padding: 5px 15px;
+}
+
+form.form-std textarea{
+    height: 200px;
+}
+
+form.form-std textarea::placeholder{
+    padding: 15px;
+}
+
+form.form-std button {
+    border: 0px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 2px;
+
+    color: white;
+    background-color: orange;
+}
+
 /* 
     Home page (index.html) properties
 */
-
-/* Big banner */
 
 .big-banner {
     height: 100vh;
@@ -159,6 +192,10 @@ form button {
     font-size: 1.3rem;
 }
 
+#lorem-img-1 { margin-right:20px; width: 40vw; }
+#lorem-img-2 { margin: 0px 20px; width: 250px; }
+#lorem-img-3 { margin-left: 20px; width: 250px; }
+
 /* Stats section */
 
 @media (min-width: 1024px) {
@@ -171,7 +208,7 @@ form button {
 
 @media (max-width: 1023px) {
     #stats img {
-        
+    /* TODO: Responsiveness */   
     }
 }
 
@@ -216,21 +253,19 @@ form button {
 #stats-box-2 { margin-top: 0; background-color: rgb(4, 132, 12); }
 #stats-box-3 { background-color: rgb(153, 8, 172);}
 #stats-box-4 { background-color: rgb(172, 120, 8);}
-
-/* Team presentation properties */
     
-#profilTeam{
+#team-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#profilTeam img{
+#team-container img{
     width: 150px;
     border-radius: 50%;
 }
 
-#profilTeam article{
+#team-container article{
     width: 30%;
     text-align: center;
     background-color: rgb(10, 10, 87);
@@ -238,13 +273,14 @@ form button {
     padding: 40px 0px;
 }
 
-#TeamMate{
-    flex-direction: column;
-}
-
-#TeamMate h3{
+#team-subcontainer h3{
     font-size: 3rem;
     margin-bottom: 1%;
+}
+
+#team-subcontainer article{
+    width: 350px;
+    margin: 20px;
 }
 
 .lorem-text{
@@ -256,12 +292,7 @@ form button {
     margin: 20px;
 }
 
-#TeamMate article{
-    width: 350px;
-    margin: 20px;
-}
-
-.proRes{
+.social-network{
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -272,12 +303,7 @@ form button {
     Game properties (game.html)
 */
 
-#bodyGames header ,#bodyScore header {
-    position: relative;
-    background-color: #13102f;
-}
-
-#gamesBoard {
+#game-tab {
     height: 80vh;
     margin: 3% auto;
     border: solid white 2px;
@@ -287,6 +313,23 @@ form button {
     justify-content: space-around;
     align-items: center;
     padding: 3%;
+}
+
+#game-tab tbody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#game-tab tbody tr{
+    width: 92%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 28%;
 }
 
 .card {
@@ -299,25 +342,6 @@ form button {
     border-radius: 10px; 
     font-size: 3rem;
 }
-
-#bodyGames tbody {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-#bodyGames tbody tr{
-    width: 92%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 28%;
-}
-
-/* Game Chat */
 
 #gameChat{
     bottom: 20px;
@@ -358,7 +382,7 @@ form button {
     padding: 5px;
 }
 
-#titleChat{
+#chat-title{
     padding: 0px 20px;
 }
 
@@ -381,7 +405,7 @@ form button {
     font-size: 1.5rem;
 }
 
-#footerChat{
+#chat-footer{
     color: #333;
     margin: 30px;
 
@@ -391,12 +415,12 @@ form button {
     justify-content: space-around;
 }
 
-#inputChat{
+#chat-input{
     padding: 10px;
     border-radius: 5px;
 }
 
-#mainChat{
+#chat-main{
     width: 350px;
     margin-top: 20px;
     position: relative;
@@ -405,11 +429,11 @@ form button {
     color: #333;
 }
 
-#contentMessages{
+#content-message{
     margin-right: 30px;
 }
 
-#sendBtnChat{
+#chat-send-btn{
     width: 80px;
     border-radius: 20px;
 
@@ -418,19 +442,19 @@ form button {
     color: #313131;
 }
 
-.MessageChat{
+.chat-message{
     padding: 15px;
     border-radius: 15px;
     margin: 5px 0px;
 }
 
-.sendByMe{
+.chat-message-send-by-me{
     background-color: #5252f6;
     border: solid #eee 2px;
     color: #fff;
 }
 
-.sendByOther{
+.chat-message-send-by-other{
     background-color: #e1f6ff;
     color: #252525;
 }
@@ -460,7 +484,7 @@ form button {
     Scoreboard properties (scoreboard.html)
 */
 
-#bodyScore main {
+.scoreboard main {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -468,80 +492,46 @@ form button {
     margin-bottom: 10%;
 }
 
-#bodyScore table {
+.scoreboard table {
     width: 75%;
-    border: solid white 1px;
-    border-radius: 10px;
 }
 
-#bodyScore thead td {
+.scoreboard table thead td {
+    border: none;
+}
+
+.scoreboard table tbody td { 
+    border-left: solid 5px orange;
+    border-collapse: collapse;
+}
+
+.scoreboard table tbody td:last-child { 
+    border-right: solid 2px;
+}
+
+.scoreboard thead td {
     background-color: orange;
     font-size: 1.5rem;
     text-align: center;
 }
 
-#bodyScore table td {
+.scoreboard table td {
     font-weight: lighter;
+    border-bottom: solid 2px;
+    padding: 5px;
 }
 
-#bodyScore table td:first-child {
+.scoreboard table thead td:first-child {
     border-top-left-radius: 10px;
 }
 
-#bodyScore table td:last-child {
+.scoreboard table thead td:last-child {
     border-top-right-radius: 10px;
 }
 
 /*
     Sign in and sign up page properties (login.html, register.html) 
 */
-
-.login-register-form {
-    height: 50vh;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: strech;
-}
-
-.login-register-form input {
-    margin: 10px 0px;
-    width: 600px;
-    color: white;
-    background-color: #272645;
-    border: 0;
-    background-color: #272645;
-    border-radius: 2px;
-}
-
-.login-register-form input::placeholder {
-    padding: 5px;
-}
-
-.login-register form button {
-    padding: 8px 15px;
-    background-color: orange;
-    color: white;
-    border-radius: 5px;
-}
-
-/*
-    My Account (myAccount.html)
-*/
-
-.account-forms {
-    display: flex;
-    justify-content: space-around;
-}
-
-.account-forms form {
-    margin: 0 5vw;
-}
-
-/*
-    Contact Us (contact.html)
-*/
-
 .contact-container {
     width: var(--container-width);
     display: flex;
@@ -581,44 +571,4 @@ form button {
 .contact-circle i {
     display: flex;
     font-size: 1.5rem;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.contact-form input, textarea {
-    flex-direction: column;
-    margin: 10px 0px;
-    width: 630px;
-    color: white;
-    border: 0;
-    background-color: #272645;
-    border-radius: 2px;
-}
-
-.contact-form textarea {
-    height: 300px;
-}
-
-.contact-form div:nth-child(1) {
-    width: 630px;
-}
-
-.contact-form input:nth-child(1) {
-    margin-right: 30px;
-}
-
-.contact-form input::placeholder, textarea::placeholder {
-    padding: 5px;
-}
-
-.contact form button {
-    padding: 8px 15px;
-    background-color: orange;
-    color: white;
-    border-radius: 5px;
 }

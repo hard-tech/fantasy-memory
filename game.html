@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/main.css">    
 </head>
 
-<body id="bodyGames">
+<body>
     <header>
         <nav>
             <h3>The Power Of Memory</h3>
@@ -29,7 +29,7 @@
     </header>
     
     <main>
-        <table id="gamesBoard">
+        <table id="game-tab">
             <tbody>
                 <tr>
                     <td class="card">1</td>
@@ -103,16 +103,16 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/6785/6785675.png" width="50px" alt="">
                 </div>
                 <div class="circle-green"></div>
-                <h2 class="titleChat">Chat Room</h2>
+                <h2 id="chat-title">Chat Room</h2>
             </div>
             <i class="fa-solid fa-arrow-right fa-rotate-90"></i>
         </div>
-        <div id="mainChat">
-            <div id="contentMessages">
+        <div id="chat-main">
+            <div id="content-message">
                 <div class="chat-send-by-me">
                     <div class="flex-chat">
-                        <div class="NameChat">Me</div>
-                        <div class="MessageChat sendByMe">
+                        <div class="chat-my_name">Me</div>
+                        <div class="chat-message chat-message-send-by-me">
                             Hello Word
                         </div>
                         <div class="DateChat">
@@ -122,8 +122,8 @@
                 </div>
                 <div class="chat-send-by-other">
                     <div class="flex-chat">
-                        <div class="NameChat">Lola</div>
-                        <div class="MessageChat sendByOther">
+                        <div class="chat-my_name">Lola</div>
+                        <div class="chat-message chat-message-send-by-other">
                             UwU
                         </div>
                         <div class="DateChat">
@@ -133,8 +133,8 @@
                 </div>
                 <div class="chat-send-by-me">
                     <div class="flex-chat">
-                        <div class="NameChat">Me</div>
-                        <div class="MessageChat sendByMe">
+                        <div class="chat-my_name">Me</div>
+                        <div class="chat-message chat-message-send-by-me">
                             Ho ...
                         </div>
                         <div class="DateChat">
@@ -144,8 +144,8 @@
                 </div>
                 <div class="chat-send-by-other">
                     <div class="flex-chat">
-                        <div class="NameChat">Toma</div>
-                        <div class="MessageChat sendByOther">
+                        <div class="chat-my_name">Toma</div>
+                        <div class="chat-message chat-message-send-by-other">
                             Grr XD
                         </div>
                         <div class="DateChat">
@@ -155,9 +155,9 @@
                 </div>
             </div>
         </div>
-        <form id="footerChat">
-            <input id="inputChat" type="text" placeholder="Your message">
-            <button id="sendBtnChat">Send</button>
+        <form id="chat-footer">
+            <input id="chat-input" type="text" placeholder="Your message">
+            <button id="chat-send-btn">Send</button>
         </form>
     </div>
 </body>
