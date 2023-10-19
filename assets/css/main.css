@@ -32,6 +32,10 @@
     display: flex !important;
 }
 
+.flex-column{
+    flex-direction: column;
+}
+
 /* 
     Global properties
 */
@@ -47,7 +51,7 @@ img {
     border-radius: 5px;
 }
 
-.container {
+section.container {
     width: var(--container-width);
     margin: 4% auto;
     margin-bottom: 200px;
@@ -91,17 +95,56 @@ img {
     margin: 0;
 }
 
-.form-button {
-    padding: 8px 15px;
-    background-color: orange;
-    color: white;
-    border-radius: 5px;
+form.form-std {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: flex-start;
 }
+
+div.forms-my-account form.form-std{
+    margin: 0 40px;
+}
+
+form.form-std input:not(form.form-std div input), textarea {
+    margin: 10px 0px;
+    width: 400px;
+    height: 40px;
+}
+
+form.form-std input, textarea {
+    border: 0;
+    border-radius: 2px;
+
+    color: white;
+    background-color: #272645;
+}
+
+form.form-std input::placeholder{
+    padding: 5px 15px;
+}
+
+form.form-std textarea{
+    height: 200px;
+}
+
+form.form-std textarea::placeholder{
+    padding: 15px;
+}
+
+form.form-std button {
+    border: 0px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 2px;
+
+    color: white;
+    background-color: orange;
+}
+
 /* 
     Home page (index.html) properties
 */
-
-/* Big banner */
 
 .big-banner {
     height: 100vh;
@@ -210,21 +253,19 @@ img {
 #stats-box-2 { margin-top: 0; background-color: rgb(4, 132, 12); }
 #stats-box-3 { background-color: rgb(153, 8, 172);}
 #stats-box-4 { background-color: rgb(172, 120, 8);}
-
-/* Team presentation properties */
     
-#profilTeam{
+#team-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#profilTeam img{
+#team-container img{
     width: 150px;
     border-radius: 50%;
 }
 
-#profilTeam article{
+#team-container article{
     width: 30%;
     text-align: center;
     background-color: rgb(10, 10, 87);
@@ -232,13 +273,14 @@ img {
     padding: 40px 0px;
 }
 
-#TeamMate{
-    flex-direction: column;
-}
-
-#TeamMate h3{
+#team-subcontainer h3{
     font-size: 3rem;
     margin-bottom: 1%;
+}
+
+#team-subcontainer article{
+    width: 350px;
+    margin: 20px;
 }
 
 .lorem-text{
@@ -250,12 +292,7 @@ img {
     margin: 20px;
 }
 
-#TeamMate article{
-    width: 350px;
-    margin: 20px;
-}
-
-.proRes{
+.social-network{
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -266,12 +303,7 @@ img {
     Game properties (game.html)
 */
 
-#bodyGames header {
-    position: relative;
-    background-color: #13102f;
-}
-
-#gamesBoard {
+#game-tab {
     height: 80vh;
     margin: 3% auto;
     border: solid white 2px;
@@ -281,6 +313,23 @@ img {
     justify-content: space-around;
     align-items: center;
     padding: 3%;
+}
+
+#game-tab tbody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#game-tab tbody tr{
+    width: 92%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 28%;
 }
 
 .card {
@@ -293,25 +342,6 @@ img {
     border-radius: 10px; 
     font-size: 3rem;
 }
-
-#gamesBoard tbody {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-#gamesBoard tbody tr{
-    width: 92%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 28%;
-}
-
-/* Game Chat */
 
 #gameChat{
     bottom: 20px;
@@ -352,7 +382,7 @@ img {
     padding: 5px;
 }
 
-#titleChat{
+#chat-title{
     padding: 0px 20px;
 }
 
@@ -375,7 +405,7 @@ img {
     font-size: 1.5rem;
 }
 
-#footerChat{
+#chat-footer{
     color: #333;
     margin: 30px;
 
@@ -385,12 +415,12 @@ img {
     justify-content: space-around;
 }
 
-#inputChat{
+#chat-input{
     padding: 10px;
     border-radius: 5px;
 }
 
-#mainChat{
+#chat-main{
     width: 350px;
     margin-top: 20px;
     position: relative;
@@ -399,11 +429,11 @@ img {
     color: #333;
 }
 
-#contentMessages{
+#content-message{
     margin-right: 30px;
 }
 
-#sendBtnChat{
+#chat-send-btn{
     width: 80px;
     border-radius: 20px;
 
@@ -412,19 +442,19 @@ img {
     color: #313131;
 }
 
-.MessageChat{
+.chat-message{
     padding: 15px;
     border-radius: 15px;
     margin: 5px 0px;
 }
 
-.sendByMe{
+.chat-message-send-by-me{
     background-color: #5252f6;
     border: solid #eee 2px;
     color: #fff;
 }
 
-.sendByOther{
+.chat-message-send-by-other{
     background-color: #e1f6ff;
     color: #252525;
 }
@@ -502,54 +532,6 @@ img {
 /*
     Sign in and sign up page properties (login.html, register.html) 
 */
-
-.login-register-form {
-    height: 50vh;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: strech;
-}
-
-.login-register-form input {
-    margin: 10px 0px;
-    width: 630px;
-    height: 30px;
-    color: white;
-    background-color: #272645;
-    border: 0;
-    background-color: #272645;
-    border-radius: 2px;
-}
-
-.login-register-form input::placeholder {
-    padding: 5px;
-}
-
-.login-register form button {
-    padding: 8px 15px;
-    background-color: orange;
-    color: white;
-    border-radius: 5px;
-}
-
-/*
-    My Account (myAccount.html)
-*/
-
-.account-forms {
-    display: flex;
-    justify-content: space-around;
-}
-
-.account-forms form {
-    margin: 0 5vw;
-}
-
-/*
-    Contact Us (contact.html)
-*/
-
 .contact-container {
     width: var(--container-width);
     display: flex;
@@ -589,45 +571,4 @@ img {
 .contact-circle i {
     display: flex;
     font-size: 1.5rem;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.contact-form input, textarea {
-    flex-direction: column;
-    margin: 10px 0px;
-    width: 630px;
-    height: 30px;
-    color: white;
-    border: 0;
-    background-color: #272645;
-    border-radius: 2px;
-}
-
-.contact-form textarea {
-    height: 300px;
-}
-
-.contact-form div:nth-child(1) {
-    width: 630px;
-}
-
-.contact-form input:nth-child(1) {
-    margin-right: 30px;
-}
-
-.contact-form input::placeholder, textarea::placeholder {
-    padding: 5px;
-}
-
-.contact form button {
-    padding: 8px 15px;
-    background-color: orange;
-    color: white;
-    border-radius: 5px;
 }
