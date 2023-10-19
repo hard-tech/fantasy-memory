@@ -631,7 +631,6 @@ form button {
 */
 
 #list-item-Shop {
-    border: solid white 1px;
     width: 65vw;
     height: 80vh;
     margin: auto;
@@ -673,6 +672,7 @@ h1 {
     justify-content: space-around;
     width: 17%;
     margin-left: 17.2vw;   
+    margin-right: 4%;
     align-items: center;
     margin-bottom: 2vh;
 }
@@ -681,6 +681,10 @@ h1 {
     height: 6.5vh;
     width: 74%;
     text-align: center;
+}
+
+#filter button{
+    margin-left: 5%;
 }
 #SearchBar{
     display: flex;
