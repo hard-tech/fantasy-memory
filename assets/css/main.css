@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
 
-:root{
+:root { 
     --container-width: 85vw;
 }
 
@@ -32,7 +32,7 @@
     display: flex !important;
 }
 
-.flex-column{
+.flex-column {
     flex-direction: column;
 }
 
@@ -45,6 +45,11 @@ body {
     color: white;
     background-color: #0f0e2e;
     font-family: 'Kanit', sans-serif;
+}
+
+header.alt-navbar {
+    position: relative;
+    background-color: #130f30;
 }
 
 img {
@@ -102,7 +107,7 @@ form.form-std {
     justify-content: flex-start;
 }
 
-div.forms-my-account form.form-std{
+div.forms-my-account form.form-std {
     margin: 0 40px;
 }
 
@@ -120,15 +125,15 @@ form.form-std input, textarea {
     background-color: #272645;
 }
 
-form.form-std input::placeholder{
+form.form-std input::placeholder {
     padding: 5px 15px;
 }
 
-form.form-std textarea{
+form.form-std textarea {
     height: 200px;
 }
 
-form.form-std textarea::placeholder{
+form.form-std textarea::placeholder {
     padding: 15px;
 }
 
@@ -140,6 +145,17 @@ form.form-std button {
 
     color: white;
     background-color: orange;
+}
+
+form.form-std div {
+    width: 405px;
+    justify-content: space-between;
+}
+
+form.form-std div input {
+    width: 190px;
+    height: 40px;
+    margin: 10px 0px;
 }
 
 /* 
@@ -254,45 +270,44 @@ form.form-std button {
 #stats-box-3 { background-color: rgb(153, 8, 172);}
 #stats-box-4 { background-color: rgb(172, 120, 8);}
     
-#team-container{
+#team-overview h3 {
+    font-size: 3rem;
+    margin-bottom: 1%;
+}
+
+#team-overview  article {
+    width: 350px;
+    margin: 20px;
+}
+
+#team-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#team-container img{
+#team-container img {
     width: 150px;
     border-radius: 50%;
 }
 
-#team-container article{
-    width: 30%;
+#team-container article {
     text-align: center;
     background-color: rgb(10, 10, 87);
     border-radius: 5px;
     padding: 40px 0px;
 }
 
-#team-subcontainer h3{
-    font-size: 3rem;
-    margin-bottom: 1%;
-}
-
-#team-subcontainer article{
-    width: 350px;
-    margin: 20px;
-}
-
-.lorem-text{
+.lorem-text {
     font-family: 'Lato', sans-serif;
 }
 
-#img-hr{
+#img-hr {
     width: 200px;
     margin: 20px;
 }
 
-.social-network{
+.social-networks {
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -324,7 +339,7 @@ form.form-std button {
     align-items: center;
 }
 
-#game-tab tbody tr{
+#game-tab tbody tr {
     width: 92%;
     display: flex;
     justify-content: space-around;
@@ -343,7 +358,7 @@ form.form-std button {
     font-size: 3rem;
 }
 
-#gameChat{
+#gameChat {
     bottom: 20px;
     right: 20px;
 
@@ -359,7 +374,7 @@ form.form-std button {
     justify-content: space-between;
 }
 
-#headerChat{
+#headerChat {
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -370,11 +385,11 @@ form.form-std button {
     justify-content: space-between;
 }
 
-#headerChat i.fa-arrow-right{
+#headerChat i.fa-arrow-right {
     margin: 10px;
 }
 
-.icon-chat{
+.icon-chat {
     border-radius: 50%;
     border: solid #fff 2px; 
     background-color: #99daf2;
@@ -382,11 +397,11 @@ form.form-std button {
     padding: 5px;
 }
 
-#chat-title{
+#chat-title {
     padding: 0px 20px;
 }
 
-.circle-green{
+.circle-green {
     width: 15px;
     height: 15px;
     border: solid #fff 2px;
@@ -397,7 +412,7 @@ form.form-std button {
     bottom: -45px;
 }
 
-.fa-arrow-right{
+.fa-arrow-right {
     border: solid #fff 2px;
     background-color: #3f00ab;
     border-radius: 50%;
@@ -405,7 +420,7 @@ form.form-std button {
     font-size: 1.5rem;
 }
 
-#chat-footer{
+#chat-footer {
     color: #333;
     margin: 30px;
 
@@ -415,12 +430,12 @@ form.form-std button {
     justify-content: space-around;
 }
 
-#chat-input{
+#chat-input {
     padding: 10px;
     border-radius: 5px;
 }
 
-#chat-main{
+#chat-main {
     width: 350px;
     margin-top: 20px;
     position: relative;
@@ -429,11 +444,11 @@ form.form-std button {
     color: #333;
 }
 
-#content-message{
+#content-message {
     margin-right: 30px;
 }
 
-#chat-send-btn{
+#chat-send-btn {
     width: 80px;
     border-radius: 20px;
 
@@ -442,24 +457,24 @@ form.form-std button {
     color: #313131;
 }
 
-.chat-message{
+.chat-message {
     padding: 15px;
     border-radius: 15px;
     margin: 5px 0px;
 }
 
-.chat-message-send-by-me{
+.chat-message-send-by-me {
     background-color: #5252f6;
     border: solid #eee 2px;
     color: #fff;
 }
 
-.chat-message-send-by-other{
+.chat-message-send-by-other {
     background-color: #e1f6ff;
     color: #252525;
 }
 
-.chat-send-by-me{
+.chat-send-by-me {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -467,7 +482,7 @@ form.form-std button {
     margin: 20px 0px;
 }
 
-.chat-send-by-other{
+.chat-send-by-other {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -475,7 +490,7 @@ form.form-std button {
     margin: 20px 0px;
 }
 
-.flex-chat{
+.flex-chat {
     display: flexbox;
     align-items: start;
 }
