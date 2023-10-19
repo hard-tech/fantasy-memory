@@ -3,7 +3,13 @@
 :root{
     --container-width: 70vw;
 }
-
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
 /* 
     Global properties
 */
@@ -272,10 +278,6 @@ form button {
     Game properties (game.html)
 */
 
-#bodyGames header ,#bodyScore header {
-    position: relative;
-    background-color: #13102f;
-}
 
 #gamesBoard {
     height: 80vh;
@@ -621,4 +623,46 @@ form button {
     background-color: orange;
     color: white;
     border-radius: 5px;
+}
+
+
+/*
+    Shop (shop.html)
+*/
+
+#list-item-Shop {
+    border: solid white 1px;
+    width: 65vw;
+    height: 80vh;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#list-item-Shop section{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 100%;
+}
+#list-item-Shop section article{
+    width: 25%;
+    height: 50%;
+    margin: 1% 1%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+
+.aura-purple-items{
+    background-color: purple;
+    border-radius: 50%;
+    width: 40%;
+    height: 50%;
+    margin: 8% auto;
 }
