@@ -318,6 +318,27 @@ form.form-std div input {
     Game properties (game.html)
 */
 
+.game-chat-items i{
+    position: absolute;
+    bottom: 200px;
+}
+
+#gameChat {
+    bottom: 20px;
+    right: 20px;
+
+    width: 400px;
+    height: 600px;
+    
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 #game-tab {
     height: 80vh;
     margin: 3% auto;
@@ -356,22 +377,6 @@ form.form-std div input {
     height: 100%;
     border-radius: 10px; 
     font-size: 3rem;
-}
-
-#gameChat {
-    bottom: 20px;
-    right: 20px;
-
-    width: 400px;
-    height: 600px;
-    
-    position: fixed;
-    background-color: #fff;
-    border-radius: 10px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 #headerChat {
@@ -533,7 +538,7 @@ form.form-std div input {
 .scoreboard table td {
     font-weight: lighter;
     border-bottom: solid 2px;
-    padding: 5px;
+    padding: 10px 15px;
 }
 
 .scoreboard table thead td:first-child {
