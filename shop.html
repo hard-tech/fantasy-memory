@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="alt-navbar">
         <nav>
             <a href="index.html"><h3>The Power Of Memory</h3></a>
             <ul>
@@ -32,23 +32,27 @@
     </header>
 
     <main>
-        <h1>Shop</h1>
-            <form action="" id="filter">
-                <label for="itemType-select"></label>
+        <section class="banner">
+            <h1>Shop</h1>
+        </section>
 
-                <select name="itemType" id="itemType-select">
-                  <option value="">--choose type item--</option>
-                  <option value="aura">Aura</option>
-                  <option value="power">Power</option>
-                  <option value="background">Background</option>
-                </select>
-                            
-                <button>
-                    <span class="material-symbols-outlined">
-                        search
-                        </span>
-                </button>
-            </form>
+        <form action="" id="filter">
+            <label for="itemType-select"></label>
+
+            <select name="itemType" id="itemType-select">
+              <option value="">--choose type item--</option>
+              <option value="aura">Aura</option>
+              <option value="power">Power</option>
+              <option value="background">Background</option>
+            </select>
+                        
+            <button>
+                <span class="material-symbols-outlined">
+                    search
+                    </span>
+            </button>
+        </form>
+
         <section id="list-item-Shop">
             <section>
                 <article>
@@ -66,11 +70,8 @@
                     <h3>aura purple</h3>
                     <p>100 coin</p> <button>Buy</button>
                 </article>
-            
-
             </section>
         </section>
-
     </main>
     
     <footer>
