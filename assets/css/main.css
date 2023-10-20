@@ -1,0 +1,870 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Lato:wght@300&display=swap');
+
+:root { 
+    --container-width: 85vw;
+}
+
+/*
+    One property classes wrapper
+*/
+
+.no-margin-bot {
+    margin-bottom: 0 !important;
+}
+
+.nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.justify-content-flex-start {
+    justify-content: flex-start !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-space-between {
+    justify-content: space-between !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+}
+
+/* 
+    Global properties
+*/
+
+body {
+    box-sizing: border-box;
+    color: white;
+    background-color: #0f0e2e;
+    font-family: 'Kanit', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none !important;
+}
+
+header {
+    position: absolute;
+    background-color: transparent;    
+}
+
+header.alt-navbar {
+    position: relative;
+    background-color: #130f30;
+}
+
+img {
+    transition: 0.8s;
+    border-radius: 5px;
+}
+
+img:hover{
+    transition: 0.5s;
+    scale: 1.02;
+
+}
+
+section.container {
+    width: var(--container-width);
+    margin: 4% auto;
+    margin-bottom: 200px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.button {
+    transition: 0.8s;
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    border: solid 5px transparent;
+    border-radius: 2px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+.button:hover {
+    transition: 0.5s;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    border: solid 5px orange;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+.banner {
+    height: 200px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background: url("../img/bg_head.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+form.form-std {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+div.forms-my-account form.form-std {
+    margin: 0 40px;
+}
+
+form.form-std input:not(form.form-std div input), textarea {
+    margin: 10px 0px;
+    width: 400px;
+    height: 40px;
+}
+
+form.form-std input, textarea {
+    border: 0;
+    border-radius: 2px;
+
+    color: white;
+    background-color: #272645;
+}
+
+form.form-std input::placeholder {
+    padding: 5px 15px;
+}
+
+form.form-std textarea {
+    height: 200px;
+}
+
+form.form-std textarea::placeholder {
+    padding: 15px;
+}
+
+form.form-std button {
+    transition: 0.5s;
+    border: 0px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 2px;
+
+    color: white;
+    background-color: orange;
+    border: 5px solid transparent;
+}
+
+form.form-std button:hover {
+    transition: 0.8s;
+    border: 0px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+
+    color: white;
+    background-color: transparent;
+    border: 5px solid orange;
+}
+
+form.form-std div {
+    width: 405px;
+    justify-content: space-between;
+}
+
+form.form-std div input {
+    width: 190px;
+    height: 40px;
+    margin: 10px 0px;
+}
+
+/* 
+    Home page (index.html) properties
+*/
+
+.big-banner {
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background: url("../img/bg_head.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.big-banner h1 {
+    transition: 0.8;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.big-banner h3 {
+    margin-bottom: 4vh;
+    padding-bottom: 10px;
+}
+
+.lorem-container img {
+    height: 400px;
+}
+
+.lorem-subcontainer h3 {
+    color: rgb(94, 2, 191);
+    font-size: 3rem;
+    margin-right: 25px;
+    margin-top: 0;
+}
+
+.lorem-subcontainer div {
+    margin-top: 8px;
+}
+
+.lorem-subcontainer h4 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.lorem-subcontainer p {
+    text-align: justify;
+}
+
+#lorem-img-1 { margin-right:20px; width: 40vw; }
+#lorem-img-2 { margin: 0px 20px; width: 250px; }
+#lorem-img-3 { margin-left: 20px; width: 250px; }
+
+@media (min-width: 1024px) {
+    #stats img {
+        width: 650px;
+        height: 400px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 1023px) {
+    #stats img {
+    /* TODO: Responsiveness */   
+    }
+}
+
+#stats {
+    width: var(--container-width);
+
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: center;
+    /* align-items: stretch; */
+}
+
+#stats div:nth-child() {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   
+}
+
+.stats-box {
+    color: white;
+    background-color: green;
+
+    height: 180px;
+    width: 280px;
+    margin: 15px;
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stats-box p {
+    margin: 0;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+#stats-box-1 { margin-top: 0; background-color: rgb(49, 8, 172); }
+#stats-box-2 { margin-top: 0; background-color: rgb(4, 132, 12); }
+#stats-box-3 { background-color: rgb(153, 8, 172);}
+#stats-box-4 { background-color: rgb(172, 120, 8);}
+    
+#team-overview h3 {
+    font-size: 3rem;
+    margin-bottom: 1%;
+}
+
+#team-overview  article {
+    width: 350px;
+    margin: 20px;
+}
+
+#team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#team-container img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+#team-container article {
+    text-align: center;
+    background-color: rgb(10, 10, 87);
+    border-radius: 5px;
+    padding: 40px 0px;
+}
+
+.lorem-text {
+    font-family: 'Lato', sans-serif;
+}
+
+#img-hr {
+    width: 200px;
+    margin: 20px;
+}
+
+.social-networks {
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: auto;
+}
+
+/*
+    Game properties (game.html)
+*/
+
+@media (min-width: 768px) {
+    main#game table tbody tr td {
+        width: 150px;
+        height: 200px;
+    }
+    main#game table tbody {
+        padding: 20px;
+        margin: 40px;
+    }
+}
+
+main#game table tbody tr td {
+    transition: 0.8s;
+
+    border-radius: 10px; 
+    margin: 10px;
+
+    font-size: 3rem;
+    background: orange;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main#game table tbody tr td:hover {
+    rotate: 5deg;
+    scale: 1.05;
+    transition: 0.5s;
+
+    border-radius: 10px; 
+    margin: 10px;
+
+    font-size: 3rem;
+    background: orange;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main#game table tbody tr {
+    display: flex;
+}
+
+main#game table tbody {
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid;
+
+    border-radius: 15px;
+}
+
+main#game table {
+    display: flex;
+    justify-content: center;
+}
+
+.game-chat {
+    transform: translate(0,0);
+
+    bottom: 0;
+    right: 0;
+
+    width: 400px;
+    height: 600px;
+    
+    position: fixed;
+    color: white;
+    background-color: #fff;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#header-chat {
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #4949ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-chat div{
+    display: flex;
+    align-items: center;
+}
+
+#header-chat i.fa-arrow-right {
+    margin: 10px;
+}
+
+.icon-chat {
+    border-radius: 50%;
+    border: solid #fff 2px; 
+    background-color: #99daf2;
+    width: 50px;
+    padding: 5px;
+}
+
+#chat-title {
+    padding: 0px 20px;
+}
+
+.circle-green {
+    width: 15px;
+    height: 15px;
+    border: solid #fff 2px;
+    background-color: #0fe200;
+    border-radius: 50%;
+    position: relative;
+    left: -20px;
+    bottom: -20px;
+}
+
+#group-arrow{
+    position: fixed;
+    z-index: 2;
+    top: 5%;
+    right: 5%;
+}
+
+#arrow-down_up {
+    font-size: 3rem;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collapse > a{
+    cursor: pointer;
+    display: block;
+}
+
+.collapse:focus{
+    outline: none;
+}
+
+.collapse .game-chat{
+    display: none;
+}
+
+.collapse:focus .game-chat{
+    display: flex; 
+}
+
+#open{
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    font-size: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 2%;
+    right: 2%;
+    background-color: blue;
+}
+
+#game-chat-checkbox{
+    width: 100%;
+    position: absolute;
+    right: 1%;
+    bottom: 2%;
+    height: 100%;
+    opacity: 0;
+}
+
+#chat-footer {
+    color: #333;
+    margin: 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#chat-input {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#chat-main {
+    /* display: flex; */
+    width: 380px;
+    position: relative;
+    right: -20px;
+    overflow-y: scroll;
+    color: #333;
+}
+
+#content-message {
+    margin-right: 30px;
+}
+
+#chat-send-btn {
+    width: 80px;
+    border-radius: 20px;
+
+    background-color: white;
+    border: white;
+    color: #313131;
+}
+
+.chat-message {
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px 0px;
+}
+
+.chat-message-send-by-me {
+    background-color: #5252f6;
+    border: solid #eee 2px;
+    color: #fff;
+}
+
+.chat-message-send-by-other {
+    background-color: #e1f6ff;
+    color: #252525;
+}
+
+.chat-send-by-me {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 20px 0px;
+}
+
+.chat-send-by-other {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px 0px;
+}
+
+.flex-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/*
+    Scoreboard properties (scoreboard.html)
+*/
+
+.scoreboard main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.scoreboard table {
+    width: 75%;
+}
+
+.scoreboard table thead td {
+    border: none;
+}
+
+.scoreboard table tbody td { 
+    border-left: solid 5px orange;
+    border-collapse: collapse;
+}
+
+.scoreboard table tbody td:last-child { 
+    border-right: solid 2px;
+}
+
+.scoreboard thead td {
+    background-color: orange;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.scoreboard table td {
+    font-weight: lighter;
+    border-bottom: solid 2px;
+    padding: 10px 15px;
+}
+
+.scoreboard table thead td:first-child {
+    border-top-left-radius: 10px;
+}
+
+.scoreboard table thead td:last-child {
+    border-top-right-radius: 10px;
+}
+
+/*
+    Sign in and sign up page properties (login.html, register.html) 
+*/
+
+.contact-container {
+    width: var(--container-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.contact-subcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 400px;
+    height: 200px;
+    
+    background-color: #0e0b26;    
+}
+
+.contact-subcontainer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.contact-circle i {
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contact-form input, textarea {
+    flex-direction: column;
+    margin: 10px 0px;
+    width: 630px;
+    color: white;
+    border: 0;
+    background-color: #272645;
+    border-radius: 2px;
+}
+
+.contact-form textarea {
+    height: 300px;
+}
+
+.contact-form div:nth-child(1) {
+    width: 630px;
+}
+
+.contact-form input:nth-child(1) {
+    margin-right: 30px;
+}
+
+.contact-form input::placeholder, textarea::placeholder {
+    padding: 5px;
+}
+
+.contact form button {
+    padding: 8px 15px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/*
+    Shop (shop.html)
+*/
+
+#list-item-Shop {
+    width: 65vw;
+    height: 80vh;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#list-item-Shop section{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 100%;
+}
+
+#list-item-Shop section article{
+    width: 25%;
+    height: 50%;
+    margin: 5% 1%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+.aura-purple-items{
+    background-color: purple;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 8% auto;
+}
+
+#filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 17%;
+    margin-left: 17.2vw;   
+    margin-right: 4%;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+#filter select{
+    height: 6.5vh;
+    width: 74%;
+    text-align: center;
+}
+
+#filter button{
+    margin-left: 5%;
+}
+
+#SearchBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30%;
+    margin-left: 15.5vw;   
+    align-items: center;
+}
+
+#SearchBar input{
+    height: 7vh;
+    width: 74%;
+}
+
+.game-logo{
+    background-color: purple;
+    width: 100%;
+    height: 65%;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+#list-item-Game {
+    width: 65vw;
+    height: 80vh;
+    margin: auto;
+    text-align: center;
+}
+
+#list-item-Game section{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 100%;
+}
+
+#list-item-Game section article{
+    width: 25%;
+    height: 50%;
+    margin: 5% 1%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
