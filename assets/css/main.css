@@ -60,6 +60,11 @@ a {
     text-decoration: none !important;
 }
 
+header {
+    position: absolute;
+    background-color: transparent;    
+}
+
 header.alt-navbar {
     position: relative;
     background-color: #130f30;
@@ -252,6 +257,10 @@ form.form-std div input {
 .lorem-subcontainer h4 {
     margin: 0;
     font-size: 1.3rem;
+}
+
+.lorem-subcontainer p {
+    text-align: justify;
 }
 
 #lorem-img-1 { margin-right:20px; width: 40vw; }
@@ -521,8 +530,8 @@ main#game table {
 
 #open{
     position: fixed;
-    width: 6vw;
-    height: 10%;
+    width: 70px;
+    height: 70px;
     font-size: 3rem;
     border-radius: 50%;
     display: flex;
@@ -788,8 +797,8 @@ h1 {
 .aura-purple-items{
     background-color: purple;
     border-radius: 50%;
-    width: 40%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     margin: 8% auto;
 }
 
