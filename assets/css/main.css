@@ -47,6 +47,11 @@ body {
     font-family: 'Kanit', sans-serif;
 }
 
+a{
+    color: white;
+    text-decoration: none !important;
+}
+
 header.alt-navbar {
     position: relative;
     background-color: #130f30;
@@ -425,30 +430,18 @@ main#game table {
 
 /* Game Chat */
 
-#game-chat {
-    bottom: 20px;
+
+.game-chat {
+    transform: translate(0,0);
+
+    bottom: 80px;
     right: 20px;
 
     width: 400px;
     height: 600px;
     
     position: fixed;
-    background-color: #fff;
-    border-radius: 10px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#game-chat {
-    bottom: 20px;
-    right: 20px;
-
-    width: 400px;
-    height: 600px;
-    
-    position: fixed;
+    color: white;
     background-color: #fff;
     border-radius: 10px;
 
@@ -500,9 +493,16 @@ main#game table {
     bottom: -20px;
 }
 
-.arrow-down_up {
-    position: relative;
-    right: -70px;
+#group-arrow{
+    right: 17px;
+    bottom: 15px;
+    position: fixed;
+}
+
+#arrow-down_up {
+        /* right: 60px;
+        bottom: 20px;
+        position: fixed; */
 
     font-size: 1.5rem;
     border-radius: 50%;
@@ -510,20 +510,40 @@ main#game table {
     text-align: center;
     width: 40px;
     height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
 }
 
-.arrow-down_up input{
-    opacity: 0;
+#arrow-down_up:hover{
+    /* right: 60px;
+    bottom: 20px;
+    position: fixed; */
 
-    position: absolute;
-    width: 50px;
-    height: 40px;
+font-size: 1.5rem;
+border-radius: 50%;
+border: solid 2px;
+text-align: center;
+width: 40px;
+height: 40px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+rotate: 180deg;
+transition: 0.5s;
 }
 
-.arrow-down_up input:checked + #game-chat {
-    display: block;
-    bottom: -416px;
-} 
+#game-chat-checkbox{
+    display: none;
+}
+
+/* .game-chat-checkbox:checked + .game-chat {
+    transform: translate(0,0);
+}  */
 
 #chat-footer {
     color: #333;
@@ -596,7 +616,8 @@ main#game table {
 }
 
 .flex-chat {
-    display: flexbox;
+    display: flex;
+    flex-direction: column;
     align-items: start;
 }
 
@@ -691,4 +712,4 @@ main#game table {
 .contact-circle i {
     display: flex;
     font-size: 1.5rem;
-}
+}   
