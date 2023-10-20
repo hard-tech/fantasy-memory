@@ -434,8 +434,8 @@ main#game table {
 .game-chat {
     transform: translate(0,0);
 
-    bottom: 80px;
-    right: 20px;
+    bottom: 0;
+    right: 0;
 
     width: 400px;
     height: 600px;
@@ -494,9 +494,10 @@ main#game table {
 }
 
 #group-arrow{
-    right: 17px;
-    bottom: 15px;
     position: fixed;
+    z-index: 2;
+    top: 5%;
+    right: 5%;
 }
 
 #arrow-down_up {
@@ -504,9 +505,8 @@ main#game table {
         bottom: 20px;
         position: fixed; */
 
-    font-size: 1.5rem;
+    font-size: 3rem;
     border-radius: 50%;
-    border: solid 2px;
     text-align: center;
     width: 40px;
     height: 40px;
@@ -514,31 +514,41 @@ main#game table {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
 }
-
-#arrow-down_up:hover{
-    /* right: 60px;
-    bottom: 20px;
-    position: fixed; */
-
-font-size: 1.5rem;
-border-radius: 50%;
-border: solid 2px;
-text-align: center;
-width: 40px;
-height: 40px;
-
-display: flex;
-justify-content: center;
-align-items: center;
-
-rotate: 180deg;
-transition: 0.5s;
-}
-
-#game-chat-checkbox{
+.collapse > a{
+    cursor: pointer;
+    display: block;
+  }
+  .collapse:focus{
+    outline: none;
+  }
+  .collapse .game-chat{
     display: none;
+  }
+  .collapse:focus .game-chat{
+    display: flex; 
+  }
+
+  #open{
+    position: fixed;
+    width: 6vw;
+    height: 10%;
+    font-size: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 2%;
+    right: 2%;
+    background-color: blue;
+  }
+#game-chat-checkbox{
+    width: 100%;
+    position: absolute;
+    right: 1%;
+    bottom: 2%;
+    height: 100%;
+    opacity: 0;
 }
 
 /* .game-chat-checkbox:checked + .game-chat {
