@@ -18,7 +18,7 @@
 <body>
     <header class="alt-navbar">
         <nav>
-            <h3>The Power Of Memory</h3>
+            <a href="index.html"><h3>The Power Of Memory</h3></a>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a id="active" href="">Game</a></li>
@@ -96,7 +96,13 @@
     </footer>
 
     <!-- Chat Popup -->
-    <div id="game-chat" for="game-chat-checkbox">
+    <div id="group-arrow">
+        <div id="arrow-down_up">
+            <i class="fa-solid fa-arrow-right fa-rotate-90"></i>
+            <input type="checkbox" id="game-chat-checkbox">
+        </div>
+    </div>
+    <div class="game-chat">
         <div id="header-chat">
             <div>
                 <div class="d-flex">
@@ -105,10 +111,6 @@
                     </div>
                     <div class="circle-green"></div>
                     <h2 id="chat-title">Chat Room</h2>
-                </div>
-                <div class="arrow-down_up">
-                    <i class="fa-solid fa-arrow-right fa-rotate-90" style="color: #ffffff;"></i>
-                    <input type="checkbox" id="game-chat-checkbox">
                 </div>
             </div>
         </div>
