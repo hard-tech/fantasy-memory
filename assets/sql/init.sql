@@ -13,10 +13,11 @@ ENGINE=INNODB;
 
 CREATE TABLE player (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	pseudo VARCHAR(256),
     email VARCHAR(256) NOT NULL,
     pwd VARCHAR(256) NOT NULL,
-    sign_up_timestamp DATE NOT NULL,
-    latest_connection_timestamp DATE NOT NULL   
+    sign_up_timestamp DATETIME DEFAULT NOW(),
+    latest_connection_timestamp DATETIME   
 )
 CHARACTER SET "utf8"
 ENGINE=INNODB;
@@ -27,7 +28,7 @@ CREATE TABLE score (
     game_id INT UNSIGNED NOT NULL,
 	game_difficulty ENUM("easy", "medium", "hard") NOT NULL,
     score INT UNSIGNED NOT NULL,
-    score_timestamp DATE NOT NULL
+    score_timestamp DATETIME DEFAULT NOW()
 )
 CHARACTER SET "utf8"
 ENGINE=INNODB;
@@ -43,6 +44,7 @@ CHARACTER SET "utf8"
 ENGINE=INNODB;
 
 /* FOREIGN KEYS */
+
 ALTER TABLE score
 ADD CONSTRAINT fk_score_player FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE;
 
