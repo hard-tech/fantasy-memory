@@ -136,3 +136,16 @@ INSERT INTO message(game_id, player_id, message_content) VALUES (1,4,"i go eat p
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,5,"i so crazy peaple");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,3,"HMMMMMM");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,2,"bey XD i leav this crazy word :(");
+
+/* Save users scores */
+
+INSERT INTO score(player_id, game_id, game_difficulty, score)
+VALUES 1, 1, 'medium', 203
+WHERE NOT EXISTS (
+    VALUES (1, 1, "medium", 23)
+);
+
+INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (2, 1, "easy", 2345);
+INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (3, 1, "easy", 4);
+INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (4, 1, "medium", 63456);
+INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (5, 1, "hard", 0);
