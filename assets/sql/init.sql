@@ -74,6 +74,7 @@ INSERT INTO game(id, name) VALUES (1,'mincraftCard');
 
 /* Scores */
 
+
 INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (1, 1, "medium", 23);
 INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (1, 1, "hard", 234);
 INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (1, 1, "medium", 43);
@@ -104,7 +105,6 @@ INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (5, 1, "eas
 INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (5, 1, "hard", 0);
 INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (5, 1, "medium", 1);
 
-
 /* Message */
 
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,1,"Hello word !");
@@ -121,31 +121,24 @@ INSERT INTO message(game_id, player_id, message_content) VALUES (1,1,"XD");
 
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,5,"and ?");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,3,"u are ?");
-INSERT INTO message(game_id, player_id, message_content) VALUES (1,4,"your dady");
+INSERT INTO message(game_id, player_id, message_content) VALUES (1,4,"your brother");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,2,"why say it ?");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,1,"Love tom");
 
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,1,"soooo beaty");
-INSERT INTO message(game_id, player_id, message_content) VALUES (1,2,"ho u are gay ?");
+INSERT INTO message(game_id, player_id, message_content) VALUES (1,2,"ho u are in my mind ?");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,5,"u are ?");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,4,"your dady");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,3,"crying");
 
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,1,"i dont no XD");
-INSERT INTO message(game_id, player_id, message_content) VALUES (1,4,"i go eat pizza withe TOM butternut");
+INSERT INTO message(game_id, player_id, message_content) VALUES (1,4,"i go eat pizza with TOM ;)");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,5,"i so crazy peaple");
-INSERT INTO message(game_id, player_id, message_content) VALUES (1,3,"HMMMMMM");
+INSERT INTO message(game_id, player_id, message_content) VALUES (1,3,"is true");
 INSERT INTO message(game_id, player_id, message_content) VALUES (1,2,"bey XD i leav this crazy word :(");
 
 /* Save users scores */
 
-INSERT INTO score(player_id, game_id, game_difficulty, score)
-VALUES 1, 1, 'medium', 203
-WHERE NOT EXISTS (
-    VALUES (1, 1, "medium", 23)
-);
-
-INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (2, 1, "easy", 2345);
-INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (3, 1, "easy", 4);
-INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (4, 1, "medium", 63456);
-INSERT INTO score(player_id, game_id, game_difficulty, score) VALUES (5, 1, "hard", 0);
+-- SELECT (player_id, game_id, game_difficulty) FROM score WHERE player_id = 1 AND game_id = 1 AND game_difficulty = 'medium';
+-- UPDATE score SET score = 7769;
+-- INSERT INTO score (player_id, game_id, game_difficulty, score) VALUES (1, 1, 'medium', 23);
