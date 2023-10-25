@@ -106,7 +106,7 @@ VALUES (1,1,'Hello word !'), (1,2,'Hi'), (1,5,'Good morning ?'),
 	   (1,2,'I did unistalled it yesterday');
 
 /*
-	Story 3: Sign up request
+	'Story 3: Sign up request
 */
 
 INSERT INTO players (pseudo, email, pwd)
@@ -222,8 +222,9 @@ DELETE FROM private_messages WHERE id = 6;
 
 UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
 
+
 /* 
-	Story 14: Display every conversations
+	Story 15: Display every conversations
 */
 
 SELECT * FROM private_messages
