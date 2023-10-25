@@ -37,19 +37,36 @@ CREATE TABLE messages (
     message_timestamp DATETIME DEFAULT NOW()
 ) ENGINE=INNODB;
 
-ALTER TABLE scores
-ADD CONSTRAINT fk_score_player
-FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE;
+/*
+	STORY : 13 
+*/
+
+CREATE TABLE private_messages (
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    first_player_id INT UNSIGNED NOT NULL,
+    second_player_id INT UNSIGNED NOT NULL,
+	message VARCHAR(256),
+    wasRead BOOLEAN DEFAULT false,
+    sent_timestamp DATETIME DEFAULT NOW(),
+    read_timestamp DATETIME DEFAULT NOW()
+) ENGINE=INNODB;
+
+ALTER TABLE private_messages
+ADD CONSTRAINT fk_privateMessage_Fplayer
+FOREIGN KEY (first_player_id) REFERENCES players(id) ON DELETE CASCADE,
+ADD CONSTRAINT fk_privateMessage_Splayer
+FOREIGN KEY (second_player_id) REFERENCES players(id) ON DELETE CASCADE;
+
 
 ALTER TABLE scores
+ADD CONSTRAINT fk_score_player
+FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE,
 ADD CONSTRAINT fk_score_game
 FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE;
 
 ALTER TABLE messages
 ADD CONSTRAINT fk_message_player
-FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE;
-
-ALTER TABLE messages
+FOREIGN KEY (player_id) REFERENCES players(id) ON DELETE CASCADE,
 ADD CONSTRAINT fk_message_game
 FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE;
 
