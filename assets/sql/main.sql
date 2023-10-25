@@ -227,7 +227,7 @@ UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
 	Story 15: Display every conversations
 */
 
-SELECT * FROM private_messages
+SELECT first_player_id, second_player_id, sent_timestamp, read_timestamp, isRead FROM private_messages
 WHERE first_player_id = 1 
 AND id = (
     SELECT id
