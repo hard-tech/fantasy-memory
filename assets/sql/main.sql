@@ -46,9 +46,9 @@ CREATE TABLE private_messages (
     first_player_id INT UNSIGNED NOT NULL,
     second_player_id INT UNSIGNED NOT NULL,
 	message VARCHAR(256),
-    wasRead BOOLEAN DEFAULT false,
     sent_timestamp DATETIME DEFAULT NOW(),
-    read_timestamp DATETIME DEFAULT NOW()
+    read_timestamp DATETIME,
+    isRead BOOLEAN DEFAULT false
 ) ENGINE=INNODB;
 
 ALTER TABLE private_messages
@@ -178,7 +178,7 @@ VALUES (1, 1, 'petit test des familles');
 
 SELECT m.message, p.pseudo, m.message_timestamp,
 CASE
-    WHEN player_id = 1 /* <- REPLACE CONNECTED USER ID */ THEN TRUE
+    WHEN player_id = 1 THEN TRUE
     ELSE FALSE
 END AS isSender
 
@@ -199,3 +199,37 @@ VALUES (6, 1, 'easy', 6969);
 
 SELECT * FROM scores AS s JOIN players AS p ON s.player_id = p.id
 WHERE p.pseudo LIKE '%sword';
+
+/*
+	Story 14
+*/
+
+
+-- Creat msg
+
+INSERT INTO private_messages(first_player_id,second_player_id,message)	VALUES 
+(1,2,'Hello you !'), (1,2,'You are ?'), (1,2,'Yes'), (1,2,'You dont no who i am ?'), (1,2,'Nop'), (1,2,'I am your nightmare ^_^'),
+(1,3,'Hello you !'), (1,3,'You are ?'), (1,3,'Yes'), (1,3,'You dont no who i am ?'), (1,3,'Nop'), (1,3,'I am your Daydy ^_^'),
+(2,4,'Hello you !'), (2,4,'You are ?'), (2,4,'Yes'), (2,4,'You dont no who i am ?'), (2,4,'Nop'), (2,4,'I am your Brother ^_^'),
+(2,3,'Hello you !'), (2,3,'You are ?'), (2,3,'Yes'), (2,3,'You dont no who i am ?'), (2,3,'Nop'), (2,3,'I am your Mother ^_^'),
+(4,1,'Hello you !'), (4,1,'You are ?'), (4,1,'Yes'), (4,1,'You dont no who i am ?'), (4,1,'Nop'), (4,1,'I am your Sister ^_^');
+
+-- Delet msg 
+
+DELETE FROM private_messages WHERE id = 6;
+
+-- Update msg
+
+UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
+
+/* 
+	Story 14: Display every conversations
+*/
+
+SELECT * FROM private_messages
+WHERE first_player_id = 1 
+AND id = (
+    SELECT id
+	FROM private_messages
+	WHERE first_player_id = 1 ORDER BY id DESC LIMIT 1
+);
