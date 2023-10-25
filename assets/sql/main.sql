@@ -46,9 +46,9 @@ CREATE TABLE private_messages (
     first_player_id INT UNSIGNED NOT NULL,
     second_player_id INT UNSIGNED NOT NULL,
 	message VARCHAR(256),
-    wasRead BOOLEAN DEFAULT false,
     sent_timestamp DATETIME DEFAULT NOW(),
-    read_timestamp DATETIME DEFAULT NOW()
+    read_timestamp DATETIME,
+    isRead BOOLEAN DEFAULT false
 ) ENGINE=INNODB;
 
 ALTER TABLE private_messages
@@ -178,7 +178,7 @@ VALUES (1, 1, 'petit test des familles');
 
 SELECT m.message, p.pseudo, m.message_timestamp,
 CASE
-    WHEN player_id = 1 /* <- REPLACE CONNECTED USER ID */ THEN TRUE
+    WHEN player_id = 1 THEN TRUE
     ELSE FALSE
 END AS isSender
 
@@ -221,3 +221,16 @@ DELETE FROM private_messages WHERE id = 6;
 -- Update msg
 
 UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
+
+
+/* 
+	Story 15: Display every conversations
+*/
+
+SELECT * FROM private_messages
+WHERE first_player_id = 1 
+AND id = (
+    SELECT id
+	FROM private_messages
+	WHERE first_player_id = 1 ORDER BY id DESC LIMIT 1
+);
