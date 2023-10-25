@@ -227,11 +227,10 @@ UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
 	Story 15: Display every conversations
 */
 
-SELECT
+SELECT DISTINCT
     sender.pseudo,receiver.pseudo,pm.sent_timestamp,pm.read_timestamp,pm.isRead
 FROM private_messages pm
 LEFT JOIN players sender ON pm.first_player_id = sender.id
 LEFT JOIN players receiver ON pm.second_player_id = receiver.id
-ORDER BY pm.sent_timestamp;
-
-
+WHERE sender.id = 1 OR receiver.id = 1
+ORDER BY pm.sent_timestamp DESC;
