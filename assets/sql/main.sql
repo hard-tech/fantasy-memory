@@ -219,8 +219,6 @@ UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
 	Story 15: Display every conversations
 */
 
--- TODO: Update one of the user 1 message sent_timestamp
-
 SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));
 
 SELECT sender.pseudo, receiver.pseudo, pm.message,
