@@ -94,17 +94,34 @@ VALUES (1, 1, 'medium', 23), (1, 1, 'hard', 234), (1, 1, 'medium', 43),
 	   (5, 1, 'hard', 2), (5, 1, 'easy', 7), (5, 1, 'hard', 0),
 	   (5, 1, 'medium', 1);
 
-INSERT INTO messages(game_id, player_id, message)
-VALUES (1,1,'Hello word !'), (1,2,'Hi'), (1,5,'Good morning ?'),
-	   (1,3,'Well good night'), (1,4,'Where do u from'), (1,2,'how are u ?'),
-	   (1,3,'nobody'), (1,5,'o k'), (1,4,'LOL'),
-	   (1,1,'XD'), (1,5,'who wanna play valo'), (1,3,'no god plz no'),
-	   (1,4,'I wanna play LoL'), (1,2,'do u take showers ?'), (1,1,'well no'),
-	   (1,1,'nope unfortunatly'), (1,2,'I play OW2'), (1,5,'OW is dead isn\'t'),
-	   (1,4,'yeah lmao'), (1,3,':sobs:'), (1,1,'jeez that man is cringe'),
-	   (1,4,'so what do we do'), (1,5,'go play CS2'), (1,3,'nope'),
-	   (1,2,'I did unistalled it yesterday');
-
+INSERT INTO messages(game_id, player_id, message, message_timestamp)
+VALUES
+(1, 1, 'Hello word !', '2023-10-26 21:40:00'),
+(1, 2, 'Hi', '2023-10-26 21:41:24'),
+(1, 5, 'Good morning ?', '2023-10-26 21:42:24'),
+(1, 3, 'Well good night', '2023-10-26 21:43:24'),
+(1, 4, 'Where do u from', '2023-10-26 21:44:24'),
+(1, 2, 'how are u ?', '2023-10-26 21:45:24'),
+(1, 3, 'nobody', '2023-10-26 21:46:24'),
+(1, 5, 'o k', '2023-10-26 21:47:24'),
+(1, 4, 'LOL', '2023-10-26 21:48:24'),
+(1, 1, 'XD', '2023-10-26 21:49:24'),
+(1, 5, 'who wanna play valo', '2023-10-26 21:50:19'),
+(1, 3, 'no god plz no', '2023-10-26 21:51:24'),
+(1, 4, 'I wanna play LoL', '2023-10-26 21:52:24'),
+(1, 2, 'do u take showers ?', '2023-10-26 21:53:24'),
+(1, 1, 'well no', '2023-10-26 21:54:24'),
+(1, 1, 'nope unfortunatly', '2023-10-26 21:55:24'),
+(1, 2, 'I play OW2', '2023-10-26 21:56:24'),
+(1, 5, 'OW is dead isn\'t', '2023-10-26 21:57:24'),
+(1, 4, 'yeah lmao', '2023-10-26 21:58:24'),
+(1, 3, ':sobs:', '2023-10-26 21:59:24'),
+(1, 1, 'jeez that man is cringe', '2023-10-26 22:00:24'),
+(1, 4, 'so what do we do', '2023-10-26 22:01:24'),
+(1, 5, 'go play CS2', '2023-10-26 22:02:24'),
+(1, 3, 'nope', '2023-10-26 22:03:24'),
+(1, 2, 'I did unistalled it yesterday', '2023-10-26 22:04:24'),
+(1, 1, 'petit test des familles', '2023-10-26 21:41:24');
 /*
 	Story 3: Sign up request
 */
@@ -199,16 +216,42 @@ WHERE p.pseudo LIKE '%sword';
 	Story 14: Add test data and manage message creation and deletion
 */
 
-INSERT INTO private_messages(first_player_id,second_player_id,message) VALUES 
-(1,2,'A'), (1,2,'B'), (1,2,'C'), (1,2,'D'), (1,2,'E'), (1,2,'F'),
-(1,3,'G'), (1,3,'H'), (1,3,'I'), (1,3,'J ?'), (1,3,'K'), (1,3,'L'),
-(2,4,'M'), (2,4,'N'), (2,4,'O'), (2,4,'P'), (2,4,'Q'), (2,4,'R'),
-(2,3,'S'), (2,3,'T'), (2,3,'U'), (2,3,'V'), (2,3,'W'), (2,3,'Y'),
-(4,1,'Z'), (4,1,'A1'), (4,1,'B1'), (4,1,'C1'), (4,1,'D1'), (4,1,'F1');
+INSERT INTO private_messages(first_player_id, second_player_id, message, sent_timestamp)
+VALUES 
+(1, 2, 'A', '2023-10-10 03:41:25'),
+(1, 2, 'B', '2023-10-26 05:41:25'),
+(1, 2, 'C', '2023-10-26 06:41:25'),
+(1, 2, 'D', '2023-10-26 07:41:25'),
+(1, 2, 'E', '2023-10-26 08:41:25'),
+(1, 3, 'G', '2023-10-26 09:41:25'),
+(1, 3, 'H', '2023-10-26 10:41:25'),
+(1, 3, 'I', '2023-10-26 11:41:25'),
+(1, 3, 'J ?', '2023-10-26 12:41:25'),
+(1, 3, 'K', '2023-10-26 13:41:25'),
+(1, 3, 'I am Blue', '2023-10-10 04:00:00'),
+(2, 4, 'M', '2023-10-26 14:41:25'),
+(2, 4, 'N', '2023-10-10 02:42:25'),
+(2, 4, 'O', '2023-10-26 15:41:25'),
+(2, 4, 'P', '2023-10-26 16:41:25'),
+(2, 4, 'Q', '2023-10-26 17:41:25'),
+(2, 4, 'R', '2023-10-26 18:41:25'),
+(2, 3, 'S', '2023-10-26 19:41:25'),
+(2, 3, 'T', '2023-10-26 20:41:25'),
+(2, 3, 'U', '2023-10-26 21:41:25'),
+(2, 3, 'V', '2023-10-26 22:41:25'),
+(2, 3, 'W', '2023-10-26 21:41:25'),
+(2, 3, 'Y', '2023-10-27 01:41:25'),
+(4, 1, 'Z', '2023-10-27 02:41:25'),
+(4, 1, 'A1', '2023-10-26 21:41:25'),
+(4, 1, 'B1', '2023-10-26 21:41:25'),
+(4, 1, 'C1', '2023-10-26 21:41:25'),
+(4, 1, 'D1', '2023-10-26 01:41:25'),
+(4, 1, 'F1', '2023-10-26 23:41:25');
+
+UPDATE private_messages SET message = 'I am Blue' WHERE id = 7;
 
 DELETE FROM private_messages WHERE id = 6;
 
-UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
 
 /* 
 	Story 15: Display every conversations
