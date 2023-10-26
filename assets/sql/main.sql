@@ -38,7 +38,7 @@ CREATE TABLE messages (
 ) ENGINE=INNODB;
 
 /*
-	STORY : 13 
+	STORY 13: Create a private messaging
 */
 
 CREATE TABLE private_messages (
@@ -81,7 +81,7 @@ VALUES ('firetech', 'firetech@email.com', 'PassWord'),
        ('Alexendre', 'Alexendre@email.com', 'PassWord'),
        ('Po', 'Po@email.com', 'PassWord');
 
-INSERT INTO games(name) VALUES ('mincraftCard');
+INSERT INTO games(name) VALUES ('Power Of Memory');
 
 INSERT INTO scores(player_id, game_id, game_difficulty, score)
 VALUES (1, 1, 'medium', 23), (1, 1, 'hard', 234), (1, 1, 'medium', 43),
@@ -106,7 +106,7 @@ VALUES (1,1,'Hello word !'), (1,2,'Hi'), (1,5,'Good morning ?'),
 	   (1,2,'I did unistalled it yesterday');
 
 /*
-	'Story 3: Sign up request
+	Story 3: Sign up request
 */
 
 INSERT INTO players (pseudo, email, pwd)
@@ -177,15 +177,10 @@ VALUES (1, 1, 'petit test des familles');
 */
 
 SELECT m.message, p.pseudo, m.message_timestamp,
-CASE
-    WHEN player_id = 1 THEN TRUE
-    ELSE FALSE
-END AS isSender
-
+CASE WHEN player_id = 1 THEN TRUE ELSE FALSE END AS isSender
 FROM messages AS m
 LEFT JOIN players AS p ON m.player_id = p.id
 LEFT JOIN games as g ON m.game_id = g.id
-
 WHERE m.message_timestamp >= NOW() - INTERVAL 1 DAY;
 
 /*
@@ -195,7 +190,7 @@ WHERE m.message_timestamp >= NOW() - INTERVAL 1 DAY;
 INSERT INTO players (pseudo, email, pwd)
 VALUES ('vegasword', 'test@testostas.net', 'safe1234');
 INSERT INTO scores (player_id, game_id, game_difficulty, score)
-VALUES (6, 1, 'easy', 6969);
+VALUES (7, 1, 'easy', 6969);
 
 SELECT * FROM scores AS s JOIN players AS p ON s.player_id = p.id
 WHERE p.pseudo LIKE '%sword';
