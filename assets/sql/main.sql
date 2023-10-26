@@ -201,36 +201,32 @@ SELECT * FROM scores AS s JOIN players AS p ON s.player_id = p.id
 WHERE p.pseudo LIKE '%sword';
 
 /*
-	Story 14
+	Story 14: Add test data and manage message creation and deletion
 */
 
-
--- Creat msg
-
-INSERT INTO private_messages(first_player_id,second_player_id,message)	VALUES 
-(1,2,'Hello you !'), (1,2,'You are ?'), (1,2,'Yes'), (1,2,'You dont no who i am ?'), (1,2,'Nop'), (1,2,'I am your nightmare ^_^'),
-(1,3,'Hello you !'), (1,3,'You are ?'), (1,3,'Yes'), (1,3,'You dont no who i am ?'), (1,3,'Nop'), (1,3,'I am your Daydy ^_^'),
-(2,4,'Hello you !'), (2,4,'You are ?'), (2,4,'Yes'), (2,4,'You dont no who i am ?'), (2,4,'Nop'), (2,4,'I am your Brother ^_^'),
-(2,3,'Hello you !'), (2,3,'You are ?'), (2,3,'Yes'), (2,3,'You dont no who i am ?'), (2,3,'Nop'), (2,3,'I am your Mother ^_^'),
-(4,1,'Hello you !'), (4,1,'You are ?'), (4,1,'Yes'), (4,1,'You dont no who i am ?'), (4,1,'Nop'), (4,1,'I am your Sister ^_^');
-
--- Delet msg 
+INSERT INTO private_messages(first_player_id,second_player_id,message) VALUES 
+(1,2,'A'), (1,2,'B'), (1,2,'C'), (1,2,'D'), (1,2,'E'), (1,2,'F'),
+(1,3,'G'), (1,3,'H'), (1,3,'I'), (1,3,'J ?'), (1,3,'K'), (1,3,'L'),
+(2,4,'M'), (2,4,'N'), (2,4,'O'), (2,4,'P'), (2,4,'Q'), (2,4,'R'),
+(2,3,'S'), (2,3,'T'), (2,3,'U'), (2,3,'V'), (2,3,'W'), (2,3,'Y'),
+(4,1,'Z'), (4,1,'A1'), (4,1,'B1'), (4,1,'C1'), (4,1,'D1'), (4,1,'F1');
 
 DELETE FROM private_messages WHERE id = 6;
 
--- Update msg
-
 UPDATE private_messages SET message = 'I am Anonymos :)' WHERE id = 12;
-
 
 /* 
 	Story 15: Display every conversations
 */
 
-SELECT * FROM private_messages
-WHERE first_player_id = 1 
-AND id = (
-    SELECT id
-	FROM private_messages
-	WHERE first_player_id = 1 ORDER BY id DESC LIMIT 1
-);
+-- TODO: Update one of the user 1 message sent_timestamp
+
+SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));
+
+SELECT sender.pseudo, receiver.pseudo, pm.message,
+	   MAX(pm.sent_timestamp) as sent_datetime, pm.read_timestamp, pm.isRead
+FROM private_messages pm
+LEFT JOIN players sender ON pm.first_player_id = sender.id
+LEFT JOIN players receiver ON pm.second_player_id = receiver.id
+WHERE sender.id = 1 OR receiver.id = 1
+GROUP BY sender.id + receiver.id HAVING MAX(pm.sent_timestamp);
