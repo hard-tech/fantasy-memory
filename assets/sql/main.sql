@@ -266,3 +266,47 @@ LEFT JOIN players sender ON pm.first_player_id = sender.id
 LEFT JOIN players receiver ON pm.second_player_id = receiver.id
 WHERE sender.id = 1 OR receiver.id = 1
 GROUP BY sender.id + receiver.id HAVING MAX(pm.sent_timestamp);
+
+
+/*
+    Story 16: Display a conversation between 2 users
+*/
+
+SELECT
+    pm.message,
+    pm.sent_timestamp,
+    pm.read_timestamp,
+    pm.isRead,
+    p.pseudo as pseudo_envoyeur,
+    p2.pseudo as pseudo_receveur,
+    (
+        SELECT COUNT(*) FROM scores WHERE player_id = pm.first_player_id
+    ) as nbr_partie_jouer_envoyeur,
+    (
+        SELECT COUNT(*) FROM scores WHERE player_id = pm.second_player_id
+    ) as nbr_partie_jouer_receveur,
+    (
+            SELECT COUNT(s2.game_id) AS game_count
+            FROM scores AS s2
+            LEFT JOIN games AS g2 ON s2.game_id = g2.id
+            WHERE s2.player_id = pm.first_player_id
+            GROUP BY s2.game_id
+            ORDER BY game_count DESC
+            LIMIT 1
+    ) as jeux_le_plus_jouer_envoyeur,
+    (
+            SELECT COUNT(s2.game_id) AS game_count
+            FROM scores AS s2
+            LEFT JOIN games AS g2 ON s2.game_id = g2.id
+            WHERE s2.player_id = pm.second_player_id
+            GROUP BY s2.game_id
+            ORDER BY game_count DESC
+            LIMIT 1
+    ) as jeux_le_plus_jouer_receveur
+FROM private_messages as pm
+LEFT JOIN players as p
+    ON p.id = pm.first_player_id
+LEFT JOIN players as p2
+    ON p2.id = pm.second_player_id
+WHERE (pm.first_player_id = 1 AND pm.second_player_id = 2) OR (pm.first_player_id = 2 AND pm.second_player_id = 1) 
+ORDER BY pm.sent_timestamp DESC;
