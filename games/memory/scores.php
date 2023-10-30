@@ -45,7 +45,6 @@ require "../../partials/footer.php";
             <table>
                 <thead>
                     <tr>
-                        <td>Name</td>
                         <td>Pseudo</td>
                         <td>Game difficulty</td>
                         <td>Score</td>
@@ -53,27 +52,19 @@ require "../../partials/footer.php";
                     </tr>
                 </thead>
                 <tbody>
+                <?php 
+                    $pdoStatement = $pdo->prepare("SELECT p.pseudo, s.game_difficulty, s.score, s.score_timestamp FROM scores AS s LEFT JOIN players AS p ON s.player_id = p.id LEFT JOIN games AS g ON s.game_id = g.id ORDER BY g.name, s.game_difficulty, s.score DESC;");
+                    $pdoStatement->execute();
+                    $scores = $pdoStatement->fetchAll();
+                    foreach($scores as $s) {
+                ?>
                     <tr>
-                        <td>Ali Baba</td>
-                        <td>aliXpress</td>
-                        <td>Nightmare</td>
-                        <td>783217</td>
-                        <td>28/10/2023 13:01</td>
+                        <td><?= $s->pseudo ?></td>
+                        <td><?= ucfirst($s->game_difficulty) ?></td>
+                        <td><?= $s->score ?></td>
+                        <td><?= $s->score_timestamp ?></td>
                     </tr>
-                    <tr>
-                        <td>Tom</td>
-                        <td>Kira</td>
-                        <td>Hardcore</td>
-                        <td>696969</td>
-                        <td>29/10/2023 10:15</td>
-                    </tr>
-                    <tr>
-                        <td>Alex</td>
-                        <td>vegasword</td>
-                        <td>Medium</td>
-                        <td>7589</td>
-                        <td>28/10/2023 14:17</td>
-                    </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </section>

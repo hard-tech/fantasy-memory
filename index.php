@@ -25,10 +25,10 @@ require "partials/footer.php";
 <body>
     <header>
         <nav>
-            <a href="<?= SITE_ROOT ?>index.php"><h3>The Power Of Memory</h3></a>
+            <a href="<?= PROJECT_FOLDER ?>index.php"><h3>The Power Of Memory</h3></a>
             <ul>
                 <li><a id="active">Home</a></li>
-                <li><a href="games/memory/index.php">Games</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>games/memory/index.php">Games</a></li>
                 <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php">Scoreboard</a></li>
                 <li><a href="<?= PROJECT_FOLDER ?>shop.php">Shop</a></li>
                 <li><a href="<?= PROJECT_FOLDER ?>contact.php">Contact Us</a></li>
