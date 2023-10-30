@@ -53,6 +53,7 @@ body {
     color: white;
     background-color: #0f0e2e;
     font-family: 'Kanit', sans-serif;
+    margin: 0!important;
 }
 
 a {

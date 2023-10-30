@@ -25,13 +25,13 @@ require "partials/footer.php";
 <body>
     <header>
         <nav>
-            <a href="index.html"><h3>The Power Of Memory</h3></a>
+            <a href="<?= SITE_ROOT ?>index.php"><h3>The Power Of Memory</h3></a>
             <ul>
                 <li><a id="active">Home</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="scoreboard.html">Scoreboard</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="games/memory/index.php">Games</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php">Scoreboard</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>shop.php">Shop</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>contact.php">Contact Us</a></li>
                 <!-- TODO: Account icon redirecting the right pages -->
             </ul>
         </nav>
@@ -41,7 +41,7 @@ require "partials/footer.php";
         <section  class="big-banner"> 
             <h1>WELCOME TO <br/> OUR STUDIO !</h1>
             <h3>Come and challenge the most agile minds !</h3>    
-            <a class="button" href="games.html">Play !</a>
+            <a class="button" href="games/memory/index.php">Play !</a>
         </section>
 
         <section class="container lorem-container no-margin-bot justify-content-space-between">
@@ -188,9 +188,9 @@ require "partials/footer.php";
             <div class="footer-info">
                 <h3>Power Of Memory</h3>
                 <ul class="lorem-text">
-                    <li><a href="game.html"> Play !</a></li>
-                    <li><a href="scoreboard.html"> Scores</a></li>
-                    <li><a href="contact.html"> Contact us</a></li>
+                    <li><a href="<?= PROJECT_FOLDER ?>games/memory/index.php"> Play !</a></li>
+                    <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php"> Scores</a></li>
+                    <li><a href="<?= PROJECT_FOLDER ?>contact.php"> Contact us</a></li>
                 </ul>
             </div>
             <div></div>

@@ -7,7 +7,6 @@ error_reporting(E_ALL);
 
 define('PROJECT_FOLDER', '/fantasy-memory/'); 
 define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . PROJECT_FOLDER); 
-
 connectToDbAndGetPdo();
 
 session_start();
