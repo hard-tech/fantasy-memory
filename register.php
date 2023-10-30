@@ -1,8 +1,8 @@
 <?php
-require "projet/utils/common.php";
-require "projet/partials/head.php";
-require "projet/partials/header.php";
-require "projet/partials/footer.php";
+require "utils/common.php";
+require "partials/head.php";
+require "partials/header.php";
+require "partials/footer.php";
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +25,13 @@ require "projet/partials/footer.php";
 <body>
     <header class="alt-navbar">
         <nav>
-            <a href="index.html"><h3>The Power Of Memory</h3></a>
+            <a href="<?= PROJECT_FOLDER ?>index.php"><h3>The Power Of Memory</h3></a>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="scoreboard.html">Scoreboard</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>index.php">Home</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>games/memory/index.php">Games</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php">Scoreboard</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>shop.php">Shop</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>contact.php">Contact Us</a></li>
                 <!-- TODO: Account icon redirecting the right pages -->
             </ul>
         </nav>
@@ -85,9 +85,9 @@ require "projet/partials/footer.php";
             <div class="footer-info">
                 <h3>Power Of Memory</h3>
                 <ul class="lorem-text">
-                    <li> Play !</li>
-                    <li> Scores</li>
-                    <li> Contact us</li>
+                    <li><a href="<?= PROJECT_FOLDER ?>games/memory/index.php"> Play !</a></li>
+                    <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php"> Scores</a></li>
+                    <li><a href="<?= PROJECT_FOLDER ?>contact.php"> Contact us</a></li>
                 </ul>
             </div>
             <div></div>
