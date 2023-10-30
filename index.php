@@ -1,8 +1,8 @@
 <?php
-require "projet/utils/common.php";
-require "projet/partials/head.php";
-require "projet/partials/header.php";
-require "projet/partials/footer.php";
+require "utils/common.php";
+require "partials/head.php";
+require "partials/header.php";
+require "partials/footer.php";
 ?>
 
 <!DOCTYPE html>
