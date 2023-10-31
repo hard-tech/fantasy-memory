@@ -4,8 +4,8 @@ function connectToDbAndGetPdo() : PDO {
     $host = 'localhost';
 
     $dsn = "mysql:dbname=$dbname;host=$host;charset=utf8";
-    $user = 'dev';
-    $pass = '@Fantasy.Memory.06.01/';
+    $user = 'root';
+    $pass = 'root';
 
     $driver_options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
