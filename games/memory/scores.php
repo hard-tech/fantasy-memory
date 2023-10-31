@@ -22,7 +22,7 @@ $page = "score";
                 <label for="inputText">Filters: </label>
                 <input type="text" id="inputText" name="filter">
                 <button type="submit">
-                    <span class="material-symbols-outlined">search</span>
+                   <span class="material-symbols-outlined">search</span>
                 </input>
             </form>
         </section>
