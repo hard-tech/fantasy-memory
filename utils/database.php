@@ -1,11 +1,11 @@
 <?php
 function connectToDbAndGetPdo() : PDO {
     $dbname = 'fantasy_memory';
-    $host = '127.0.0.1:3307';
+    $host = '127.0.0.1:3306';
 
     $dsn = "mysql:dbname=$dbname;host=$host;charset=utf8";
     $user = 'dev';
-    $pass = '@New.Tech.019.019/';
+    $pass = '@Fantasy.Memory.06.01/';
 
     $driver_options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
