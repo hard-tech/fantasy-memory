@@ -94,21 +94,53 @@ require "partials/footer.php";
             <div>
                 <div class="d-flex">
                     <div class="stats-box" id="stats-box-1">
-                        <p>310</p>
+                        <?php
+                            $pdoStatement = $pdo->prepare("
+                            SELECT COUNT(*) FROM scores;
+                            ");
+                            $pdoStatement->execute();
+                            $gamePlayed = $pdoStatement-> fetchColumn(0);
+                        ?>
+                                <p><?= $gamePlayed ?></p>
+                        <?php ?>
                         <span>Games Played</span>
                     </div>
                     <div class="stats-box" id="stats-box-2">
-                        <p>1020</p>
+                        <?php
+                            $pdoStatement = $pdo->prepare("
+                            SELECT COUNT(*) FROM players;
+                            ");
+                            $pdoStatement->execute();
+                            $playerConnected = $pdoStatement-> fetchColumn(0);
+                        ?>
+                                <p><?= $playerConnected - 4 ?></p>
+                        <?php ?>
                         <span>Player Connected</span>
                     </div>
                 </div>
                 <div class="d-flex">
                     <div class="stats-box" id="stats-box-3">
-                        <p>10 sec</p>
+                        <?php
+                            $pdoStatement = $pdo->prepare("
+                            SELECT MIN(score) FROM scores;
+                            ");
+                            $pdoStatement->execute();
+                            $bestScore = $pdoStatement-> fetchColumn(0);
+                        ?>
+                                <p><?= $bestScore * 60 . ' sec'?></p>
+                        <?php ?>
                         <span>Record Time</span>
                     </div>
                     <div class="stats-box" id="stats-box-4">
-                        <p>21 300</p>
+                        <?php
+                            $pdoStatement = $pdo->prepare("
+                            SELECT COUNT(*) FROM players;
+                            ");
+                            $pdoStatement->execute();
+                            $playerRegistred = $pdoStatement-> fetchColumn(0);
+                        ?>
+                                <p><?= $playerRegistred ?></p>
+                        <?php ?>
                         <span>Player Registered</span>
                     </div>
                 </div>

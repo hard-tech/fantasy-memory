@@ -88,11 +88,11 @@ VALUES (1, 1, 'medium', 23), (1, 1, 'hard', 234), (1, 1, 'medium', 43),
 	   (1, 1, 'easy', 34), (1, 1, 'medium', 456), (2, 1, 'easy', 45),
 	   (2, 1, 'easy', 456), (2, 1, 'easy', 234), (2, 1, 'easy', 2345),
 	   (2, 1, 'hard', 6), (3, 1, 'medium', 45), (3, 1, 'hard', 74),
-	   (3, 1, 'hard', 65), (3, 1, 'easy', 4), (3, 1, 'hard', 475),
+	   (3, 1, 'hard', 65), (3, 1, 'easy', 9), (3, 1, 'hard', 475),
 	   (4, 1, 'easy', 753), (4, 1, 'hard', 457), (4, 1, 'medium', 63456),
 	   (4, 1, 'easy', 8643), (4, 1, 'hard', 34509), (5, 1, 'hard', 3),
-	   (5, 1, 'hard', 2), (5, 1, 'easy', 7), (5, 1, 'hard', 0),
-	   (5, 1, 'medium', 1);
+	   (5, 1, 'hard', 55), (5, 1, 'easy', 11), (5, 1, 'hard', 22),
+	   (5, 1, 'medium', 22);
 
 INSERT INTO messages(game_id, player_id, message, message_timestamp)
 VALUES
@@ -212,7 +212,7 @@ VALUES (7, 1, 'easy', 6969);
 SELECT * FROM scores AS s JOIN players AS p ON s.player_id = p.id
 WHERE p.pseudo LIKE '%sword';
 
-/*
+/22
 	Story 14: Add test data and manage message creation and deletion
 */
 
