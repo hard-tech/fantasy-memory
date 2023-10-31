@@ -13,7 +13,7 @@ $page = "home";
         <section  class="big-banner"> 
             <h1>WELCOME TO <br/> OUR STUDIO !</h1>
             <h3>Come and challenge the most agile minds !</h3>    
-            <a class="button" href="games/index.php">Play !</a>
+            <a class="button" href="games/memory/index.php">Play !</a>
         </section>
 
         <section class="container lorem-container no-margin-bot justify-content-space-between">
