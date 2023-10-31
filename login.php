@@ -6,8 +6,7 @@ function tryToLogin($email, $pwd) {
     $pdo = connectToDbAndGetPdo();
 
     $pdoStatement = $pdo->prepare("SELECT p.id, p.pseudo FROM players AS p
-        WHERE p.email = ':email' AND p.pwd = ':pwd'
-    ");
+        WHERE p.email = :email AND p.pwd = :pwd");
     $pdoStatement->execute([':email' => $email, ':pwd' => $pwd]);
     $player = $pdoStatement->fetch();
 
@@ -15,16 +14,12 @@ function tryToLogin($email, $pwd) {
         throw new Exception("The mail or the password is invalid.");
     }
 
-    $pdo->prepare("UPDATE players AS p
-        WHERE p.email = ':email'
-        SET latest_connection_timestamp=NOW();
-    ");
+    $pdoStatement = $pdo->prepare("UPDATE players AS p 
+        SET latest_connection_timestamp=NOW()
+        WHERE p.email = :email");
     $pdoStatement->execute([':email' => $email]);
 
-    $_SESSION["user"] = [
-        "id" => $player->id,
-        "pseudo" => $player->pseudo
-    ];
+    $_SESSION["user"] = [ "id" => $player->id, "pseudo" => $player->pseudo ];
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -46,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="banner">
             <h1>SIGN IN</h1>
         </section>
-        <section class="container justify-content-center">
+        <section class="container justify-content-center no-margin-bot">
             <form method="post" class="form-std">
                 <input type="text" placeholder="Email" name="email"></input>
                 <input type="text" placeholder="Password" name="pwd"></input>
@@ -54,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <button type="submit">Log in</button>
                 </div>
             </form>
-            <?php if(isset($errorMessage)): ?>
-                <p><<?= $errorMessage ?>/p>
-            <?php endif; ?>
         </section>
+            <?php if(isset($errorMessage)): ?>
+                <br/><p style="text-align: center"><?= $errorMessage ?></p>
+            <?php endif; ?>
     </main>
     <?php include('partials/footer.php'); ?>
 </body>
