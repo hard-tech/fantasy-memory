@@ -28,7 +28,7 @@ require "partials/footer.php";
             <a href="<?= PROJECT_FOLDER ?>index.php"><h3>The Power Of Memory</h3></a>
             <ul>
                 <li><a id="active">Home</a></li>
-                <li><a href="<?= PROJECT_FOLDER ?>games/memory/index.php">Games</a></li>
+                <li><a href="<?= PROJECT_FOLDER ?>games/index.php">Games</a></li>
                 <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php">Scoreboard</a></li>
                 <li><a href="<?= PROJECT_FOLDER ?>shop.php">Shop</a></li>
                 <li><a href="<?= PROJECT_FOLDER ?>contact.php">Contact Us</a></li>
@@ -41,7 +41,7 @@ require "partials/footer.php";
         <section  class="big-banner"> 
             <h1>WELCOME TO <br/> OUR STUDIO !</h1>
             <h3>Come and challenge the most agile minds !</h3>    
-            <a class="button" href="games/memory/index.php">Play !</a>
+            <a class="button" href="games/index.php">Play !</a>
         </section>
 
         <section class="container lorem-container no-margin-bot justify-content-space-between">
@@ -188,7 +188,7 @@ require "partials/footer.php";
             <div class="footer-info">
                 <h3>Power Of Memory</h3>
                 <ul class="lorem-text">
-                    <li><a href="<?= PROJECT_FOLDER ?>games/memory/index.php"> Play !</a></li>
+                    <li><a href="<?= PROJECT_FOLDER ?>games/index.php"> Play !</a></li>
                     <li><a href="<?= PROJECT_FOLDER ?>games/memory/scores.php"> Scores</a></li>
                     <li><a href="<?= PROJECT_FOLDER ?>contact.php"> Contact us</a></li>
                 </ul>

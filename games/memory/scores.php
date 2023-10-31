@@ -16,6 +16,7 @@ require "../../partials/footer.php";
     
     <link rel="stylesheet" href="assets/css/normalize.css">
     <script src="https://kit.fontawesome.com/6abcad6372.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
@@ -41,11 +42,21 @@ require "../../partials/footer.php";
         <section class="banner">
             <h1>Scoreboard</h1>
         </section>
+        <section class="container justify-content-center no-margin-bot">
+            <form method="post">
+                <label for="inputText">Filters: </label>
+                <input type="text" id="inputText" name="filter">
+                <button type="submit">
+                    <span class="material-symbols-outlined">search</span>
+                </input>
+            </form>
+        </section>
         <section class="container justify-content-center">
             <table>
                 <thead>
                     <tr>
                         <td>Pseudo</td>
+                        <td>Game</td>
                         <td>Game difficulty</td>
                         <td>Score</td>
                         <td>Date and time</td>
@@ -53,13 +64,38 @@ require "../../partials/footer.php";
                 </thead>
                 <tbody>
                 <?php 
-                    $pdoStatement = $pdo->prepare("SELECT p.pseudo, s.game_difficulty, s.score, s.score_timestamp FROM scores AS s LEFT JOIN players AS p ON s.player_id = p.id LEFT JOIN games AS g ON s.game_id = g.id ORDER BY g.name, s.game_difficulty, s.score DESC;");
+                    $filter = '';
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        $filter = $_POST["filter"];
+                    } else {
+                        $filter = '';
+                    }
+
+                    if ($filter != '') {
+                        $pdoStatement = $pdo->prepare("
+                            SELECT p.pseudo, g.name, s.game_difficulty, s.score, s.score_timestamp
+                            FROM scores AS s 
+                            LEFT JOIN players AS p ON s.player_id = p.id
+                            LEFT JOIN games AS g ON s.game_id = g.id
+                            WHERE p.pseudo = '$filter'
+                            OR g.name = '$filter' 
+                            OR s.game_difficulty = '$filter'
+                            ORDER BY g.name, s.game_difficulty, s.score DESC;");
+                    } else {
+                        $pdoStatement = $pdo->prepare("
+                            SELECT p.pseudo, g.name, s.game_difficulty, s.score, s.score_timestamp
+                            FROM scores AS s 
+                            LEFT JOIN players AS p ON s.player_id = p.id
+                            LEFT JOIN games AS g ON s.game_id = g.id
+                            ORDER BY g.name, s.game_difficulty, s.score DESC;");
+                    }
                     $pdoStatement->execute();
                     $scores = $pdoStatement->fetchAll();
                     foreach($scores as $s) {
                 ?>
                     <tr>
                         <td><?= $s->pseudo ?></td>
+                        <td><?= $s->name ?></td>
                         <td><?= ucfirst($s->game_difficulty) ?></td>
                         <td><?= $s->score ?></td>
                         <td><?= $s->score_timestamp ?></td>
