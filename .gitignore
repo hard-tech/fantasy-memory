@@ -1,3 +1,2 @@
 .DS_Store
-./utils/database.php
-sync.sh
+utils/database.php
