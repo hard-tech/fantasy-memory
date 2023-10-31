@@ -1,4 +1,4 @@
-<header>
+<header <?php if($page != "home") { echo "class= alt-navbar";}?>>
         <nav>
             <a href="<?= PROJECT_FOLDER ?>index.php"><h3>The Power Of Memory</h3></a>
             <ul>

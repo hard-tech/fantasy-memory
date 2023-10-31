@@ -10,8 +10,7 @@ $page = "register";
 <?php include('partials/head.php'); ?>
 
 <body>
-<?php include('partials/header.php'); ?>
-
+    <?php include('partials/header.php'); ?>
 
     <main>
         <section class="banner">
@@ -31,7 +30,6 @@ $page = "register";
     </main>
 
     <?php include('partials/footer.php'); ?>
-
 </body>
 
 </html>

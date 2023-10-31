@@ -1,4 +1,3 @@
-
 <head>
     <meta name="description" content="Project Flash from Coding Factory">
     <meta charset="UTF-8">

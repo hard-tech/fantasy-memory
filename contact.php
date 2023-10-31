@@ -11,8 +11,7 @@ $page = "contact";
 
 
 <body>
-<?php include('partials/header.php'); ?>
-
+    <?php include('partials/header.php'); ?>
 
     <main>
         <section class="banner">
@@ -60,6 +59,7 @@ $page = "contact";
             </form>
         </section>
     </main>
+
     <?php include('partials/footer.php'); ?>
 </body>
 

@@ -11,8 +11,8 @@ $page = "myaccount";
 
 
 <body>
-<?php include('partials/headerphp'); ?>
 
+<?php include('partials/header.php'); ?>
 
     <main>
         <section class="banner">

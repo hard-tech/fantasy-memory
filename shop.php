@@ -9,8 +9,7 @@ $page = "shop";
 
 
 <body>
-<?php include('partials/header.php'); ?>
-
+    <?php include('partials/header.php'); ?>
 
     <main>
         <section class="banner">
@@ -56,7 +55,6 @@ $page = "shop";
     </main>
     
     <?php include('partials/footer.php'); ?>
-
 </body>
 
 </html>
