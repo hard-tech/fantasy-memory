@@ -8,33 +8,13 @@
     One property classes wrapper
 */
 
-.no-margin-bot {
-    margin-bottom: 0 !important;
-}
-
-.nowrap {
-    flex-wrap: nowrap !important;
-}
-
-.justify-content-flex-start {
-    justify-content: flex-start !important;
-}
-
-.justify-content-center {
-    justify-content: center !important;
-}
-
-.justify-content-space-between {
-    justify-content: space-between !important;
-}
-
-.d-flex {
-    display: flex !important;
-}
-
-.flex-column {
-    flex-direction: column;
-}
+.no-margin-bot { margin-bottom: 0 !important; }
+.nowrap { flex-wrap: nowrap !important; }
+.justify-content-flex-start { justify-content: flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-space-between { justify-content: space-between !important; }
+.d-flex { display: flex !important; }
+.flex-column { flex-direction: column; }
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24
@@ -209,6 +189,13 @@ form.form-std div input {
     width: 190px;
     height: 40px;
     margin: 10px 0px;
+}
+
+.form-error p {
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    text-align: center;
 }
 
 /* 

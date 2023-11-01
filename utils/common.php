@@ -1,4 +1,10 @@
 <?php
+
+function checkFields(...$fields) {
+    foreach($fields as $f) if (empty($f)) return false;
+    return true;
+}
+
 require_once "database.php";
 
 ini_set('display_errors', 1);

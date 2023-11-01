@@ -2,9 +2,9 @@
 require "utils/common.php";
 $page = "login";
 
-function tryToLogin($email, $pwd) {
-    $pdo = connectToDbAndGetPdo();
-
+function tryToLogin($pdo, $email, $pwd) {
+    if (checkFields($email, $pwd)) throw new Exception("Missing fields !");
+    
     $pdoStatement = $pdo->prepare("SELECT p.id, p.pseudo FROM players AS p
         WHERE p.email = :email AND p.pwd = :pwd");
     $pdoStatement->execute([':email' => $email, ':pwd' => $pwd]);
@@ -15,17 +15,17 @@ function tryToLogin($email, $pwd) {
     }
 
     $pdoStatement = $pdo->prepare("UPDATE players AS p 
-        SET latest_connection_timestamp=NOW()
+        SET p.latest_connection_timestamp=NOW()
         WHERE p.email = :email");
     $pdoStatement->execute([':email' => $email]);
 
     $_SESSION["user"] = [ "id" => $player->id, "pseudo" => $player->pseudo ];
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
-        tryToLogin($_POST["email"], $_POST["pwd"]);
-        header("location: /fantasy-memory/index.php");
+        tryToLogin($pdo, $_POST["email"], $_POST["pwd"]);
+        header("location: ".PROJECT_FOLDER."index.php");
     } catch(Exception $e) {
         $errorMessage = $e->getMessage();
     }
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="banner">
             <h1>SIGN IN</h1>
         </section>
-        <section class="container justify-content-center no-margin-bot">
+        <section class="container justify-content-center">
             <form method="post" class="form-std">
                 <input type="text" placeholder="Email" name="email"></input>
                 <input type="text" placeholder="Password" name="pwd"></input>
@@ -50,9 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </form>
         </section>
-            <?php if(isset($errorMessage)): ?>
-                <br/><p style="text-align: center"><?= $errorMessage ?></p>
-            <?php endif; ?>
+        <?php if(isset($errorMessage)): ?>
+            <br/>
+            <div class="form-error"><p><?= $errorMessage ?></p></div>
+        <?php endif; ?>
     </main>
     <?php include('partials/footer.php'); ?>
 </body>
