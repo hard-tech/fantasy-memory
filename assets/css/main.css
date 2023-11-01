@@ -681,6 +681,15 @@ main#game table {
     Sign in and sign up page properties (login.html, register.html) 
 */
 
+section#register{
+    display: flex;
+    flex-direction: column;
+}
+
+form#register-form{
+    margin-bottom: 30px;
+}
+
 .contact-container {
     width: var(--container-width);
     display: flex;

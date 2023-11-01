@@ -1,7 +1,6 @@
 <?php
 require "../../utils/common.php";
 $page = "score";
-
 ?>
 
 <!DOCTYPE html>
