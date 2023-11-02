@@ -37,7 +37,7 @@ $page = "game";
     </main>
 
     <?php include('../../partials/footer.php'); ?>
-    <?php if (isset($errorMessage)) : ?>
+    <?php if (isset($_SESSION["user"])) : ?>
         <?php include('../../chat.php'); ?>
     <?php endif; ?>
 </body>

@@ -1,9 +1,10 @@
 <?php
-    if(isset($_POST["sendMessage"]) && $_POST["sendMessage"] !== ""){
-        $sendMessage = $_POST["sendMessage"];
-        $pdo = connectToDbAndGetPdo();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $sendMessage = $_POST["sendMessage"];
+    if(isset($sendMessage) && !empty($sendMessage)) {
         $pdoStatement = $pdo->prepare("
-            INSERT INTO messages (game_id, player_id, message) VALUES (:gameId, :playerId, :messageContent);
+            INSERT INTO messages (game_id, player_id, message)
+            VALUES (:gameId, :playerId, :messageContent);
         ");
         $result = $pdoStatement->execute([
             ":messageContent" => $sendMessage,
@@ -12,6 +13,7 @@
         ]);
         header("refresh:0");
     }
+}
 ?>
 
 <div class="game-chat">
