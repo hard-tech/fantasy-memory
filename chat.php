@@ -26,9 +26,18 @@
             <div>
                 <div class="d-flex">
                     <div class="icon-chat">
-                        <img src="https://cdn-icons-png.flaticon.com/512/6785/6785675.png" width="50px" alt="">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/6785/6785675.png" width="50px" alt=""> -->
+                        <?php
+                            $url = 'https://api.thecatapi.com/v1/images/search?mime_types=gif';
+                            $data = file_get_contents($url);
+
+                            // Convertir les données JSON en tableau associatif
+                            $catData = json_decode($data, true);
+                        ?>
+                        <img src=<?= $catData[0]["url"] ?> alt="Cat GIF" alt="CAT GIF">
                     </div>
-                    <div class="circle-green"></div>
+                    <div class="circle-green">
+                    </div>
                     <h2 id="chat-title">Chat Room</h2>
                 </div>
             </div>
