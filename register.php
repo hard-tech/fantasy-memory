@@ -8,7 +8,7 @@
             throw new Exception("Le format de l'e-mail n'est pas valide");
         }
 
-        if (strlen($pseudo) <= 4) {
+        if (strlen($pseudo) <= 3) {
             throw new Exception("Le pseudo doit contenir au moins 4 caractères");
         }
 
