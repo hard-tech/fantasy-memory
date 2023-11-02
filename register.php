@@ -40,12 +40,15 @@ function tryToRegister($pdo, $email, $pseudo, $pwd, $confirm)
         throw new Exception("This email is already linked to an account.");
     }
 
+
     $pdoStatement = $pdo->prepare("INSERT INTO players (pseudo, email, pwd) 
         VALUES (:pseudo, :email, :hashpwd);");
     $result = $pdoStatement->execute([
         ":pseudo" => $pseudo,
         ":email" => $email,
-        ":hashpwd" => hash("sha256", $pwd)]);
+        ":hashpwd" => hash("sha256", $pwd)
+    ]);
+
     if ($result === false) {
         throw new Exception("Failed to register the account !");
     }

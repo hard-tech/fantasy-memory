@@ -10,6 +10,7 @@
             ":playerId" => $_SESSION["user"]["id"],
             ":gameId" => 1,
         ]);
+        header("refresh:0");
     }
 ?>
 
@@ -48,7 +49,7 @@
                 <!-- message envoyer / Reçu -->
                 <?php 
                     $pdoStatement = $pdo->prepare("
-                        SELECT m.message, p.pseudo, m.message_timestamp,
+                        SELECT m.message, p.pseudo, m.message_timestamp, p.profilePictureUrl,
                         CASE WHEN player_id = :MyId THEN TRUE ELSE FALSE END AS isSender
                         FROM messages AS m
                         LEFT JOIN players AS p ON m.player_id = p.id
@@ -62,13 +63,21 @@
                     foreach($messages as $m) {
                 ?>
                         <div class="<?= $m->isSender == 1 ? 'chat-send-by-me' : 'chat-send-by-other' ?>">
-                                <div class="chat-my_name"><?= $m->pseudo ?></div>
-                                <div class="chat-message <?= $m->isSender == 1 ? 'chat-message-send-by-me' : 'chat-message-send-by-other' ?>">
-                                    <?= $m->message ?>
+                            <div class="infos-message <?= $m->isSender == 1 ? 'flex-row-reverse' : 'flex-row' ?>">
+                                <img src="<?= $m->profilePictureUrl ?>" class="pp-players" alt="">
+                                <div class="<?= $m->isSender == 1 ? 'stack-message-me' : 'stack-message-other' ?>">
+                                    <div class="chat-my_name"><?= $m->pseudo ?></div>
+                                    <div class="chat-message <?= $m->isSender == 1 ? 'chat-message-send-by-me' : 'chat-message-send-by-other' ?>">
+                                        <?= $m->message ?>
+                                    </div>
+                                    <div class="chat-time">
+                                        <?php
+                                            $DateSend = new DateTime($m->message_timestamp);
+                                            echo $DateSend -> format('l jS \of F Y h:i:s A');
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="DateChat">
-                                    <?= $m->message_timestamp ?>
-                                </div>
+                            </div>
                         </div>
                 <?php } ?>
             </div>
