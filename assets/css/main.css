@@ -191,10 +191,17 @@ form.form-std div input {
     margin: 10px 0px;
 }
 
-.form-error p {
+.form-error {
     margin: 0;
     padding: 0;
     background-color: red;
+    text-align: center;
+}
+
+.form-success {
+    margin: 0;
+    padding: 0;
+    background-color: green;
     text-align: center;
 }
 

@@ -1,94 +1,93 @@
-    <?php
-    require "utils/common.php";
-    $page = "register";
+<?php
+require "utils/common.php";
+$page = "register";
 
-    function tryToRegister($email, $pseudo, $password, $confirmpassword)
-    {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception("Le format de l'e-mail n'est pas valide");
-        }
+if (isset($_SESSION["user"])) header("location: ".PROJECT_FOLDER."index.php");
 
-        if (strlen($pseudo) <= 4) {
-            throw new Exception("Le pseudo doit contenir au moins 4 caractères");
-        }
-
-        if ($password !== $confirmpassword) {
-            throw new Exception("Les mots de passe ne correspondent pas");
-        }
-
-        $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/';
-        if (!preg_match($pattern, $password)) {
-            throw new Exception('Le password ne respect pas les critère min requis (Minuscules / Majuscule / Caractère spéciaux / Chiffre)');
-        }
-
-        try {
-            $pdo = connectToDbAndGetPdo();
-            $pdoStatement = $pdo->prepare("
-                INSERT INTO players (pseudo, email, pwd) 
-                VALUES (:pseudo, :email, :hashedpassword);
-            ");
-            $pdoStatement->execute([
-                ":pseudo" => $pseudo,
-                ":hashedpassword" => hash("sha256", $password),
-                ":email" => $email,
-            ]);
-            echo '<meta http-equiv="refresh" content="5;url=' . PROJECT_FOLDER . 'index.php" />';
-            echo "Merci pour votre inscription, le formulaire a bien été envoyé. Redirection dans 5 secondes...";
-        } catch (Exception $e) {
-            throw new Exception("Utilisateur probablement existant.");
-        }
-        // } catch (Exception $e) {
-        //     echo "Erreur lors de l'inscription : " . $e->getMessage();
-        // }
+function tryToRegister($email, $pseudo, $pwd, $confirm)
+{
+    if (!checkFields($email, $pseudo, $pwd, $confirm)) {
+        throw new Exception("Missing fields !");
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new Exception("Invalid email !");
+    }
+    if (strlen($pseudo) <= 3) {
+        throw new Exception("The pseudo should contains at least 4 characters");
+    }
+    if ($pwd !== $confirm) {
+        throw new Exception("The corfirm password field should be the same !");
+    }
+    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/';
+    if (!preg_match($pattern, $pwd)) {
+        throw new Exception("The password must be 8 characters and must have at
+            least a number, a capital letter and a special character !");
     }
 
-    ?>
+    $pdo = connectToDbAndGetPdo();
+    $pdoStatement = $pdo->prepare("SELECT p.pseudo, p.email FROM players AS p 
+        WHERE p.pseudo = :pseudo AND p.email = :email");
+    $result = $pdoStatement->execute([":pseudo" => $pseudo, ":email" => $email]);
+    if (empty($result)) {
+        throw new Exception("The pseudo or the email alreaady exists !");
+    }
 
-    <!DOCTYPE html>
-    <html lang="fr">
+    $pdoStatement = $pdo->prepare("INSERT INTO players (pseudo, email, pwd) 
+        VALUES (:pseudo, :email, :hashpwd)");
+    $result = $pdoStatement->execute([
+        ":pseudo" => $pseudo,
+        ":email" => $email,
+        ":hashpwd" => hash("sha256", $pwd)]);
+    if ($result === false) {
+        throw new Exception("Failed to register the account !");
+    }
+}
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    try {
+        tryToRegister($_POST["email"], $_POST["pseudo"], $_POST["pwd"], 
+            $_POST["confirm"]);
+        echo '<meta http-equiv="refresh" content="5;url=' . PROJECT_FOLDER . 'index.php" />';
+        $successMessage = "Merci pour votre inscription, le formulaire a bien été envoyé. Redirection dans 5 secondes...";
+    } catch (Exception $e) {
+        $errorMessage = $e->getMessage();
+    }
+}
+?>
 
-    <?php include('partials/head.php'); ?>
+<!DOCTYPE html>
+<html lang="fr">
 
-    <body>
-        <?php include('partials/header.php'); ?>
+<?php include('partials/head.php'); ?>
 
-        <main>
-            <section class="banner">
-                <h1>SIGN UP</h1>
-            </section>
-            <section class="container justify-content-center" id="register">
-                <form class="form-std" method="post" id="register-form">
-                    <input name="email" type="text" placeholder="e-mail" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>"></input>
-                    <input name="pseudo" type="text" placeholder="Pseudo" value="<?= isset($_POST["pseudo"]) ? $_POST["pseudo"] : "" ?>"></input>
-                    <input name="password" type="password" placeholder="Password" value="<?= isset($_POST["password"]) ? $_POST["password"] : "" ?>"></input>
-                    <input name="confirmpassword" type="password" placeholder="Confirm password" value="<?= isset($_POST["confirmpassword"]) ? $_POST["confirmpassword"] : "" ?>"></input>
-                    <div>
-                        <button type="submit">Sign up</button>
-                    </div>
-                </form>
-                <?php
+<body>
+    <?php include('partials/header.php'); ?>
 
-                if (
-                    !empty($_POST["email"]) &&
-                    !empty($_POST["pseudo"]) &&
-                    !empty($_POST["password"]) &&
-                    !empty($_POST["confirmpassword"])
-                ) {
-                    try {
-                        $email = $_POST["email"];
-                        $pseudo = $_POST["pseudo"];
-                        $password = $_POST["password"];
-                        $confirmpassword = $_POST["confirmpassword"];
+    <main>
+        <section class="banner">
+            <h1>SIGN UP</h1>
+        </section>
+        <?php if(isset($errorMessage)): ?>
+            <p class="form-error"><?= $errorMessage ?></p>
+            <br/>
+        <?php elseif(isset($successMessage)): ?>
+            <p class="form-success"><?= $successMessage ?></p>
+            <br/>
+        <?php endif; ?>
+        <section class="container justify-content-center" id="register">
+            <form class="form-std" method="post" id="register-form">
+                <input name="email" type="text" placeholder="E-mail" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>"></input>
+                <input name="pseudo" type="text" placeholder="Pseudo" value="<?= isset($_POST["pseudo"]) ? $_POST["pseudo"] : "" ?>"></input>
+                <input name="pwd" type="password" placeholder="Password" value="<?= isset($_POST["pwd"]) ? $_POST["pwd"] : "" ?>"></input>
+                <input name="confirm" type="password" placeholder="Confirm password" value="<?= isset($_POST["confirm"]) ? $_POST["confirm"] : "" ?>"></input>
+                <div>
+                    <button type="submit">Sign up</button>
+                </div>
+            </form>
+            <?php
+            ?>
+        </section>
+    </main>
+    <?php include('partials/footer.php'); ?>
+</body>
 
-                        tryToRegister($email, $pseudo, $password, $confirmpassword);
-                    } catch (Exception $e) {
-                        echo $e->getMessage();
-                    }
-                }
-                ?>
-            </section>
-        </main>
-        <?php include('partials/footer.php'); ?>
-    </body>
-
-    </html>
+</html>
