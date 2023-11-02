@@ -26,18 +26,21 @@ function tryToRegister($email, $pseudo, $pwd, $confirm)
 
     $pdo = connectToDbAndGetPdo();  
     $pdoStatement = $pdo->prepare("SELECT p.pseudo, p.email FROM players AS p 
-        WHERE p.pseudo = :pseudo AND p.email = :email;");
-    $result = $pdoStatement->execute([":pseudo" => $pseudo, ":email" => $email]);
-    if (empty($result)) {
+        WHERE p.pseudo = :pseudo OR p.email = :email;");
+    $pdoStatement->execute([":pseudo" => $pseudo, ":email" => $email]);
+    if ($pdoStatement->rowCount() > 0) {
         throw new Exception("The pseudo or the email alreaady exists !");
     }
+
 
     $pdoStatement = $pdo->prepare("INSERT INTO players (pseudo, email, pwd) 
         VALUES (:pseudo, :email, :hashpwd);");
     $result = $pdoStatement->execute([
         ":pseudo" => $pseudo,
         ":email" => $email,
-        ":hashpwd" => hash("sha256", $pwd)]);
+        ":hashpwd" => hash("sha256", $pwd)
+    ]);
+
     if ($result === false) {
         throw new Exception("Failed to register the account !");
     }
