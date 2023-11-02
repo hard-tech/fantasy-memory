@@ -13,7 +13,7 @@ $page = "game";
 <?php include('../../partials/header.php'); ?>
 
     <main id="game">
-        <?php if (isset($errorMessage)) : ?>
+        <?php if (isset($_SESSION["user"])) : ?>
             <table>
                 <tbody>
                     <?php for($i=0; $i < 3; $i++) {?>
