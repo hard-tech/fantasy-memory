@@ -8,13 +8,8 @@ function tryToUploadProfilePicture($pdo, $old, $profilePicture)
         throw new Exception("No file specified !");
     }
 
-    $pdoStatement = $pdo->prepare("SELECT p.pseudo FROM players AS p
-        WHERE p.id = :id");
-    $pdoStatement->execute([":id" => $_SESSION["user"]["id"]]);
-    $pseudo = $pdoStatement->fetch();
-
     $imageFileType = strtolower(pathinfo($profilePicture["name"], PATHINFO_EXTENSION));
-    $targetDirectory = "data/" . hash("sha256", $_SESSION["user"][$pseudo]);
+    $targetDirectory = "data/" . hash("sha256", $_SESSION["user"]["pseudo"]);
     $path = $targetDirectory . '/' .
         hash("sha256", basename($profilePicture["name"])) . "." . $imageFileType;
 
@@ -27,10 +22,6 @@ function tryToUploadProfilePicture($pdo, $old, $profilePicture)
             $imageFileType != "jpeg" && $imageFileType != "gif"
         ) {
             throw new Exception("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
-        }
-        list($width, $height) = getimagesize($profilePicture["tmp_name"]);
-        if ($width < 150 && $height < 150) {
-            throw new Exception("The picture resolution should be between 150x150");
         }
 
         if (!file_exists($targetDirectory)) {
