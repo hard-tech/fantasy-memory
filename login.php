@@ -11,7 +11,6 @@ function tryToLogin($pdo, $email, $pwd) {
         WHERE p.email = :email AND p.pwd = :pwd");
     $pdoStatement->execute([":email" => $email, ":pwd" => hash("sha256", $pwd)]);
     $player = $pdoStatement->fetch();
-
     if (empty($player)) {
         throw new Exception("The mail or the password is invalid.");
     }
@@ -21,7 +20,6 @@ function tryToLogin($pdo, $email, $pwd) {
     $pdoStatement->execute([':email' => $email]);
 
     $_SESSION["user"] = [ "id" => $player->id, "pseudo" => $player->pseudo ];
-
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

@@ -16,7 +16,8 @@ CREATE TABLE players (
 	pseudo VARCHAR(256) NOT NULL UNIQUE,
     email VARCHAR(256) NOT NULL UNIQUE,
     pwd VARCHAR(256) NOT NULL,
-    sign_up_timestamp DATETIME DEFAULT NOW(),
+	profilePictureUrl VARCHAR(1024) NULL DEFAULT NULL,
+    sign_up_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     latest_connection_timestamp DATETIME
 ) ENGINE=INNODB;
 
@@ -26,7 +27,7 @@ CREATE TABLE scores (
     game_id INT UNSIGNED NOT NULL,
 	game_difficulty ENUM('easy', 'medium', 'hard') NOT NULL,
     score INT UNSIGNED NOT NULL,
-    score_timestamp DATETIME DEFAULT NOW()
+    score_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=INNODB;
 
 CREATE TABLE messages (
@@ -34,7 +35,7 @@ CREATE TABLE messages (
     game_id INT UNSIGNED NOT NULL,
     player_id INT UNSIGNED NOT NULL,
     message TEXT NOT NULL,
-    message_timestamp DATETIME DEFAULT NOW()
+    message_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=INNODB;
 
 /*
@@ -46,7 +47,7 @@ CREATE TABLE private_messages (
     first_player_id INT UNSIGNED NOT NULL,
     second_player_id INT UNSIGNED NOT NULL,
 	message VARCHAR(256),
-    sent_timestamp DATETIME DEFAULT NOW(),
+    sent_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     read_timestamp DATETIME,
     isRead BOOLEAN DEFAULT false
 ) ENGINE=INNODB;
