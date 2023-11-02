@@ -14,7 +14,8 @@
 .justify-content-center { justify-content: center !important; }
 .justify-content-space-between { justify-content: space-between !important; }
 .d-flex { display: flex !important; }
-.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24
@@ -581,12 +582,39 @@ main#game table {
 }
 
 #chat-main {
-    /* display: flex; */
+    display: flex;
     width: 380px;
     position: relative;
     right: -20px;
-    overflow-y: scroll;
+    overflow-y: auto;
     color: #333;
+
+    flex-direction: column-reverse;
+}
+
+.infos-message{
+    display: flex;
+    align-items: center;
+}
+
+.pp-players{
+    border-radius: 50%;
+    background-color: #4949ff;
+    border : 2px solid white;
+    margin: 0px 5px;
+
+    width: 50px;
+    height: 50px;
+}
+
+.chat-my_name{
+    font-size: 15px;
+    color: #444242;
+} 
+
+.chat-time{
+    font-size: 12px;
+    color: #7e7e7e;
 }
 
 #content-message {
@@ -633,6 +661,19 @@ main#game table {
     align-items: flex-start;
     justify-content: flex-start;
     margin: 20px 0px;
+}
+
+
+.stack-message-me{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.stack-message-other{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
 .flex-chat {
