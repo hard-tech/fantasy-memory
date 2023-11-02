@@ -4,7 +4,7 @@ $page = "register";
 
 if (isset($_SESSION["user"])) header("location: ".PROJECT_FOLDER."index.php");
 
-function tryToRegister($email, $pseudo, $pwd, $confirm)
+function tryToRegister($pdo, $email, $pseudo, $pwd, $confirm)
 {
     if (!checkFields($email, $pseudo, $pwd, $confirm)) {
         throw new Exception("Missing fields !");
@@ -24,12 +24,20 @@ function tryToRegister($email, $pseudo, $pwd, $confirm)
             least a number, a capital letter and a special character !");
     }
 
-    $pdo = connectToDbAndGetPdo();  
-    $pdoStatement = $pdo->prepare("SELECT p.pseudo, p.email FROM players AS p 
-        WHERE p.pseudo = :pseudo OR p.email = :email;");
-    $pdoStatement->execute([":pseudo" => $pseudo, ":email" => $email]);
-    if ($pdoStatement->rowCount() > 0) {
-        throw new Exception("The pseudo or the email alreaady exists !");
+    $pdoStatement = $pdo->prepare("SELECT p.pseudo FROM players AS p 
+        WHERE p.pseudo = :pseudo");
+    $pdoStatement->execute([":pseudo" => $pseudo]);
+    $result = $pdoStatement->fetch();
+    if (!empty($result->pseudo)) {
+        throw new Exception("This pseudo already exists !");
+    }
+
+    $pdoStatement = $pdo->prepare("SELECT p.email FROM players AS p 
+        WHERE p.email = :email");
+    $pdoStatement->execute([":email" => $email]);
+    $result = $pdoStatement->fetch();
+    if (!empty($result->email)) {
+        throw new Exception("This email is already linked to an account.");
     }
 
 
@@ -47,7 +55,7 @@ function tryToRegister($email, $pseudo, $pwd, $confirm)
 }
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
-        tryToRegister($_POST["email"], $_POST["pseudo"], $_POST["pwd"], 
+        tryToRegister($pdo, $_POST["email"], $_POST["pseudo"], $_POST["pwd"], 
             $_POST["confirm"]);
         echo '<meta http-equiv="refresh" content="5;url=' . PROJECT_FOLDER . 'index.php" />';
         $successMessage = "Merci pour votre inscription, le formulaire a bien été envoyé. Redirection dans 5 secondes...";

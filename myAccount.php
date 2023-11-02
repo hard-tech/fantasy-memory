@@ -8,8 +8,13 @@ function tryToUploadProfilePicture($pdo, $old, $profilePicture)
         throw new Exception("No file specified !");
     }
 
+    $pdoStatement = $pdo->prepare("SELECT p.pseudo FROM players AS p
+        WHERE p.id = :id");
+    $pdoStatement->execute([":id" => $_SESSION["user"]["id"]]);
+    $pseudo = $pdoStatement->fetch();
+
     $imageFileType = strtolower(pathinfo($profilePicture["name"], PATHINFO_EXTENSION));
-    $targetDirectory = "data/" . hash("sha256", $_SESSION["user"]["id"]);
+    $targetDirectory = "data/" . hash("sha256", $_SESSION["user"][$pseudo]);
     $path = $targetDirectory . '/' .
         hash("sha256", basename($profilePicture["name"])) . "." . $imageFileType;
 
@@ -108,13 +113,15 @@ function tryToUpdatePwd($pdo, $old, $new, $confirm)
     }
 }
 
-$pdoStatement = $pdo->prepare("SELECT p.profilePictureUrl FROM players AS p
-    WHERE p.id = :id");
-$pdoStatement->execute([":id" => $_SESSION["user"]["id"]]);
-$result = $pdoStatement->fetch();
-$profilePicturePath = $result->profilePictureUrl;
-if (empty($profilePicturePath)) {
-    $profilePicturePath = null;
+if (isset($_SESSION["user"])) {
+    $pdoStatement = $pdo->prepare("SELECT p.profilePictureUrl FROM players AS p
+        WHERE p.id = :id");
+    $pdoStatement->execute([":id" => $_SESSION["user"]["id"]]);
+    $result = $pdoStatement->fetch();
+    $profilePicturePath = $result->profilePictureUrl;
+    if (empty($profilePicturePath)) {
+        $profilePicturePath = null;
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -209,7 +216,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <h1>You must be logged in to access to your account settings !</h1>
             </section>
             <section class="container justify-content-center">
-                <a class="button" href="login.php">Sign in</a>
+                <a class="button" href=<?= PROJECT_FOLDER."login.php"?>>Sign in</a>
             </section>
         <?php endif; ?>
     </main>
