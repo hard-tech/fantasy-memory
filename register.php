@@ -24,16 +24,16 @@ function tryToRegister($email, $pseudo, $pwd, $confirm)
             least a number, a capital letter and a special character !");
     }
 
-    $pdo = connectToDbAndGetPdo();
+    $pdo = connectToDbAndGetPdo();  
     $pdoStatement = $pdo->prepare("SELECT p.pseudo, p.email FROM players AS p 
-        WHERE p.pseudo = :pseudo AND p.email = :email");
+        WHERE p.pseudo = :pseudo AND p.email = :email;");
     $result = $pdoStatement->execute([":pseudo" => $pseudo, ":email" => $email]);
     if (empty($result)) {
         throw new Exception("The pseudo or the email alreaady exists !");
     }
 
     $pdoStatement = $pdo->prepare("INSERT INTO players (pseudo, email, pwd) 
-        VALUES (:pseudo, :email, :hashpwd)");
+        VALUES (:pseudo, :email, :hashpwd);");
     $result = $pdoStatement->execute([
         ":pseudo" => $pseudo,
         ":email" => $email,

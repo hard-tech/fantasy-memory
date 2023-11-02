@@ -619,7 +619,6 @@ main#game table {
 .flex-chat {
     display: flex;
     flex-direction: column;
-    align-items: start;
 }
 
 /*

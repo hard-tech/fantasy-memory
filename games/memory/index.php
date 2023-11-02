@@ -28,7 +28,6 @@ $page = "game";
     </main>
 
     <?php include('../../partials/footer.php'); ?>
-    <?php include('../../../chat.php'); ?>
+    <?php include('../../chat.php'); ?>
 </body>
-
 </html>
