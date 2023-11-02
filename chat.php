@@ -1,13 +1,24 @@
-<div class="collapse" tabindex="1">
-    <a id="open"><i class="fa-regular fa-comment"></i></a>
-    <div class="game-chat">
+<?php
+    if(isset($_POST["sendMessage"]) && $_POST["sendMessage"] !== ""){
+        $sendMessage = $_POST["sendMessage"];
+        $pdo = connectToDbAndGetPdo();
+        $pdoStatement = $pdo->prepare("
+            INSERT INTO messages (game_id, player_id, message) VALUES (:gameId, :playerId, :messageContent);
+        ");
+        $result = $pdoStatement->execute([
+            ":messageContent" => $sendMessage,
+            ":playerId" => $_SESSION["user"]["id"],
+            ":gameId" => 1,
+        ]);
+    }
+?>
+
+<div class="game-chat">
         <div id="group-arrow">
             <div id="arrow-down_up">
                 <a id="close">
-
-                <i class="fa-regular fa-circle-xmark"></i>
-                <input type="checkbox" id="game-chat-checkbox">
-                
+                    <i class="fa-regular fa-circle-xmark"></i>
+                    <input type="checkbox" id="game-chat-checkbox">
                 </a>
             </div>
         </div>
@@ -24,55 +35,42 @@
         </div>
         <div id="chat-main">
             <div id="content-message">
-                <div class="chat-send-by-me">
-                    <div class="flex-chat">
-                        <div class="chat-my_name">Me</div>
-                        <div class="chat-message chat-message-send-by-me">
-                            Hello Word
+
+                <!-- message envoyer / Reçu -->
+                <?php 
+                    $pdoStatement = $pdo->prepare("
+                        SELECT m.message, p.pseudo, m.message_timestamp,
+                        CASE WHEN player_id = :MyId THEN TRUE ELSE FALSE END AS isSender
+                        FROM messages AS m
+                        LEFT JOIN players AS p ON m.player_id = p.id
+                        LEFT JOIN games as g ON m.game_id = g.id;
+                    ");
+
+                    $pdoStatement->execute([
+                        ":MyId" => $_SESSION["user"]["id"]
+                    ]);
+                    $messages = $pdoStatement->fetchAll();
+                    foreach($messages as $m) {
+                ?>
+                        <div class="<?= $m->isSender == 1 ? 'chat-send-by-me' : 'chat-send-by-other' ?>">
+                                <div class="chat-my_name"><?= $m->pseudo ?></div>
+                                <div class="chat-message <?= $m->isSender == 1 ? 'chat-message-send-by-me' : 'chat-message-send-by-other' ?>">
+                                    <?= $m->message ?>
+                                </div>
+                                <div class="DateChat">
+                                    <?= $m->message_timestamp ?>
+                                </div>
                         </div>
-                        <div class="DateChat">
-                            Today at 20:45
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-send-by-other">
-                    <div class="flex-chat">
-                        <div class="chat-my_name">Lola</div>
-                        <div class="chat-message chat-message-send-by-other">
-                            UwU
-                        </div>
-                        <div class="DateChat">
-                            Today at 20:45
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-send-by-me">
-                    <div class="flex-chat">
-                        <div class="chat-my_name">Me</div>
-                        <div class="chat-message chat-message-send-by-me">
-                            Ho ...
-                        </div>
-                        <div class="DateChat">
-                            Today at 20:45
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-send-by-other">
-                    <div class="flex-chat">
-                        <div class="chat-my_name">Toma</div>
-                        <div class="chat-message chat-message-send-by-other">
-                            Grr XD
-                        </div>
-                        <div class="DateChat">
-                            Today at 20:45
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
-        <form id="chat-footer">
-            <input id="chat-input" type="text" placeholder="Your message">
-            <button id="chat-send-btn">Send</button>
+        <form method="post" id="chat-footer">
+            <input name="sendMessage" id="chat-input" type="text" placeholder="Your message">
+            <button type="submit" id="chat-send-btn">Send</button>
         </form>
     </div>
-</div>
+
+<!-- <div class="collapse" tabindex="1">
+    <a id="open"><i class="fa-regular fa-comment"></i></a>
+
+</div> -->
