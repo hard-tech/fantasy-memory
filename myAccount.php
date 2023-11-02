@@ -8,8 +8,13 @@ function tryToUploadProfilePicture($pdo, $old, $profilePicture)
         throw new Exception("No file specified !");
     }
 
+    $pdoStatement = $pdo->prepare("SELECT p.pseudo FROM players AS p
+        WHERE p.id = :id");
+    $pdoStatement->execute([":id" => $_SESSION["user"]["id"]]);
+    $pseudo = $pdoStatement->fetch();
+
     $imageFileType = strtolower(pathinfo($profilePicture["name"], PATHINFO_EXTENSION));
-    $targetDirectory = "data/" . hash("sha256", $_SESSION["user"]["id"]);
+    $targetDirectory = "data/" . hash("sha256", $_SESSION["user"][$pseudo]);
     $path = $targetDirectory . '/' .
         hash("sha256", basename($profilePicture["name"])) . "." . $imageFileType;
 
