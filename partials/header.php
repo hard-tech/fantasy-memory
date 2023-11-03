@@ -17,12 +17,11 @@
                 $result = $pdoStatement->fetch();
                 if (!empty($result->profilePictureUrl)) {
                     echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=".PROJECT_FOLDER.$result->profilePictureUrl." /></a>";
-                    echo "feur";    
                 }
                 else {
                     echo "<a style='padding-right:10%;' href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=\"".PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp\"/></a>";
-                    echo "<a href=\"".PROJECT_FOLDER."disconnect.php\">Logout</a>";
                 }
+                echo "<a href=\"".PROJECT_FOLDER."disconnect.php\">Logout</a>";
             }
             else {
                 echo "<a class=\"button small-button\" href=\"".PROJECT_FOLDER."login.php\">Log in</a>";
