@@ -1,10 +1,9 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $sendMessage = $_POST["sendMessage"];
-    if(isset($sendMessage) && !empty($sendMessage)) {
+    if(isset($_POST["sendMessage"]) && $_POST["sendMessage"] !== ""){
+        $sendMessage = $_POST["sendMessage"];
+        $pdo = connectToDbAndGetPdo();
         $pdoStatement = $pdo->prepare("
-            INSERT INTO messages (game_id, player_id, message)
-            VALUES (:gameId, :playerId, :messageContent);
+            INSERT INTO messages (game_id, player_id, message) VALUES (:gameId, :playerId, :messageContent);
         ");
         $result = $pdoStatement->execute([
             ":messageContent" => $sendMessage,
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ]);
         header("refresh:0");
     }
-}
 ?>
 
 <div class="game-chat">
@@ -52,21 +50,40 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <?php 
                     $pdoStatement = $pdo->prepare("
                         SELECT m.message, p.pseudo, m.message_timestamp, p.profilePictureUrl,
-                        CASE WHEN player_id = :id THEN TRUE ELSE FALSE END AS isSender
+                        CASE WHEN player_id = :MyId THEN TRUE ELSE FALSE END AS isSender
                         FROM messages AS m
                         LEFT JOIN players AS p ON m.player_id = p.id
                         LEFT JOIN games as g ON m.game_id = g.id;
                     ");
 
                     $pdoStatement->execute([
-                        ":id" => $_SESSION["user"]["id"]
+                        ":MyId" => $_SESSION["user"]["id"]
                     ]);
+                    header("refresh:0");
                     $messages = $pdoStatement->fetchAll();
                     foreach($messages as $m) {
+
+                        if (strpos($m->profilePictureUrl, 'http') === 0) {
+                            $correctSrc = 'src="'.$m->profilePictureUrl.'"';
+                        }else{
+                            $UrlOrFiles = "https://img.freepik.com/vecteurs-premium/icone-profil-style-glitch-homme-vecteur_549897-2126.jpg";
+                            $correctSrc = 'src="'. $UrlOrFiles .'"';
+                        }
+        
+                        // if (!empty($m->profilePictureUrl)) {
+                        //     if($UrlOrFiles !== ""){
+                        //         $correctSrc = 'src="'. $UrlOrFiles .$result->profilePictureUrl.'"';
+                        //     }else{
+                        //         $correctSrc = 'src="'.$m->profilePictureUrl.'"';
+                        //     }
+                        // }
+                        // else {
+                        //     $correctSrc = 'src="'.PROJECT_FOLDER.'"assets/img/default-pp-fantasy-memory.webp"';
+                        // }
                 ?>
                         <div class="<?= $m->isSender == 1 ? 'chat-send-by-me' : 'chat-send-by-other' ?>">
                             <div class="infos-message <?= $m->isSender == 1 ? 'flex-row-reverse' : 'flex-row' ?>">
-                                <img src="<?= !isset($m->profilePictureUrl) ? PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp" : PROJECT_FOLDER.$m->profilePictureUrl ?>" class="pp-players" alt="">
+                                <img <?= $correctSrc ?> class="pp-players" alt="">
                                 <div class="<?= $m->isSender == 1 ? 'stack-message-me' : 'stack-message-other' ?>">
                                     <div class="chat-my_name"><?= $m->pseudo ?></div>
                                     <div class="chat-message <?= $m->isSender == 1 ? 'chat-message-send-by-me' : 'chat-message-send-by-other' ?>">

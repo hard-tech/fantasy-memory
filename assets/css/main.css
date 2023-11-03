@@ -225,10 +225,11 @@ form.form-std div input {
 }
 
 .small-profile-picture {
-    width: 32px; 
-    height: 32px; 
+    width: 50px; 
+    height: 50px; 
     border-radius: 50%;
     overflow: hidden;
+    border: solid 2px rgba(255, 255, 255, 0.629);
 }
 
 .small-profile-picture img {

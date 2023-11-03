@@ -12,11 +12,18 @@
         <?php
             if (isset($_SESSION["user"])) {
                 $pdoStatement = $pdo->prepare("SELECT p.profilePictureUrl
-                    FROM players AS p WHERE p.id = :id");
+                    FROM players AS p WHERE p.id = :id;");
                 $pdoStatement->execute([":id" => $_SESSION["user"]["id"]]);
                 $result = $pdoStatement->fetch();
+
+                if (strpos($result->profilePictureUrl, 'http') === 0) {
+                    $UrlOrFiles = '';
+                }else{
+                    $UrlOrFiles = PROJECT_FOLDER;
+                }
+
                 if (!empty($result->profilePictureUrl)) {
-                    echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=".PROJECT_FOLDER.$result->profilePictureUrl." /></a>";
+                    echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=". $UrlOrFiles .$result->profilePictureUrl." /></a>";
                 }
                 else {
                     echo "<a style='padding-right:10%;' href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=\"".PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp\"/></a>";
