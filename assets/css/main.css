@@ -216,6 +216,7 @@ form.form-std div input {
     height: 150px; 
     border-radius: 50%;
     overflow: hidden;
+    margin: 0px 20px;
 }
 
 .profile-picture img {
