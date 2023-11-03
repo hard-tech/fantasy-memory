@@ -8,7 +8,7 @@
             <li><a <?php if($page == "shop"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>shop.php">Shop</a></li>
             <li><a <?php if($page == "contact"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>contact.php">Contact Us</a></li>  
         </ul>
-        <div style="display: flex; justify-content: space-around;">
+        <div style="display: flex; justify-content: space-around;align-items: center;">
         <?php
             if (isset($_SESSION["user"])) {
                 $pdoStatement = $pdo->prepare("SELECT p.profilePictureUrl
@@ -17,9 +17,11 @@
                 $result = $pdoStatement->fetch();
                 if (!empty($result->profilePictureUrl)) {
                     echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=".PROJECT_FOLDER.$result->profilePictureUrl." /></a>";
+                    echo "feur";    
                 }
                 else {
-                    echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=\"".PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp\"/></a>";
+                    echo "<a style='padding-right:10%;' href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=\"".PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp\"/></a>";
+                    echo "<a href=\"".PROJECT_FOLDER."disconnect.php\">Logout</a>";
                 }
             }
             else {
