@@ -19,7 +19,7 @@
                     echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=".PROJECT_FOLDER.$result->profilePictureUrl." /></a>";
                 }
                 else {
-                    echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=\"assets/img/default-pp-fantasy-memory.webp\"/></a>";
+                    echo "<a href=\"".PROJECT_FOLDER."myAccount.php\"><img class=\"small-profile-picture\" src=\"".PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp\"/></a>";
                 }
             }
             else {

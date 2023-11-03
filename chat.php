@@ -52,21 +52,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <?php 
                     $pdoStatement = $pdo->prepare("
                         SELECT m.message, p.pseudo, m.message_timestamp, p.profilePictureUrl,
-                        CASE WHEN player_id = :MyId THEN TRUE ELSE FALSE END AS isSender
+                        CASE WHEN player_id = :id THEN TRUE ELSE FALSE END AS isSender
                         FROM messages AS m
                         LEFT JOIN players AS p ON m.player_id = p.id
                         LEFT JOIN games as g ON m.game_id = g.id;
                     ");
 
                     $pdoStatement->execute([
-                        ":MyId" => $_SESSION["user"]["id"]
+                        ":id" => $_SESSION["user"]["id"]
                     ]);
                     $messages = $pdoStatement->fetchAll();
                     foreach($messages as $m) {
                 ?>
                         <div class="<?= $m->isSender == 1 ? 'chat-send-by-me' : 'chat-send-by-other' ?>">
                             <div class="infos-message <?= $m->isSender == 1 ? 'flex-row-reverse' : 'flex-row' ?>">
-                                <img src="<?= $m->profilePictureUrl ?>" class="pp-players" alt="">
+                                <img src="<?= !isset($m->profilePictureUrl) ? PROJECT_FOLDER."assets/img/default-pp-fantasy-memory.webp" : PROJECT_FOLDER.$m->profilePictureUrl ?>" class="pp-players" alt="">
                                 <div class="<?= $m->isSender == 1 ? 'stack-message-me' : 'stack-message-other' ?>">
                                     <div class="chat-my_name"><?= $m->pseudo ?></div>
                                     <div class="chat-message <?= $m->isSender == 1 ? 'chat-message-send-by-me' : 'chat-message-send-by-other' ?>">
