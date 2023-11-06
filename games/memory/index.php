@@ -1,6 +1,7 @@
 <?php
 require "../../utils/common.php";
 $page = "game";
+
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +15,23 @@ $page = "game";
 
     <main id="game">
         <?php if (isset($_SESSION["user"])) : ?>
+            <div >Timers : <span id="chrono">0</span> s</div>
             <table>
                 <tbody>
-                    <?php for($i=0; $i < 3; $i++) {?>
+                    <?php
+                    $card = 0;
+                    if($_SESSION["memoryInfo"]["difficulty"] == "hard"){
+                        $card = 3;
+                    }elseif($_SESSION["memoryInfo"]["difficulty"] == "medium"){
+                        $card = 2;
+
+                    }else{
+                        $card = 1;
+
+                    }     
+                    for($i=0; $i < $card; $i++) {
+
+                        ?>
                         <tr>
                             <td>♦</td>
                             <td>♦</td>
@@ -40,5 +55,6 @@ $page = "game";
     <?php if (isset($_SESSION["user"])) : ?>
         <?php include('../../chat.php'); ?>
     <?php endif; ?>
+    <script src="../../assets/js/chrono.js"></script>
 </body>
 </html>
