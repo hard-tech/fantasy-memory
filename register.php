@@ -71,6 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php include('partials/head.php'); ?>
 
 <body>
+    <script src="<?php PROJECT_FOLDER ?>assets/js/password_check.js"></script>
     <?php include('partials/header.php'); ?>
 
     <main>
@@ -88,7 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <form class="form-std" method="post" id="register-form">
                 <input name="email" type="text" placeholder="E-mail" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>"></input>
                 <input name="pseudo" type="text" placeholder="Pseudo" value="<?= isset($_POST["pseudo"]) ? $_POST["pseudo"] : "" ?>"></input>
-                <input name="pwd" type="password" placeholder="Password" value="<?= isset($_POST["pwd"]) ? $_POST["pwd"] : "" ?>"></input>
+                <input name="pwd" id="password" type="password" oninput="checkPassword()" placeholder="Password" value="<?= isset($_POST["pwd"]) ? $_POST["pwd"] : "" ?>"></input>
+                <div id="password-indicator"></div>
                 <input name="confirm" type="password" placeholder="Confirm password" value="<?= isset($_POST["confirm"]) ? $_POST["confirm"] : "" ?>"></input>
                 <div>
                     <button type="submit">Sign up</button>

@@ -2,6 +2,7 @@
 
 :root { 
     --container-width: 85vw;
+    --password-progress-color: red;
 }
 
 /*
@@ -845,6 +846,17 @@ form#register-form{
     border-radius: 5px;
 }
 
+#password-indicator {
+    display: none;
+    transition-property: width;
+    transition-duration: 0.2s;
+    font-size: 12px;
+    justify-content: center;
+    width: 100%;
+    height: 20px;
+    background: grey;
+    border-radius: 2px;
+}
 
 /*
     Shop (shop.html)
