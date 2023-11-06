@@ -1,0 +1,15 @@
+///////////// Dieux Grec
+
+easy : 4  // 2 pair  // ZEUS / hades /    
+med : 8  // 4 pair  // ZEUS / hades  / Gaïa / Athena
+hard : 12  // 6 pair  // ZEUS / Poséidon / hades / Athena / freya / Hestia 
+
+/////////////  Fantasy Medieval 
+
+easy : 4  // 2 pair  // chevalier / dragon  
+med : 8  // 4 pair  // chevalier / dragon / roi / reine
+hard : 12  // 6 pair  //  chevalier / dragon / roi / reine / chateau / sorciere
+
+
+
+

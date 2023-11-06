@@ -964,3 +964,38 @@ h1 {
     color: black;
     border-radius: 10px;
 }
+/* */
+
+#formFilterSelectDT{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2%;
+    margin-bottom: 10%;
+}
+#contentSelectFG{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-around;
+    
+}
+#contentSelectFG div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contentSelectFG select{
+    text-align: center;
+    margin: 4% 0;
+}
+#formFilterSelectDT input{
+    width: 10vw;
+    height: 6vh;
+}
