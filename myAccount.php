@@ -156,6 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php include('partials/head.php'); ?>
 
 <body>
+    <script src="<?php PROJECT_FOLDER ?>assets/js/password_check.js"></script>
     <?php include('partials/header.php'); ?>
     <main>
         <section class="banner">
@@ -195,8 +196,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <form action="myAccount.php?action=update-pwd" method="post" class="form-std">
                         <h3>Change my password</h3>
-                        <input type="text" placeholder="Old password" name="old-pwd">
-                        <input type="password" placeholder="New password" name="new-pwd">
+                        <input type="password" placeholder="Old password" name="old-pwd">
+                        <input type="password" id="password" oninput="checkPassword()" placeholder="New password" name="new-pwd">
+                        <div id="password-indicator"></div>
                         <input type="password" placeholder="Confirm new password" name="confirm-pwd">
                         <button type="submit">Send</button>
                     </form>
