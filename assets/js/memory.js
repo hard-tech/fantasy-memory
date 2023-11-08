@@ -152,22 +152,25 @@ game.appendChild(startButton);
 
 let playAgainButton = document.createElement("button");
 playAgainButton.classList.add("button");
-playAgainButton.style.display = "flex";
-playAgainButton.style.margin = "auto";
-playAgainButton.style.zIndex = 2;
 playAgainButton.innerHTML = "Play again";
+playAgainButton.style.margin = ("0px 10px");
 playAgainButton.addEventListener("click", () => {
   location.reload();
 });
 let gameSettings = document.createElement("button");
 gameSettings.classList.add("button");
-gameSettings.style.display = "flex";
-gameSettings.style.margin = "auto";
-gameSettings.style.zIndex = 2;
 gameSettings.innerHTML = "Game settings";
+gameSettings.style.margin = ("0px 10px");
 gameSettings.addEventListener("click", () => {
-  window.location.href = "localhost:8888/fantasy-memory/games/memory/filter.php";
+  window.location.href = "http://localhost:8888/fantasy-memory/games/memory/filter.php";
 });
+let buttonsContainer = document.createElement("div");
+buttonsContainer.style.display = "flex";
+buttonsContainer.style.width = "100vw";
+buttonsContainer.style.flexDirection= "row";
+buttonsContainer.style.justifyContent = "center";
+buttonsContainer.appendChild(playAgainButton);
+buttonsContainer.appendChild(gameSettings);
 
 function checkMatch() {
   const [card1, card2] = flippedCards;
@@ -175,14 +178,13 @@ function checkMatch() {
   const index2 = card2.dataset.index;
 
   if (mixed[index1] === mixed[index2]) {
-    card1.removeEventListener("click", () => flipCard(card1));
+   card1.removeEventListener("click", () => flipCard(card1));
     card2.removeEventListener("click", () => flipCard(card2));
     matchedPairs++;
     scorePTN.innerText = matchedPairs;
     if (matchedPairs === mixed.length / 2) {
       stopTimer();
-      game.appendChild(playAgainButton);
-      game.appendChild(gameSettings);
+      game.appendChild(buttonsContainer);
       inGame = false;
     }
   } else {

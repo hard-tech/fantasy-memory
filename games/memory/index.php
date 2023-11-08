@@ -19,12 +19,8 @@ $page = "game";
             <div >Timers : <span id="chrono">00:00:00</span> s</div>
             <div >Pairs Trouvées : <span id="score">0</span></div>
             </div>            
-  
             <table>
-                <tbody id="game-board">
-
-              
-                </tbody>
+                <tbody id="game-board"></tbody>
             </table>
         <?php else : ?>
             <section class="container justify-content-center no-margin-bot">
