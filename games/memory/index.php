@@ -16,29 +16,11 @@ $page = "game";
     <main id="game">
         <?php if (isset($_SESSION["user"])) : ?>
             <div >Timers : <span id="chrono">0</span> s</div>
+            <div >Score : <span id="score">0</span> points</div>
             <table>
-                <tbody>
-                    <?php
-                    $card = 0;
-                    if($_SESSION["memoryInfo"]["difficulty"] == "hard"){
-                        $card = 3;
-                    }elseif($_SESSION["memoryInfo"]["difficulty"] == "medium"){
-                        $card = 2;
+                <tbody id="game-board">
 
-                    }else{
-                        $card = 1;
-
-                    }     
-                    for($i=0; $i < $card; $i++) {
-
-                        ?>
-                        <tr>
-                            <td>♦</td>
-                            <td>♦</td>
-                            <td>♦</td>
-                            <td>♦</td>
-                        </tr>
-                    <?php } ?>
+              
                 </tbody>
             </table>
         <?php else : ?>
@@ -51,10 +33,12 @@ $page = "game";
         <?php endif; ?>
     </main>
 
-    <?php include('../../partials/footer.php'); ?>
-    <?php if (isset($_SESSION["user"])) : ?>
-        <?php include('../../chat.php'); ?>
-    <?php endif; ?>
+    <?php 
+            include('../../partials/footer.php');
+           // if (isset($_SESSION["user"])) : 
+           //     include('../../chat.php'); 
+           // endif; ?>
     <script src="../../assets/js/chrono.js"></script>
+    <script src="../../assets/js/memory.js"></script>
 </body>
 </html>
