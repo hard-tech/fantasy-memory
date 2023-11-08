@@ -409,38 +409,23 @@ form.form-std div input {
     main#game table tbody {
         padding: 20px;
         margin: 40px;
+
     }
 }
 
 main#game table tbody tr td {
-    transition: 0.8s;
-
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     border-radius: 10px; 
     margin: 10px;
-
     font-size: 3rem;
-    background: orange;
-
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    transition: 1s;
+ }
 
-main#game table tbody tr td:hover {
-    rotate: 5deg;
-    scale: 1.05;
-    transition: 0.5s;
 
-    border-radius: 10px; 
-    margin: 10px;
-
-    font-size: 3rem;
-    background: orange;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 main#game table tbody tr {
     display: flex;
@@ -449,10 +434,10 @@ main#game table tbody tr {
 main#game table tbody {
     display: flex;
     flex-direction: column;
-
     border: 2px solid;
-
     border-radius: 15px;
+    filter: blur(5px);
+  
 }
 
 main#game table {
@@ -702,6 +687,33 @@ main#game table {
     display: flex;
     flex-direction: column;
 }
+#contentInfo{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
+/*  animation card */
+
+.card {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    perspective: 1000px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    
+  }
+  .card.back{
+    background: url(../../assets/img/memoryTheme/fondFantasy.jpeg) !important;
+  }
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
 
 /*
     Scoreboard properties (scoreboard.html)

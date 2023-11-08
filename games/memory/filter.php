@@ -14,7 +14,7 @@ $page = "game";
 
     <main id="filtreGame">
 
-        <form method="post" id="formFilterSelectDT">
+        <form method="post" onsubmit="initMemory()" id="formFilterSelectDT">
 
             <div id="contentSelectFG">
                 <div>           
@@ -27,6 +27,9 @@ $page = "game";
                     <option value="hard">Hard</option>
 
                     </select>
+                    <p id="difficulty-err" style="visibility: hidden; color: red">
+                        The difficulty should be set.
+                    </p>
                 </div>
                 <div>
                     <label for="theme-select">Choose a theme :</label>
@@ -37,31 +40,21 @@ $page = "game";
                     <option value="dark">Cyber Punk Theme</option>
                     <option value="god">Dieu Grec Theme</option>
                     </select>
+                    <p id="theme-err" style="visibility: hidden; color: red;">
+                        The theme should be set.
+                    </p>
                 </div>
 
 
             </div>
 
-            <input type="submit" value="Jouer !">
+            <button class="button" type="button" onclick="initMemory()">Start a game</input>
         </form>
 
 
     </main>
 
     <?php include('../../partials/footer.php'); ?>
-
+<script src="../../assets/js/memory-init.js"></script>
 </body>
 </html>
-
-<?php 
-    if($_SERVER["REQUEST_METHOD"] === "POST"){
-        if(isset($_SESSION["memoryInfo"])){
-            unset($_SESSION["memoryInfo"]);
-        }
-        $theme = $_POST["difficulty"];
-        $difficulty = $_POST["theme"];
-
-        $_SESSION["memoryInfo"] = [ "difficulty" => $_POST["difficulty"], "theme" => $_POST["theme"] ];
-        echo '<meta http-equiv="refresh" content="0;url='.PROJECT_FOLDER.'games/memory/index.php" />';
-    }
-
