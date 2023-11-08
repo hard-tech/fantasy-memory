@@ -14,7 +14,7 @@ $page = "game";
 
     <main id="filtreGame">
 
-        <form method="post" id="formFilterSelectDT">
+        <form method="post" onsubmit="initMemory()" id="formFilterSelectDT">
 
             <div id="contentSelectFG">
                 <div>           
@@ -49,7 +49,7 @@ $page = "game";
     </main>
 
     <?php include('../../partials/footer.php'); ?>
-
+<script src="../../assets/js/memory-init.js"></script>
 </body>
 </html>
 

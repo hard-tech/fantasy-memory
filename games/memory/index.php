@@ -15,8 +15,11 @@ $page = "game";
 
     <main id="game">
         <?php if (isset($_SESSION["user"])) : ?>
-            <div >Timers : <span id="chrono">0</span> s</div>
-            <div >Score : <span id="score">0</span> points</div>
+            <div id="contentInfo">
+            <div >Timers : <span id="chrono">00:00:00</span> s</div>
+            <div >Pairs Trouvées : <span id="score">0</span></div>
+            </div>            
+  
             <table>
                 <tbody id="game-board">
 
@@ -38,7 +41,6 @@ $page = "game";
            // if (isset($_SESSION["user"])) : 
            //     include('../../chat.php'); 
            // endif; ?>
-    <script src="../../assets/js/chrono.js"></script>
     <script src="../../assets/js/memory.js"></script>
 </body>
 </html>

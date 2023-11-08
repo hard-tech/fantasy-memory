@@ -409,19 +409,21 @@ form.form-std div input {
     main#game table tbody {
         padding: 20px;
         margin: 40px;
+
     }
 }
 
 main#game table tbody tr td {
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     border-radius: 10px; 
     margin: 10px;
     font-size: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    transition: 1s;
+ }
 
 
 
@@ -434,6 +436,7 @@ main#game table tbody {
     flex-direction: column;
     border: 2px solid;
     border-radius: 15px;
+    filter: blur(5px);
   
 }
 
@@ -684,7 +687,12 @@ main#game table {
     display: flex;
     flex-direction: column;
 }
-
+#contentInfo{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
 /*  animation card */
 
 .card {
@@ -700,7 +708,7 @@ main#game table {
     
   }
   .card.back{
-    background: url(../../assets/img/memoryThemeFantaisy/fondFantasy.jpeg) !important;
+    background: url(../../assets/img/memoryTheme/fondFantasy.jpeg) !important;
   }
   .card.flipped {
     transform: rotateY(180deg);
