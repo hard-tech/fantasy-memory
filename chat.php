@@ -1,17 +1,9 @@
 <?php
-    if(isset($_POST["sendMessage"]) && $_POST["sendMessage"] !== ""){
-        $sendMessage = $_POST["sendMessage"];
-        $pdo = connectToDbAndGetPdo();
-        $pdoStatement = $pdo->prepare("
-            INSERT INTO messages (game_id, player_id, message) VALUES (:gameId, :playerId, :messageContent);
-        ");
-        $result = $pdoStatement->execute([
-            ":messageContent" => $sendMessage,
-            ":playerId" => $_SESSION["user"]["id"],
-            ":gameId" => 1,
-        ]);
-        header("refresh:0");
-    }
+require_once('utils/database.php');
+require_once('utils/common.php');
+$data = $_POST['sendMessage'];
+$id_joueur = $_POST['iduser'];
+
 ?>
 
 <div class="game-chat">
@@ -59,7 +51,7 @@
                     $pdoStatement->execute([
                         ":MyId" => $_SESSION["user"]["id"]
                     ]);
-                    header("refresh:0");
+
                     $messages = $pdoStatement->fetchAll();
                     foreach($messages as $m) {
 
@@ -101,13 +93,12 @@
                 <?php } ?>
             </div>
         </div>
-        <form method="post" id="chat-footer">
+        <div  id="chat-footer">
             <input name="sendMessage" id="chat-input" type="text" placeholder="Your message">
-            <button type="submit" id="chat-send-btn">Send</button>
-        </form>
+            <input type="button" name="btnEnvoie" id="chat-send-btn" value="Send" onclick="ajaxEnvoie('<?= $m->pseudo ?>')">
+        </div>
     </div>
-
-<!-- <div class="collapse" tabindex="1">
-    <a id="open"><i class="fa-regular fa-comment"></i></a>
-
-</div> -->
+   
+        
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> 
+    <script src="../../assets/js/sendMSG.js"></script>

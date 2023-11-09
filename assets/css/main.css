@@ -44,6 +44,10 @@ a {
     text-decoration: none !important;
 }
 
+h1 {
+    text-align: center;
+}
+
 header {
     position: absolute;
     background-color: transparent;    
@@ -459,7 +463,7 @@ main#game table {
     background-color: #fff;
     border-radius: 10px;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -520,7 +524,13 @@ main#game table {
     top: 5%;
     right: 5%;
 }
-
+#group-up{
+    display: block;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    font-size: 4rem;
+}
 #arrow-down_up {
     font-size: 3rem;
     border-radius: 50%;
@@ -547,7 +557,7 @@ main#game table {
 }
 
 .collapse:focus .game-chat{
-    display: flex; 
+    display: none; 
 }
 
 #open{
@@ -869,114 +879,6 @@ form#register-form{
     background: grey;
     border-radius: 2px;
 }
-
-/*
-    Shop (shop.html)
-*/
-
-#list-item-Shop {
-    width: 65vw;
-    height: 80vh;
-    margin: auto;
-    text-align: center;
-}
-
-h1 {
-    text-align: center;
-}
-
-#list-item-Shop section{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    overflow: auto;
-    height: 100%;
-}
-
-#list-item-Shop section article{
-    width: 25%;
-    height: 50%;
-    margin: 5% 1%;
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-}
-
-.aura-purple-items{
-    background-color: purple;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin: 8% auto;
-}
-
-#filter{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 17%;
-    margin-left: 17.2vw;   
-    margin-right: 4%;
-    align-items: center;
-    margin-bottom: 2vh;
-}
-
-#filter select{
-    height: 6.5vh;
-    width: 74%;
-    text-align: center;
-}
-
-#filter button{
-    margin-left: 5%;
-}
-
-#SearchBar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 30%;
-    margin-left: 15.5vw;   
-    align-items: center;
-}
-
-#SearchBar input{
-    height: 7vh;
-    width: 74%;
-}
-
-.game-logo{
-    background-color: purple;
-    width: 100%;
-    height: 65%;
-    margin: auto;
-    border-radius: 10px 10px 0 0;
-}
-
-#list-item-Game {
-    width: 65vw;
-    height: 80vh;
-    margin: auto;
-    text-align: center;
-}
-
-#list-item-Game section{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    overflow: auto;
-    height: 100%;
-}
-
-#list-item-Game section article{
-    width: 25%;
-    height: 50%;
-    margin: 5% 1%;
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-}
-/* */
 
 #formFilterSelectDT{
     width: 80%;

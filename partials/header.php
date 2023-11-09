@@ -5,7 +5,6 @@
             <li><a <?php if($page == "Homepage"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>index.php">Home</a></li>
             <li><a <?php if($page == "Memory game"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>games/memory/filter.php">Games</a></li>
             <li><a <?php if($page == "Scoreboard"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>games/memory/scores.php">Scoreboard</a></li>
-            <li><a <?php if($page == "Shop"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>shop.php">Shop</a></li>
             <li><a <?php if($page == "Contact us"):?>id="active"<?php endif; ?>href="<?= PROJECT_FOLDER ?>contact.php">Contact Us</a></li>  
         </ul>
         <div style="display: flex; justify-content: space-around;align-items: center;">
