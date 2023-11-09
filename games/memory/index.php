@@ -31,12 +31,14 @@ $page = "Memory Game";
             </section>
         <?php endif; ?>
     </main>
-
+    <div id="group-up">
+        <i class="fa-solid fa-comment-dots"></i>
+    </div>
     <?php 
             include('../../partials/footer.php');
-           // if (isset($_SESSION["user"])) : 
-           //     include('../../chat.php'); 
-           // endif; ?>
+            if (isset($_SESSION["user"])) : 
+                include('../../chat.php'); 
+            endif; ?>
     <script src="../../assets/js/memory.js"></script>
 </body>
 </html>
