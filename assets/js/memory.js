@@ -1,21 +1,30 @@
 let inGame = false;
 
 let chrono = document.getElementById("chrono");
-let h = 0, m = 0, s = 0;
-let minutes = 0;
-let hours = 0;
+let h = 0, m = 0, s = 0, ms = 0, score = 0;
 chrono.innerHTML = `${h.toString().padStart(2, "0")} : \
                     ${m.toString().padStart(2, "0")} : \
-                    ${s.toString().padStart(2, "0")}`;
+                    ${s.toString().padStart(2, "0")} : \
+                    ${ms.toString().padStart(2, "0")}`;
 
 let intervalId;
 function startTimer() {
   intervalId = setInterval(function () {
-    s++; if (s == 60) {s = 0; m++; if (m == 60) { m = 0; h++; } }
+    ms+=10; score++;
+    if (ms == 1000) { 
+      ms = 0; s++; 
+      if (s == 60) {
+        s = 0; m++; 
+        if (m == 60) {
+          m = 0; h++; 
+        }
+      }
+    }
     chrono.innerHTML = `${h.toString().padStart(2, "0")} : \
                         ${m.toString().padStart(2, "0")} : \
-                        ${s.toString().padStart(2, "0")}`;
-  }, 1000);
+                        ${s.toString().padStart(2, "0")} : \
+                        ${(ms/10).toString().padStart(2, "0")}`;
+  }, 10);
 }
 
 function stopTimer() {
@@ -30,92 +39,24 @@ let gameBoard = document.getElementById("game-board");
 let scorePTN = document.getElementById("score");
 let contentStart = document.getElementById("contentStart");
 
-function Card(theme, name, img, nbr) {
-  this.theme = theme;
-  this.name = name;
-  this.imgsrc = img;
-  this.nbr = nbr;
-}
-
 /*          FANTASY THEME          */
-// EASY
-const knight = new Card(
-  "Medieval",
-  "Chevalier",
-  "../../assets/img/memoryTheme/knight.jpeg",
-  2
-);
-const dragon = new Card(
-  "Medieval",
-  "Dragon",
-  "../../assets/img/memoryTheme/dragon.jpeg",
-  2
-);
-// MEDIUM
-const king = new Card(
-  "Medieval",
-  "Roi",
-  "../../assets/img/memoryTheme/king.jpeg",
-  2
-);
-const queen = new Card(
-  "Medieval",
-  "Reine",
-  "../../assets/img/memoryTheme/reine.jpeg",
-  2
-);
-//  HARD
-const castle = new Card(
-  "Medieval",
-  "Chateau",
-  "../../assets/img/memoryTheme/chateau.jpeg",
-  2
-);
-const witch = new Card(
-  "Medieval",
-  "Sorciere",
-  "../../assets/img/memoryTheme/sorciere.jpeg",
-  2
-);
-/*          GREC THEME          */
-
-let mycardsE = [knight, knight, dragon, dragon];
-let mycardsM = [knight, knight, dragon, dragon, king, king, queen, queen];
-let mycardsH = [
-  knight,
-  knight,
-  dragon,
-  dragon,
-  king,
-  king,
-  queen,
-  queen,
-  castle,
-  castle,
-  witch,
-  witch,
-];
+const knight = "../../assets/img/memoryTheme/knight.jpeg";
+const dragon = "../../assets/img/memoryTheme/dragon.jpeg";
+const king = "../../assets/img/memoryTheme/king.jpeg";
+const queen = "../../assets/img/memoryTheme/reine.jpeg";
+const castle = "../../assets/img/memoryTheme/chateau.jpeg";
+const witch = "../../assets/img/memoryTheme/sorciere.jpeg";
+let fantasyCardsEasy = [knight, knight, dragon, dragon];
+let fantasyCardsMedium = [knight, knight, dragon, dragon, king, king, queen, queen];
+let fantasyCardsHard = [ knight, knight, dragon, dragon, king, king, queen, queen, castle, castle, witch, witch];
 
 let mixed;
 let dimension = 0;
 switch (difficulty) {
-  case "easy":
-    dimension = 4;
-    mixed = shuffle(mycardsE);
-    break;
-
-  case "medium":
-    dimension = 6;
-    mixed = shuffle(mycardsM);
-    break;
-
-  case "hard":
-    dimension = 8;
-    mixed = shuffle(mycardsH);
-    break;
-
-  default:
-    break;
+  case "easy": mixed = shuffle(fantasyCardsEasy); break;
+case "medium": mixed = shuffle(fantasyCardsMedium); break;
+  case "hard": mixed = shuffle(fantasyCardsHard); break;
+  default: break;
 }
 
 let flippedCards = [];
@@ -131,7 +72,7 @@ mixed.forEach((card, index) => {
   cardElement.classList.add("card");
   cardElement.classList.add("back");
   cardElement.dataset.index = index;
-  cardElement.style.backgroundImage = `url(${card.imgsrc})`;
+  cardElement.style.backgroundImage = `url(${card})`;
   cardElement.addEventListener("click", () => flipCard(cardElement));
   currentRow.appendChild(cardElement);
 });
@@ -177,8 +118,8 @@ function checkMatch() {
   const index1 = card1.dataset.index;
   const index2 = card2.dataset.index;
 
-  if (mixed[index1] === mixed[index2]) {
-   card1.removeEventListener("click", () => flipCard(card1));
+  if (mixed[index1] == mixed[index2]) {
+    card1.removeEventListener("click", () => flipCard(card1));
     card2.removeEventListener("click", () => flipCard(card2));
     matchedPairs++;
     scorePTN.innerText = matchedPairs;
@@ -186,6 +127,11 @@ function checkMatch() {
       stopTimer();
       game.appendChild(buttonsContainer);
       inGame = false;
+      $.ajax({
+        url: "../../savescore.php",
+        type: "POST",
+        data: {"gameId" : 1, "score" : score, "gameDifficulty" : difficulty.toLowerCase()}
+      });
     }
   } else {
     card1.classList.remove("flipped");
