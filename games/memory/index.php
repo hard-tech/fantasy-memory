@@ -1,6 +1,6 @@
 <?php
 require "../../utils/common.php";
-$page = "game";
+$page = "Memory Game";
 
 ?>
 
@@ -16,7 +16,7 @@ $page = "game";
     <main id="game">
         <?php if (isset($_SESSION["user"])) : ?>
             <div id="contentInfo">
-            <div >Timer: <span id="chrono">00:00:00</span></div>
+            <div >Timer: <span id="timer">00:00:00</span></div>
             <div >Pairs Trouvées : <span id="score">0</span></div>
             </div>            
             <table>

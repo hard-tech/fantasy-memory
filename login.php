@@ -1,6 +1,6 @@
 <?php
 require "utils/common.php";
-$page = "login";
+$page = "Sign in";
 
 if (isset($_SESSION["user"])) header("location: ".PROJECT_FOLDER."index.php");
 

@@ -5,16 +5,11 @@ function checkFields(...$fields) {
     return true;
 }
 
-function formatTimer($milliseconds) {
-    $hours = floor($milliseconds / (60 * 60 * 1000));
-    $remainingMilliseconds = $milliseconds % (60 * 60 * 1000);
-    $minutes = floor($remainingMilliseconds / (60 * 1000));
-    $remainingMilliseconds %= (60 * 1000);
-    $seconds = floor($remainingMilliseconds / 1000);
-    $ms = $remainingMilliseconds % 1000;    $formattedHours   = ($hours)   == 0 ? "" : sprintf("%02dh : ", $hours);
-    $formattedMinutes = ($minutes) == 0 ? "" : sprintf("%02dm : ", $minutes);
-    $formattedSeconds = ($seconds) == 0 ? "" : sprintf("%02ds : ", $seconds);
-    return sprintf('%s%s%s%03dms', $formattedHours, $formattedMinutes, $formattedSeconds, $ms);
+function formatTimer($ms) {
+    $s = (floor($ms / 100)) % 60;
+    $m = floor($s / 60) % 60;
+    $h = floor($m / 60);
+    return sprintf("%02d:%02d:%02d:%03d", $h, $m, $s, $ms % 1000);
 }
 
 require_once "database.php";

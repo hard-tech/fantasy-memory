@@ -1,6 +1,6 @@
 <?php
 require "../../utils/common.php";
-$page = "score";
+$page = "Scoreboard";
 ?>
 
 <!DOCTYPE html>

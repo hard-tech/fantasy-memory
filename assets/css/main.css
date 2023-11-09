@@ -708,7 +708,7 @@ main#game table {
     
   }
   .card.back{
-    background: url(../../assets/img/memoryTheme/fondFantasy.jpeg) !important;
+    background: url(../../assets/img/card_back.jpeg) !important;
   }
   .card.flipped {
     transform: rotateY(180deg);

@@ -1,6 +1,6 @@
 <?php
 require "utils/common.php";
-$page = "contact";
+$page = "Contact us";
 
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 require "utils/common.php";
-$page = "register";
+$page = "Sign up";
 
 if (isset($_SESSION["user"])) header("location: ".PROJECT_FOLDER."index.php");
 
