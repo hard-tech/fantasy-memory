@@ -703,7 +703,7 @@ main#game table {
     display: inline-block;
     cursor: pointer;
     perspective: 1000px;
-    transition: transform 0.6s;
+    transition: transform 0.3s;
     transform-style: preserve-3d;
     
   }

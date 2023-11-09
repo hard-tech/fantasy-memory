@@ -54,7 +54,7 @@ $page = "score";
                             WHERE p.pseudo = '$filter'
                             OR g.name = '$filter' 
                             OR s.game_difficulty = '$filter'
-                            ORDER BY g.name, s.game_difficulty, s.score DESC;");
+                            ORDER BY g.name, s.game_difficulty, s.score ASC;");
                     } else {
                         $pdoStatement = $pdo->prepare("
                             SELECT p.pseudo, g.name, s.game_difficulty, s.score, s.score_timestamp
@@ -71,7 +71,7 @@ $page = "score";
                         <td><?= $s->pseudo ?></td>
                         <td><?= $s->name ?></td>
                         <td><?= ucfirst($s->game_difficulty) ?></td>
-                        <td><?= $s->score ?></td>
+                        <td><?= formatTimer($s->score) ?></td>
                         <td><?= $s->score_timestamp ?></td>
                     </tr>
                 <?php } ?>

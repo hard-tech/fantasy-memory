@@ -21,7 +21,7 @@ $page = "game";
                     <label for="difficulty-select">Choose a difficulty :</label>
 
                     <select name="difficulty" id="difficulty-select">
-                    <option value="">--Please choose an option--</option>
+                    <option value="">Please choose an option</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
@@ -35,10 +35,10 @@ $page = "game";
                     <label for="theme-select">Choose a theme :</label>
 
                     <select name="theme" id="theme-select">
-                    <option value="">--Please choose an option--</option>
-                    <option value="light">Medieval Fantaisie Theme</option>
-                    <option value="dark">Cyber Punk Theme</option>
-                    <option value="god">Dieu Grec Theme</option>
+                    <option value="">Please select an option</option>
+                    <option value="light">Medieval / Fantasty</option>
+                    <option value="dark">Cyberpunk</option>
+                    <option value="god">Mythology</option>
                     </select>
                     <p id="theme-err" style="visibility: hidden; color: red;">
                         The theme should be set.
