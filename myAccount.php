@@ -1,6 +1,6 @@
 <?php
 require "utils/common.php";
-$page = "myAccount";
+$page = "Account settings";
 
 function tryToUploadProfilePicture($pdo, $old, $profilePicture)
 {

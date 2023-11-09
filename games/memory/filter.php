@@ -1,6 +1,6 @@
 <?php
 require "../../utils/common.php";
-$page = "game";
+$page = "Game settings";
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +36,8 @@ $page = "game";
 
                     <select name="theme" id="theme-select">
                     <option value="">Please select an option</option>
-                    <option value="light">Medieval / Fantasty</option>
-                    <option value="dark">Cyberpunk</option>
-                    <option value="god">Mythology</option>
+                    <option value="medieval-fantasy">Medieval / Fantasy</option>
+                    <option value="mythology">Mythology</option>
                     </select>
                     <p id="theme-err" style="visibility: hidden; color: red;">
                         The theme should be set.

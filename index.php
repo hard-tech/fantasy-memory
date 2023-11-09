@@ -1,18 +1,19 @@
 <?php
 require "utils/common.php";
-$page = "home";
+$page = "Homepage";
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <?php include('partials/head.php'); ?>
+
 <body>
     <?php include('partials/header.php'); ?>
 
     <main>
-        <section  class="big-banner"> 
-            <h1>WELCOME TO <br/> OUR STUDIO !</h1>
-            <h3>Come and challenge the most agile minds !</h3>    
+        <section class="big-banner">
+            <h1>WELCOME TO <br /> OUR STUDIO !</h1>
+            <h3>Come and challenge the most agile minds !</h3>
             <a class="button" href="games/memory/filter.php">Play !</a>
         </section>
 
@@ -67,25 +68,21 @@ $page = "home";
                 <div class="d-flex">
                     <div class="stats-box" id="stats-box-1">
                         <?php
-                            $pdoStatement = $pdo->prepare("
-                            SELECT COUNT(*) FROM scores;
-                            ");
-                            $pdoStatement->execute();
-                            $gamePlayed = $pdoStatement-> fetchColumn(0);
+                        $pdoStatement = $pdo->prepare("SELECT COUNT(*) FROM scores;");
+                        $pdoStatement->execute();
+                        $gamePlayed = $pdoStatement->fetchColumn(0);
                         ?>
-                                <p><?= $gamePlayed ?></p>
+                        <p><?= $gamePlayed ?></p>
                         <?php ?>
                         <span>Games Played</span>
                     </div>
                     <div class="stats-box" id="stats-box-2">
                         <?php
-                            $pdoStatement = $pdo->prepare("
-                            SELECT COUNT(*) FROM players;
-                            ");
-                            $pdoStatement->execute();
-                            $playerConnected = $pdoStatement-> fetchColumn(0);
+                        $pdoStatement = $pdo->prepare("SELECT COUNT(*) FROM players;");
+                        $pdoStatement->execute();
+                        $playerConnected = $pdoStatement->fetchColumn(0);
                         ?>
-                                <p><?= $playerConnected - 4 ?></p>
+                        <p><?= $playerConnected ?></p>
                         <?php ?>
                         <span>Player Connected</span>
                     </div>
@@ -93,25 +90,21 @@ $page = "home";
                 <div class="d-flex">
                     <div class="stats-box" id="stats-box-3">
                         <?php
-                            $pdoStatement = $pdo->prepare("
-                            SELECT MIN(score) FROM scores;
-                            ");
-                            $pdoStatement->execute();
-                            $bestScore = $pdoStatement-> fetchColumn(0);
+                        $pdoStatement = $pdo->prepare("SELECT MIN(score) FROM scores;");
+                        $pdoStatement->execute();
+                        $highscore = $pdoStatement->fetchColumn(0);
                         ?>
-                                <p><?= $bestScore * 60 . ' sec'?></p>
+                        <p style="font-size: 2.4rem;"><?= formatTimer($highscore) ?></p>
                         <?php ?>
                         <span>Record Time</span>
                     </div>
                     <div class="stats-box" id="stats-box-4">
                         <?php
-                            $pdoStatement = $pdo->prepare("
-                            SELECT COUNT(*) FROM players;
-                            ");
-                            $pdoStatement->execute();
-                            $playerRegistred = $pdoStatement-> fetchColumn(0);
+                        $pdoStatement = $pdo->prepare("SELECT COUNT(*) FROM players;");
+                        $pdoStatement->execute();
+                        $playerRegistred = $pdoStatement->fetchColumn(0);
                         ?>
-                                <p><?= $playerRegistred ?></p>
+                        <p><?= $playerRegistred ?></p>
                         <?php ?>
                         <span>Player Registered</span>
                     </div>
@@ -122,7 +115,7 @@ $page = "home";
         <section class="container flex-column" id="team-overview">
             <h3>The Dev Team</h3>
             <p class="lorem-text">
-                Quisque commodo facilisis purus, interdum 
+                Quisque commodo facilisis purus, interdum
                 volutpat arcu viverra sed.
             </p>
             <img id="img-hr" src="./assets/img/hr-site.png" alt="">
@@ -156,9 +149,9 @@ $page = "home";
                         <i class=" fa-brands fa-twitter"></i>
                         <i class=" fa-brands fa-pinterest"></i>
                     </div>
-                </article>  
+                </article>
             </div>
-        </section>        
+        </section>
     </main>
 
     <?php include('partials/footer.php'); ?>

@@ -1,0 +1,18 @@
+{
+  "medieval-fantasy": [
+    "knight.jpeg",
+    "dragon.jpeg",
+    "king.jpeg",
+    "queen.jpeg",
+    "castle.jpeg",
+    "witch.jpeg"
+  ],
+  "mythology": [
+    "zeus.jpeg",
+    "athena.jpeg",
+    "freya.jpeg",
+    "hades.jpeg",
+    "hestia.jpeg",
+    "poseidon.jpeg"
+  ]
+}

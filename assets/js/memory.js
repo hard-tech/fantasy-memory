@@ -1,29 +1,18 @@
-let inGame = false;
+// TIMER ----------------------------------------------------------------------
 
-let chrono = document.getElementById("chrono");
+let timer = document.getElementById("timer");
+timer.innerHTML = "00:00:00:00";
+
 let h = 0, m = 0, s = 0, ms = 0, score = 0;
-chrono.innerHTML = `${h.toString().padStart(2, "0")} : \
-                    ${m.toString().padStart(2, "0")} : \
-                    ${s.toString().padStart(2, "0")} : \
-                    ${ms.toString().padStart(2, "0")}`;
-
 let intervalId;
+
 function startTimer() {
   intervalId = setInterval(function () {
-    ms+=10; score++;
-    if (ms == 1000) { 
-      ms = 0; s++; 
-      if (s == 60) {
-        s = 0; m++; 
-        if (m == 60) {
-          m = 0; h++; 
-        }
-      }
-    }
-    chrono.innerHTML = `${h.toString().padStart(2, "0")} : \
-                        ${m.toString().padStart(2, "0")} : \
-                        ${s.toString().padStart(2, "0")} : \
-                        ${(ms/10).toString().padStart(2, "0")}`;
+    ms+=10;score++;if(ms==1000){ms=0;s++;if(s==60){s=0;m++;if(m==60){m =0;h++;}}}
+    timer.innerHTML = `${h.toString().padStart(2, "0")} : 
+                       ${m.toString().padStart(2, "0")} : 
+                       ${s.toString().padStart(2, "0")} : 
+                       ${(ms/10).toString().padStart(2, "0")}`;
   }, 10);
 }
 
@@ -31,51 +20,70 @@ function stopTimer() {
   clearInterval(intervalId);
 }
 
-let difficulty = localStorage.getItem("difficulty");
-let theme = localStorage.getItem("memory-theme");
+// GAME INIT ------------------------------------------------------------------
 
-let game = document.getElementById("game");
-let gameBoard = document.getElementById("game-board");
-let scorePTN = document.getElementById("score");
-let contentStart = document.getElementById("contentStart");
+let inGame = false;
 
-/*          FANTASY THEME          */
-const knight = "../../assets/img/memoryTheme/knight.jpeg";
-const dragon = "../../assets/img/memoryTheme/dragon.jpeg";
-const king = "../../assets/img/memoryTheme/king.jpeg";
-const queen = "../../assets/img/memoryTheme/reine.jpeg";
-const castle = "../../assets/img/memoryTheme/chateau.jpeg";
-const witch = "../../assets/img/memoryTheme/sorciere.jpeg";
-let fantasyCardsEasy = [knight, knight, dragon, dragon];
-let fantasyCardsMedium = [knight, knight, dragon, dragon, king, king, queen, queen];
-let fantasyCardsHard = [ knight, knight, dragon, dragon, king, king, queen, queen, castle, castle, witch, witch];
+let difficulty   = localStorage.getItem("difficulty");
+let choosenTheme = localStorage.getItem("memory-theme");
 
-let mixed;
-let dimension = 0;
-switch (difficulty) {
-  case "easy": mixed = shuffle(fantasyCardsEasy); break;
-case "medium": mixed = shuffle(fantasyCardsMedium); break;
-  case "hard": mixed = shuffle(fantasyCardsHard); break;
-  default: break;
-}
+let game         = document.getElementById("game");
+let gameBoard    = document.getElementById("game-board");
+let scorePTN     = document.getElementById("score");
 
+let themes;
+var cards;
 let flippedCards = [];
 let matchedPairs = 0;
 let currentRow;
 
-mixed.forEach((card, index) => {
-  if (index % 4 === 0 || index % 8 === 0) {
-    currentRow = document.createElement("tr");
-    gameBoard.appendChild(currentRow);
+let request = new XMLHttpRequest();
+request.open("GET", "http://localhost:8888/fantasy-memory/assets/img/themes/themes.json");
+request.responseType = "text";
+request.send();
+
+request.onload = function () {
+  themes = JSON.parse(request.response);
+
+  switch (difficulty) {
+    case "easy":
+      let easyDeck = themes[choosenTheme].slice(0, 2)
+        .map(value => "../../assets/img/themes/" + choosenTheme + "/" + value);
+      easyDeck = [...easyDeck, ...easyDeck];
+      cards = shuffle(easyDeck);
+      break;
+
+    case "medium":
+      let mediumDeck = themes[choosenTheme].slice(0, 4)
+        .map(value => "../../assets/img/themes/" + choosenTheme + "/" + value);
+      mediumDeck = [...mediumDeck, ...mediumDeck];
+      cards = shuffle(mediumDeck);
+      break;
+
+    case "hard":
+      let hardDeck = themes[choosenTheme].slice(0, 6)
+        .map(value => "../../assets/img/themes/" + choosenTheme + "/" + value);
+      hardDeck = [...hardDeck, ...hardDeck];
+      cards = shuffle(hardDeck);
+      break;
+
+    default: break;
   }
-  let cardElement = document.createElement("td");
-  cardElement.classList.add("card");
-  cardElement.classList.add("back");
-  cardElement.dataset.index = index;
-  cardElement.style.backgroundImage = `url(${card})`;
-  cardElement.addEventListener("click", () => flipCard(cardElement));
-  currentRow.appendChild(cardElement);
-});
+
+  cards.forEach((card, index) => {
+    if (index % 4 === 0 || index % 8 === 0) {
+      currentRow = document.createElement("tr");
+      gameBoard.appendChild(currentRow);
+    }
+    let cardElement = document.createElement("td");
+    cardElement.classList.add("card");
+    cardElement.classList.add("back");
+    cardElement.dataset.index = index;
+    cardElement.style.backgroundImage = `url(${card})`;
+    cardElement.addEventListener("click", () => flipCard(cardElement));
+    currentRow.appendChild(cardElement);
+  });
+};
 
 let startButton = document.createElement("button");
 startButton.classList.add("button");
@@ -118,12 +126,12 @@ function checkMatch() {
   const index1 = card1.dataset.index;
   const index2 = card2.dataset.index;
 
-  if (mixed[index1] == mixed[index2]) {
+  if (cards[index1] == cards[index2]) {
     card1.removeEventListener("click", () => flipCard(card1));
     card2.removeEventListener("click", () => flipCard(card2));
     matchedPairs++;
     scorePTN.innerText = matchedPairs;
-    if (matchedPairs === mixed.length / 2) {
+    if (matchedPairs === cards.length / 2) {
       stopTimer();
       game.appendChild(buttonsContainer);
       inGame = false;
