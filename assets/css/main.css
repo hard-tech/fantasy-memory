@@ -913,3 +913,134 @@ form#register-form{
     width: 10vw;
     height: 6vh;
 }
+
+/*GAME DINO JS */
+
+
+#game-area {
+    position: relative;
+    
+    left: 0;
+    right: 0;
+    margin: 10% auto;
+    width: 50vw;
+    height: 35vh;
+    background-color: #fff;
+    border: 2px solid #000;
+    overflow: hidden;
+  }
+  #info{
+    display: flex;
+    justify-content: space-around;
+  }
+  #moyen-cube {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    width: 63px;
+    height: 63px;
+    background: url('../img/dino/Trex3.png');
+    background-repeat: no-repeat;
+    animation: run 0.3s steps(3, end) infinite;
+  }
+  
+  #petit-cube {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 35px;
+    height: 54px;
+    background: url('../img/dino/cactus.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  #petit-rond{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url('../img/dino/gold.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  #game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    display: none;
+  }
+  
+  .game-over {
+    display: block;
+  }
+  
+#start{
+    position: absolute;
+    background: black;
+    padding: 15% 44%;
+    z-index: 2;
+    opacity: 0.8;
+}
+#start p{
+    color: white;
+    background-color: black;
+    width: 110%;
+    text-align: center;
+}
+#reload{
+    position: absolute;
+    background: black;
+    padding: 15% 44%;
+    z-index: 2;
+    opacity: 0.8;
+    display: none;
+}
+#reload p{
+    color: white;
+    background-color: black;
+    width: 110%;
+    text-align: center;
+}
+#moyen-cube.jump {
+    animation: jump-animation 0.5s;
+  }
+  
+  @keyframes jump-animation {
+    0% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 100px; /* Hauteur maximale du saut */
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  @keyframes run {
+    0% {
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: -204px 0px;
+    }
+  }
+  
+  /* libs games */
+  #lib header {
+    position: relative;
+    background-color: transparent;    
+}
+#bibs{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    height: 40vh;
+}
